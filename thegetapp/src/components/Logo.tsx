@@ -1,5 +1,3 @@
-import React from "react";
-
 const letters = [
   {
     src: "https://static.tildacdn.com/tild6430-3638-4439-a163-346639643664/1d1be0c0-adbe-4a7c-8.png", // T

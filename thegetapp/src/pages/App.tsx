@@ -1,17 +1,7 @@
 import "../styles.css";
-import type { JSX } from "react/jsx-runtime";
-import ProductCard from "../components/ProductCard";
-import Carousel from "../components/Carousel"
-import Header from "../components/Header";
-import ImageCarousel from "../components/ImageCarousel"
-import Footer from '../components/Footer';
-import CategorySection from "../components/CategorySection";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import LogoTheGetBalloons from "../components/Logo";
-import ProductGrid from "../components/ProductGrid";
-import { Pagination, Select, SelectItem } from "@heroui/react";
-import CatalogFiltersPopover from "../components/CatalogFiltersPopover";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 type SearchIconProps = {
   size?: number;
@@ -56,20 +46,6 @@ export const SearchIcon: React.FC<SearchIconProps> = ({
     </svg>
   );
 };
-
-type Filters = {
-  section: string;
-  category: string;
-  brand: string;
-  priceRange: [number, number];
-  condition: string;
-  location: string;
-};
-
-function normalizeFilterValue(value: string | null, defaultValue: string) {
-  if (!value) return defaultValue;
-  return value.charAt(0).toUpperCase() + value.slice(1).toLowerCase();
-}
 
 export default function App() {
 
@@ -156,59 +132,10 @@ export default function App() {
   },
   // другие карточки...
 ];
-const imageUrls = [
-  "https://images.ctfassets.net/bdvz0u6oqffk/14JslSfkm5ns5KNHTBzUrv/551583ef6795a046e688ab01b5a0349a/Best-of-Jerseys-desktop.jpg",
-  "https://images.ctfassets.net/bdvz0u6oqffk/6noZNgqPbLeLihFEt7StGR/2154838cdf55d45699364791f4b3c76b/Emerging-desktop.jpg",
-  "https://images.ctfassets.net/bdvz0u6oqffk/MK894FrtGC9Evdpi7OweG/1452248bd227e07506de000f28c70e1c/Trompe-loeil-desktop.jpg"
-]
-
-
 
  const location = useLocation();
-  const navigate = useNavigate();
  
   console.log(location.search);
-
-  const [filters, setFilters] = useState<Filters>({
-    section: "All",
-    category: "All",
-    brand: "Nike",
-    priceRange: [100, 5000],
-    condition: "All",
-    location: "All",
-  });
-
-  useEffect(() => {
-    
-   const params = new URLSearchParams(location.search);
-    setFilters({
-      section: normalizeFilterValue(params.get("section") , "All"),
-      category: normalizeFilterValue(params.get("category") , "All"),
-      brand: normalizeFilterValue(params.get("brand") , "All"),
-      priceRange: [
-        Number(params.get("priceMin")) || 100,
-        Number(params.get("priceMax")) || 5000,
-      ],
-      condition: normalizeFilterValue(params.get("condition") , "All"),
-      location: normalizeFilterValue(params.get("location") , "All"),
-    });
-  }, [location.search]);
-
-  const onFiltersChange = (changedFilters: Partial<Filters>) => {
-    const newFilters = { ...filters, ...changedFilters };
-    setFilters(newFilters);
-
-    const params = new URLSearchParams();
-
-    if (newFilters.section !== "All") params.set("section", newFilters.section);
-    if (newFilters.brand !== "Nike") params.set("brand", newFilters.brand);
-    if (newFilters.priceRange[0] !== 100) params.set("priceMin", String(newFilters.priceRange[0]));
-    if (newFilters.priceRange[1] !== 5000) params.set("priceMax", String(newFilters.priceRange[1]));
-    if (newFilters.condition !== "All") params.set("condition", newFilters.condition);
-    if (newFilters.location !== "All") params.set("location", newFilters.location);
-
-    navigate(`/catalog?${params.toString()}`, { replace: true });
-  };
 
   return (
     <div>

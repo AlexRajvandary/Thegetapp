@@ -13,13 +13,9 @@ import About from './pages/About';
 import Catalog from './pages/Catalog';
 import Product from './pages/ProductPage';
 import UserPage from "./pages/UserPage";
-import ListNewProduct from "./pages/ListNewProduct";
-import Messenger from "./pages/Messenger";
 import Favorites from "./pages/Favorites";
 import Orders from "./pages/Orders";
 import Order from "./pages/Order";
-import Drafts from "./pages/Drafts";
-
 
 export default function RouterWrapper() {
   const navigate = useNavigate();
