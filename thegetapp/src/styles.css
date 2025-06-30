@@ -1,0 +1,42 @@
+/* styles.css */
+.navbar-menu {
+  display: flex;
+  gap: 1rem;
+}
+
+.navbar-burger {
+  display: none;
+  cursor: pointer;
+}
+
+/* При ширине меньше 640px (примерно sm breakpoint) */
+@media (max-width: 640px) {
+  .navbar-menu {
+    display: none; /* скрываем меню */
+  }
+
+  .navbar-burger {
+    display: block; /* показываем бургер */
+  }
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  gap: 8px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background: #ccc;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.dot.active {
+  background: #333;
+}
