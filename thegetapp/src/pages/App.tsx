@@ -2,6 +2,7 @@ import "../styles.css";
 import React from "react";
 import LogoTheGetBalloons from "../components/Logo";
 import { useLocation } from "react-router-dom";
+import ProductCardMobile from "../components/ProductCardMobile";
 
 type SearchIconProps = {
   size?: number;
@@ -145,22 +146,12 @@ export default function App() {
     
         <div className="grid grid-cols-2 gap-2.5 px-2">
   {products.map(product => (
-   <div
-  key={product.href}
-  className="bg-white rounded flex flex-col p-1"
->
-  
-  <img
-    src={product.imageSrc}
-    alt={product.title}
-    className="w-full h-32 object-cover rounded"
-  />
-  <div className="flex flex-col mb-2">
-    <span className="font-bold text-left text-lg text-black">{product.price}</span>
-    <span className="text-sm text-gray-500">{product.title}</span>
-  </div>
-</div>
-
+   <ProductCardMobile title={product.title} 
+                      price={product.price} 
+                      imageSrc={product.imageSrc} 
+                      category={product.category}
+                      href={product.href}
+                      label={product.label}/>
   ))}
 </div>
 
