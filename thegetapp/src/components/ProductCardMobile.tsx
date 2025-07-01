@@ -10,8 +10,9 @@ type ProductCardProps = {
   category?: string;
   price?: string;
   href?: string;
-  isLoading?: boolean; // 👈 добавляем флаг
-}
+  isLoading?: boolean;
+  singleColumn?: boolean;  // новый проп
+};
 
 export default function ProductCardMobile({
   imageSrc = "",
@@ -20,6 +21,7 @@ export default function ProductCardMobile({
   price = "",
   href = "",
   isLoading = false,
+  singleColumn = false
 }: ProductCardProps){
       const [liked, setLiked] = useState(false);
       const navigate = useNavigate();
@@ -30,7 +32,9 @@ export default function ProductCardMobile({
     <img
     src={imageSrc}
     alt={title}
-    className="w-full h-[180px] object-cover rounded"
+      className={`w-full object-cover rounded ${
+          singleColumn ? "h-[280px]" : "h-[180px]"
+        }`}
   />
   <div className="py-3 px-1 flex flex-col gap-1 text-left bg-white">
         <p className="text-md font-bold" onClick={() => !isLoading && navigate(href)}>

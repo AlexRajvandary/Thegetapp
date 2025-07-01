@@ -167,6 +167,7 @@ export default function App() {
             category={product.category}
             href={product.href}
             label={product.label}
+            singleColumn={singleColumn}
           />
         ))}
       </div>
