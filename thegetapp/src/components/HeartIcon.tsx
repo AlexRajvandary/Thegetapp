@@ -19,23 +19,20 @@ export const HeartIcon: React.FC<HeartIconProps> = ({
   ...props
 }) => {
   return (
-    <svg
-      aria-hidden="true"
-      fill={isFilled ? filledColor : "none"}
-      focusable="false"
-      height={size ?? height}
-      width={size ?? width}
-      role="presentation"
-      viewBox="0 0 24 24"
-      {...props}
-    >
-      <path
-        d="M12.62 20.81C12.28 20.93 11.72 20.93 11.38 20.81C8.48 19.82 2 15.69 2 8.68998C2 5.59998 4.49 3.09998 7.56 3.09998C9.38 3.09998 10.99 3.97998 12 5.33998C13.01 3.97998 14.63 3.09998 16.44 3.09998C19.51 3.09998 22 5.59998 22 8.68998C22 15.69 15.52 19.82 12.62 20.81Z"
-        stroke={strokeColor}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={strokeWidth}
-      />
+
+    
+
+    <svg xmlns="http://www.w3.org/2000/svg"
+        width={size ?? width}
+          height={size ?? height}
+         viewBox="0 0 24 24" 
+        fill={isFilled ? filledColor : "none"}
+         stroke={strokeColor}
+         strokeWidth={strokeWidth}
+         stroke-linecap="round" 
+         stroke-linejoin="round" 
+         >
+          <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
     </svg>
   );
 };
