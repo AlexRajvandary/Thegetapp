@@ -27,7 +27,7 @@ const letters = [
 
 const LogoTheGetBalloons = () => {
   return (
-    <div className="flex justify-center items-center space-x-2 h-[60px] sm:h-[100px]">
+    <div className="flex justify-center items-center space-x-2 h-[70px] sm:h-[100px]">
       {letters.map(({ src, alt }, i) => (
         <img
           key={i}
