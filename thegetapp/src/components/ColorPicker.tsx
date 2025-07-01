@@ -23,7 +23,7 @@ export default function ColorPicker({ colors, selectedColors, onChange }: ColorP
           onClick={() => toggleColor(color)}
           className={clsx(
             "w-8 h-8 rounded-full border-2 transition",
-            selectedColors.includes(color) ? "border-black scale-110" : "border-gray-300",
+            selectedColors.includes(color) ? "border-blue-600 scale-110" : "border-gray-300",
           )}
           style={{ backgroundColor: color }}
           aria-label={`Color ${color}`}
