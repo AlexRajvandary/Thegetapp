@@ -2,16 +2,21 @@ import { useState, useEffect } from "react";
 import LogoTheGetBalloons from "../components/Logo";
 import ProductCardMobile from "../components/ProductCardMobile";
 import SearchInput from "../components/SearchInput";
-import CustomFilters from "../components/CustomFilters";
 import { ArrowDownUp, Columns2, Funnel, Rows2 } from "lucide-react";
 import { Button } from "@heroui/react";
 import { backButton } from "@telegram-apps/sdk-react";
 import Carousel from "../components/Carousel";
 import SubscriptionCardMobile from "../components/SubscriptionCardMobile";
+import Filters from "../components/Filters";
 
 export default function App() {
   const [singleColumn, setSingleColumn] = useState(false);
   const [filtersOpen, setFiltersOpen] = useState(false);
+  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
+  const [selectedColors, setSelectedColors] = useState<string[]>([]);
+  const [selectedSizes, setSelectedSizes] = useState<string[]>([]);
+  const [selectedGenders, setSelectedGenders] = useState<string[]>([]);
+  const [priceRange, setPriceRange] = useState<[number, number]>([0, 1000]);
 
   useEffect(() => {
     // Монтируем кнопку назад, если доступна
@@ -229,7 +234,7 @@ const products = [
         <Button
           isIconOnly
           variant="light"
-          onClick={() => setFiltersOpen(true)}
+          onPress={() => setFiltersOpen(true)}
           aria-label="Открыть фильтры"
         >
           <Funnel strokeWidth={1} color="black" />
@@ -270,14 +275,25 @@ const products = [
       {/* Fullscreen фильтры */}
       {filtersOpen && (
         <div
-          className="fixed inset-0 z-50 bg-white p-6 overflow-auto"
+          className="fixed inset-0 z-50 bg-white pt-[110px] p-6 overflow-auto"
           style={{ backdropFilter: "blur(4px)" }}
           role="dialog"
           aria-modal="true"
         >
           <h2 className="text-xl font-bold mb-4">Настройки фильтров</h2>
-          <CustomFilters />
-          {/* Инструкция, что можно закрыть кнопкой назад Telegram */}
+         
+          <Filters
+            selectedCategories={selectedCategories}
+            setSelectedCategories={setSelectedCategories}
+            selectedColors={selectedColors}
+            setSelectedColors={setSelectedColors}
+            selectedSizes={selectedSizes}
+            setSelectedSizes={setSelectedSizes}
+            selectedGenders={selectedGenders}
+            setSelectedGenders={setSelectedGenders}
+            priceRange={priceRange}
+            setPriceRange={setPriceRange}
+          />
         </div>
       )}
     </div>
