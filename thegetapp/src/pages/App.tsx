@@ -210,7 +210,7 @@ const products = [
       <div className="flex pt-[110px] pb-[30px] bg-transparent mx-4 sm:mx-0 sm:justify-center">
         <LogoTheGetBalloons />
       </div>
-      <div className="mx-4 bg-gray-200 rounded-md p-2">
+      <div className="mx-4 bg-gray-200 rounded-md py-2">
         <Carousel visibleSlides={2} items={subscriptions.map(subscription => (
   <SubscriptionCardMobile
     key={subscription.title}         // обязательно уникальный key
