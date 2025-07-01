@@ -220,7 +220,7 @@ const products = [
       <div className="mx-4">
        <div className="grid grid-cols-2 gap-3 px-3 pt-4 max-w-[600px] mx-auto">
   {/* 2 карточки в ряд */}
-  <Card className="col-span-1 h-[180px] relative">
+  <Card className="col-span-1 h-[100px] relative">
     <CardHeader className="absolute z-10 top-2 left-2 flex-col !items-start text-white">
       <p className="text-[10px] uppercase font-semibold opacity-70">What to watch</p>
       <h4 className="text-[13px] font-bold leading-tight">Stream the Acme event</h4>
@@ -233,7 +233,7 @@ const products = [
     />
   </Card>
 
-  <Card className="col-span-1 h-[180px] relative">
+  <Card className="col-span-1 h-[100px] relative">
     <CardHeader className="absolute z-10 top-2 left-2 flex-col !items-start text-white">
       <p className="text-[10px] uppercase font-semibold opacity-70">Plant a tree</p>
       <h4 className="text-[13px] font-bold leading-tight">Contribute to the planet</h4>
@@ -261,7 +261,7 @@ const products = [
   </Card>
 
   {/* Ещё пара по 2 в ряд */}
-  <Card className="col-span-1 h-[180px] relative">
+  <Card className="col-span-1 h-[100px] relative">
     <CardHeader className="absolute z-10 top-2 left-2 flex-col !items-start text-white">
       <p className="text-[10px] uppercase font-semibold opacity-70">Supercharged</p>
       <h4 className="text-[13px] font-bold leading-tight">Beauty like a beast</h4>
@@ -274,7 +274,7 @@ const products = [
     />
   </Card>
 
-  <Card className="col-span-1 h-[180px] relative">
+  <Card className="col-span-1 h-[100px] relative">
     <CardHeader className="absolute z-10 top-2 left-2 flex-col !items-start text-white">
       <p className="text-[10px] uppercase font-semibold opacity-70">New</p>
       <h4 className="text-[13px] font-bold leading-tight">Acme camera</h4>
