@@ -233,7 +233,7 @@ const products = [
   />
 ))} />
       </div>
-      <h2 className="font-extrabold text-[24px] mx-4 leading-[130%] tracking-[-0.01em]">
+      <h2 className="font-extrabold text-[24px] mx-4 py-[5px] leading-[130%] tracking-[-0.01em]">
         Одежда
       </h2>
       <div className="px-[10px] py-[15px] flex items-center gap-2">
@@ -287,7 +287,7 @@ const products = [
     role="dialog"
     aria-modal="true"
   >
-    <h2 className="text-xl font-bold mb-4">Выберите Фильтры</h2>
+    <h2 className="text-xl py-[5px] font-bold mb-4">Выберите Фильтры</h2>
 
     {/* 🟡 Чипы с выбранными фильтрами */}
     <FilterChips
