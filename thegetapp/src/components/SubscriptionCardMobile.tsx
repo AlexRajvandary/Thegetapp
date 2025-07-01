@@ -16,8 +16,7 @@ export default function SubscriptionCardMobile({
   imageSrc = "",
   title = "",
   href = "",
-  isLoading = false,
-  singleColumn = false
+  isLoading = false
 }: ProductCardProps){
       const navigate = useNavigate();
     return(
@@ -27,11 +26,9 @@ export default function SubscriptionCardMobile({
     <img
     src={imageSrc}
     alt={title}
-      className={`w-full object-cover rounded ${
-          singleColumn ? "h-[280px]" : "h-[180px]"
-        }`}
+      className="w-full object-cover rounded h-[150px]"
   />
-  <div className="py-3 px-1 flex flex-col gap-1 text-center"> 
+  <div className="px-1 flex flex-col gap-1 text-center"> 
         <h2 className="text-sm font-semibold text-foreground line-clamp-2" onClick={() => !isLoading && navigate(href)}>
           {isLoading ? <Skeleton className="h-[16px] w-4/5 rounded-md" /> : title}
         </h2>
