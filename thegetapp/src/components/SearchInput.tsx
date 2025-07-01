@@ -49,7 +49,7 @@ export const SearchIcon: React.FC<SearchIconProps> = ({
   );
 };
 
-export default function SearchInput({ placeholder = "Type to search..." }: SearchInputProps){
+export default function SearchInput({ placeholder = "Поиск" }: SearchInputProps){
     return(<>
       <Input
           classNames={{
@@ -63,7 +63,7 @@ export default function SearchInput({ placeholder = "Type to search..." }: Searc
           size="sm"
           startContent={<SearchIcon size={18} width={undefined} height={undefined} />}
           type="search"
-          variant="faded"
+          variant="flat"
           radius="lg"
         />
     </>)
