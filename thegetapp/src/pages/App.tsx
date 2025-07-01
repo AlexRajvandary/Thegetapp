@@ -252,12 +252,19 @@ const products = [
       <p className="text-[10px] uppercase font-semibold opacity-70">Your day your way</p>
       <h4 className="text-[14px] font-bold leading-tight">Checklist for better sleep</h4>
     </CardHeader>
-    <Image
-      removeWrapper
-      className="z-0 w-full h-full object-cover rounded"
-      alt="Sleep"
-      src="https://heroui.com/images/card-example-5.jpeg"
-    />
+   <div className="mx-4 bg-gray-200 rounded-[30px] py-2 my-2">
+        <Carousel visibleSlides={2} items={subscriptions.map(subscription => (
+    <SubscriptionCardMobile
+    key={subscription.title}         // обязательно уникальный key
+    title={subscription.title}
+    price={subscription.price}
+    imageSrc={subscription.imageSrc}
+    category={subscription.category}
+    href={subscription.href}
+    label={subscription.label}
+  />
+))} />
+      </div>
   </Card>
 
   {/* Ещё пара по 2 в ряд */}
@@ -305,7 +312,7 @@ const products = [
 ))} />
       </div>
       <h2 className="font-extrabold text-[24px] mx-4 py-[5px] leading-[130%] tracking-[-0.01em]">
-        Одежда
+        Каталог
       </h2>
       <div className="px-[10px] py-[15px] flex items-center gap-2">
         <SearchInput />
