@@ -209,7 +209,8 @@ const products = [
       <div className="flex pt-[110px] pb-[30px] bg-transparent mx-4 sm:mx-0 sm:justify-center">
         <LogoTheGetBalloons />
       </div>
-      <Carousel items={subscriptions.map(subscription => (
+      <div className="mx-4 bg-gray-200 rounded-md">
+        <Carousel visibleSlides={2} items={subscriptions.map(subscription => (
   <ProductCardMobile
     key={subscription.title}         // обязательно уникальный key
     title={subscription.title}
@@ -220,6 +221,8 @@ const products = [
     label={subscription.label}
   />
 ))} />
+      </div>
+      
       <div className="px-[10px] py-[15px] flex items-center gap-2">
         <SearchInput />
         <Button
