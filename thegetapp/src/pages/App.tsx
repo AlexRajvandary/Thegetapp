@@ -262,7 +262,8 @@ const products = [
           )}
         </Button>
       </div>
-       <FilterChips
+      <div className="mx-[10px]">
+  <FilterChips
       categories={selectedCategories}
       brands={selectedBrands}
       colors={selectedColors}
@@ -289,6 +290,8 @@ const products = [
           setPriceRange([0, 1000]); // сброс диапазона
         }
       }}/>
+      </div>
+     
 
       {/* Сетка товаров */}
       <div className={`grid ${singleColumn ? "grid-cols-1" : "grid-cols-2"} gap-[5px] px-2`}>
