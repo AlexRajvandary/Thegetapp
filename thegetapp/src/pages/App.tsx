@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import LogoTheGetBalloons from "../components/Logo";
 import ProductCardMobile from "../components/ProductCardMobile";
 import SearchInput from "../components/SearchInput";
-import { ArrowDownUp, Columns2, Funnel, Rows2, Settings2 } from "lucide-react";
+import { ArrowDownUp, Columns2, Funnel, Rows2 } from "lucide-react";
 import { Button } from "@heroui/react";
 
 type SearchIconProps = {
