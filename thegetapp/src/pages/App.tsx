@@ -3,7 +3,7 @@ import LogoTheGetBalloons from "../components/Logo";
 import ProductCardMobile from "../components/ProductCardMobile";
 import SearchInput from "../components/SearchInput";
 import { ArrowDownUp, Columns2, Funnel, Rows2 } from "lucide-react";
-import { Button, Card, CardFooter, CardHeader, Image } from "@heroui/react";
+import { Button, Card, CardHeader, Image } from "@heroui/react";
 import { backButton } from "@telegram-apps/sdk-react";
 import Carousel from "../components/Carousel";
 import SubscriptionCardMobile from "../components/SubscriptionCardMobile";
