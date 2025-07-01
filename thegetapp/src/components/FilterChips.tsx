@@ -31,16 +31,32 @@ export default function FilterChips({
   ];
 
   return (
-    <div className="flex flex-wrap gap-2 p-2">
-      {chips.map((chip, idx) => (
-        <Chip
-          key={`${chip.type}-${chip.label}-${idx}`}
-          onClose={() => onRemove(chip.type, chip.label)}
-          className="bg-gray-200 text-sm"
-        >
-          {chip.label}
-        </Chip>
-      ))}
+    <div className="flex flex-wrap gap-2 px-1 pb-3">
+      {chips.map((chip, idx) => {
+        const isColor = chip.type === "color";
+        return (
+          <Chip
+            key={`${chip.type}-${chip.label}-${idx}`}
+            onClose={() => onRemove(chip.type, chip.label)}
+            className="bg-gray-200 text-sm"
+          >
+            <div className="flex items-center gap-1">
+              {isColor && (
+                <span
+                  className="w-3 h-3 rounded-full border"
+                  style={{ backgroundColor: chip.label }}
+                />
+              )}
+              {!isColor && <span>{chip.label}</span>}
+              {isColor && (
+                <span className="capitalize">
+                  {chip.label}
+                </span>
+              )}
+            </div>
+          </Chip>
+        );
+      })}
     </div>
   );
 }

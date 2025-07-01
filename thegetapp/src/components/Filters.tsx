@@ -1,5 +1,6 @@
 import React from "react";
 import { Accordion, AccordionItem, Checkbox, Slider, CheckboxGroup } from "@heroui/react";
+import ColorPicker from "./ColorPicker";
 
 type FiltersProps = {
   selectedCategories: string[];
@@ -18,7 +19,18 @@ type FiltersProps = {
 
 const categories = ["Футболки", "Куртки", "Обувь", "Аксессуары"];
 const brands = ["Adidas", "Nike" , "Rebook"];
-const colors = ["Красный", "Синий", "Зелёный", "Чёрный", "Белый"];
+const availableColors = [
+    "black",
+    "white",
+    "gray",
+    "red",
+    "blue",
+    "green",
+    "yellow",
+    "orange",
+    "#8b5cf6", // фиолетовый
+    "#ec4899", // розовый
+  ];
 const sizes = ["S", "M", "L", "XL"];
 const genders = ["Мужской", "Женский", "Унисекс"];
 
@@ -87,16 +99,7 @@ export default function Filters({
 
       <AccordionItem title="Цвет">
         <div className="flex flex-col space-y-2 mt-2">
-             <CheckboxGroup label="Цвет">
-                 {colors.map((color) => (
-            <Checkbox
-              key={color}
-              value={color}
-              checked={selectedGenders.includes(color)}
-              onChange={() => toggleSelection(color, selectedColors, setSelectedColors)}
-            >{color}</Checkbox>
-          ))}
-            </CheckboxGroup>
+            <ColorPicker colors={availableColors} selectedColors={selectedColors} onChange={setSelectedColors}/>
        
         </div>
       </AccordionItem>

@@ -275,57 +275,62 @@ const products = [
       </div>
 
       {/* Fullscreen фильтры */}
-      {filtersOpen && (
-        <div
-          className="fixed inset-0 z-50 bg-white pt-[110px] p-6 overflow-auto"
-          style={{ backdropFilter: "blur(4px)" }}
-          role="dialog"
-          aria-modal="true"
-        >
-          <h2 className="text-xl font-bold mb-4">Выберите Фильтры</h2>
-          <FilterChips
-  categories={selectedCategories}
-  brands={selectedBrands}
-  colors={selectedColors}
-  sizes={selectedSizes}
-  genders={selectedGenders}
-  priceRange={priceRange}
-  onRemove={(type, value) => {
-    if (type === "category") {
-      setSelectedCategories((prev) => prev.filter((c) => c !== value));
-    }
-    if (type === "color") {
-      setSelectedColors((prev) => prev.filter((c) => c !== value));
-    }
-    if (type === "size") {
-      setSelectedSizes((prev) => prev.filter((s) => s !== value));
-    }
-    if (type === "gender") {
-      setSelectedGenders((prev) => prev.filter((g) => g !== value));
-    }
-    if (type === "price") {
-      setPriceRange([0, 1000]); // сброс диапазона
-    }
-  }}
-/>
+     {filtersOpen && (
+  <div
+    className="fixed inset-0 z-50 bg-white pt-[110px] p-6 overflow-auto"
+    style={{ backdropFilter: "blur(4px)" }}
+    role="dialog"
+    aria-modal="true"
+  >
+    <h2 className="text-xl font-bold mb-4">Выберите Фильтры</h2>
 
-         
-          <Filters
-            selectedCategories={selectedCategories}
-            setSelectedCategories={setSelectedCategories}
-            selectedBrands={selectedBrands}
-            setSelectedBrands={setSelectedBrands}
-            selectedColors={selectedColors}
-            setSelectedColors={setSelectedColors}
-            selectedSizes={selectedSizes}
-            setSelectedSizes={setSelectedSizes}
-            selectedGenders={selectedGenders}
-            setSelectedGenders={setSelectedGenders}
-            priceRange={priceRange}
-            setPriceRange={setPriceRange}
-          />
-        </div>
-      )}
+    {/* 🟡 Чипы с выбранными фильтрами */}
+    <FilterChips
+      categories={selectedCategories}
+      brands={selectedBrands}
+      colors={selectedColors}
+      sizes={selectedSizes}
+      genders={selectedGenders}
+      priceRange={priceRange}
+      onRemove={(type, value) => {
+        if (type === "category") {
+          setSelectedCategories((prev) => prev.filter((c) => c !== value));
+        }
+        if (type === "brand") {
+          setSelectedBrands((prev) => prev.filter((b) => b !== value));
+        }
+        if (type === "color") {
+          setSelectedColors((prev) => prev.filter((c) => c !== value));
+        }
+        if (type === "size") {
+          setSelectedSizes((prev) => prev.filter((s) => s !== value));
+        }
+        if (type === "gender") {
+          setSelectedGenders((prev) => prev.filter((g) => g !== value));
+        }
+        if (type === "price") {
+          setPriceRange([0, 1000]); // сброс диапазона
+        }
+      }}
+    />
+
+    {/* 🔵 Аккордеоны фильтров */}
+    <Filters
+      selectedCategories={selectedCategories}
+      setSelectedCategories={setSelectedCategories}
+      selectedBrands={selectedBrands}
+      setSelectedBrands={setSelectedBrands}
+      selectedColors={selectedColors}
+      setSelectedColors={setSelectedColors}
+      selectedSizes={selectedSizes}
+      setSelectedSizes={setSelectedSizes}
+      selectedGenders={selectedGenders}
+      setSelectedGenders={setSelectedGenders}
+      priceRange={priceRange}
+      setPriceRange={setPriceRange}
+    />
+  </div>
+)}
     </div>
   );
 }
