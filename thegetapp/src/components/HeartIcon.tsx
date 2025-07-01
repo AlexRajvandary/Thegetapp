@@ -16,7 +16,6 @@ export const HeartIcon: React.FC<HeartIconProps> = ({
   isFilled = false,
   filledColor = "red",
   strokeColor = "grey",
-  ...props
 }) => {
   return (
 
