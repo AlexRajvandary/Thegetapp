@@ -25,7 +25,7 @@ if (swipeBehavior.mount.isAvailable()) {
   swipeBehavior.mount();
 }
 
-async () => {
+(async () => {
 
 if (requestFullscreen.isAvailable()) {
   await requestFullscreen();
@@ -42,7 +42,7 @@ if (popup.open.isAvailable()) {
   await promise;
   // popup.isOpened() -> false
 }
-}
+})();
 
 
 createRoot(document.getElementById('root')!).render(
