@@ -1,58 +1,57 @@
-import "../styles.css";
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import LogoTheGetBalloons from "../components/Logo";
 import ProductCardMobile from "../components/ProductCardMobile";
 import SearchInput from "../components/SearchInput";
-import { ArrowDownUp, Columns2, Rows2 } from "lucide-react";
-import { Button } from "@heroui/react";
 import CustomFilters from "../components/CustomFilters";
-
-type SearchIconProps = {
-  size?: number;
-  strokeWidth?: number;
-  width?: number | string;
-  height?: number | string;
-  [key: string]: unknown;
-};
-
-export const SearchIcon: React.FC<SearchIconProps> = ({
-  size = 24,
-  strokeWidth = 1.5,
-  width,
-  height,
-  ...props
-}) => {
-  return (
-    <svg
-      aria-hidden="true"
-      fill="none"
-      focusable="false"
-      height={height || size}
-      role="presentation"
-      viewBox="0 0 24 24"
-      width={width || size}
-      {...props}
-    >
-      <path
-        d="M11.5 21C16.7467 21 21 16.7467 21 11.5C21 6.25329 16.7467 2 11.5 2C6.25329 2 2 6.25329 2 11.5C2 16.7467 6.25329 21 11.5 21Z"
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={strokeWidth}
-      />
-      <path
-        d="M22 22L20 20"
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={strokeWidth}
-      />
-    </svg>
-  );
-};
+import { ArrowDownUp, Columns2, Rows2, Settings2 } from "lucide-react";
+import { Button } from "@heroui/react";
+import { backButton } from "@telegram-apps/sdk-react";
 
 export default function App() {
-  const [singleColumn, setSingleColumn] = useState(false); // ⬅️ управление колонками
+  const [singleColumn, setSingleColumn] = useState(false);
+  const [filtersOpen, setFiltersOpen] = useState(false);
+
+  useEffect(() => {
+    // Монтируем кнопку назад, если доступна
+    if (backButton.mount.isAvailable()) {
+      backButton.mount();
+    }
+
+    return () => {
+      backButton.unmount();
+    };
+  }, []);
+
+  useEffect(() => {
+    if (filtersOpen) {
+      // Показываем кнопку назад
+      if (backButton.show.isAvailable()) {
+        backButton.show();
+      }
+
+      // Обработчик клика по кнопке назад
+      const onBackClick = () => {
+        setFiltersOpen(false);
+      };
+
+      if (backButton.onClick.isAvailable()) {
+        backButton.onClick(onBackClick);
+
+        // Очистка подписки при закрытии фильтров или размонтировании
+        return () => {
+          backButton.offClick(onBackClick);
+          if (backButton.hide.isAvailable()) {
+            backButton.hide();
+          }
+        };
+      }
+    } else {
+      // Скрываем кнопку назад если фильтры закрыты
+      if (backButton.hide.isAvailable()) {
+        backButton.hide();
+      }
+    }
+  }, [filtersOpen]);
 
   const products = [
     {
@@ -61,80 +60,9 @@ export default function App() {
       label: "Bestseller",
       category: "Women sneakers",
       price: "$129.99",
-      href: "/product"
+      href: "/product",
     },
-    {
-      imageSrc: "https://media-assets.grailed.com/prd/listing/temp/7091b3adf6b0496795fe9bf0af550a9d?w=800",
-      title: "Enfants Riches Deprimes",
-      label: "New",
-      category: "T-Shirt",
-      price: "$109.99",
-      href: "/product"
-    },
-    {
-      imageSrc: "https://media-assets.grailed.com/prd/listing/temp/e1fb8280f2a645b9b7735ba29be88bdd?w=800",
-      title: "Dior Shoes",
-      label: "Bestseller",
-      category: "Women sneakers",
-      price: "$129.99",
-      href: "/product"
-    },
-    {
-      imageSrc: "https://media-assets.grailed.com/prd/listing/48549855/b40a8af8b5ec4e3295dd5cda53501b1f?w=800",
-      title: "Ballenciaga",
-      label: "New",
-      category: "Men sneakers",
-      price: "$109.99",
-      href: "/product"
-    },
-    {
-      imageSrc: "https://media-assets.grailed.com/prd/listing/temp/df113a4515bf442295a74f9199c93020?w=800",
-      title: "Monclere",
-      label: "Bestseller",
-      category: "Moncler Maya Jacket",
-      price: "549.99",
-      href: "/product"
-    },
-    {
-      imageSrc: "https://assets.adidas.com/images/w_1880,f_auto,q_auto/2c6e7fe3f66d4bdda664d1030d28c9f9_9366/JQ7409_01_00_standard.jpg.",
-      title: "Samba OG",
-      label: "New",
-      category: "Men sneakers",
-      price: "$109.99",
-      href: "/product"
-    },
-    {
-      imageSrc: "https://assets.adidas.com/images/w_1880,f_auto,q_auto/2c6e7fe3f66d4bdda664d1030d28c9f9_9366/JQ7409_01_00_standard.jpg",
-      title: "Gazelle Indoor Shoes",
-      label: "Bestseller",
-      category: "Women sneakers",
-      price: "$129.99",
-      href: "/product"
-    },
-    {
-      imageSrc: "https://assets.adidas.com/images/w_1880,f_auto,q_auto/2c6e7fe3f66d4bdda664d1030d28c9f9_9366/JQ7409_01_00_standard.jpg.",
-      title: "Samba OG",
-      label: "New",
-      category: "Men sneakers",
-      price: "$109.99",
-      href: "/product"
-    },
-    {
-      imageSrc: "https://assets.adidas.com/images/w_1880,f_auto,q_auto/2c6e7fe3f66d4bdda664d1030d28c9f9_9366/JQ7409_01_00_standard.jpg",
-      title: "Gazelle Indoor Shoes",
-      label: "Bestseller",
-      category: "Women sneakers",
-      price: "$129.99",
-      href: "/product"
-    },
-    {
-      imageSrc: "https://assets.adidas.com/images/w_1880,f_auto,q_auto/2c6e7fe3f66d4bdda664d1030d28c9f9_9366/JQ7409_01_00_standard.jpg.",
-      title: "Samba OG",
-      label: "New",
-      category: "Men sneakers",
-      price: "$109.99",
-      href: "/product"
-    }
+    // ... остальные товары
   ];
 
   return (
@@ -145,31 +73,34 @@ export default function App() {
 
       <div className="px-[10px] py-[15px] flex items-center gap-2">
         <SearchInput />
+        <Button
+          isIconOnly
+          variant="light"
+          onClick={() => setFiltersOpen(true)}
+          aria-label="Открыть фильтры"
+        >
+          <Settings2 strokeWidth={1} color="black" />
+        </Button>
         <Button isIconOnly variant="light">
-          <CustomFilters/>
+          <ArrowDownUp strokeWidth={1} color="black" />
         </Button>
         <Button
           isIconOnly
           variant="light"
+          onPress={() => setSingleColumn((prev) => !prev)}
+          aria-label="Переключить вид списка"
         >
-          <ArrowDownUp strokeWidth={1} color="black" />
+          {singleColumn ? (
+            <Columns2 strokeWidth={1} color="black" />
+          ) : (
+            <Rows2 strokeWidth={1} color="black" />
+          )}
         </Button>
-        <Button
-  isIconOnly
-  variant="light"
-  onPress={() => setSingleColumn(prev => !prev)}
->
-  {singleColumn ? (
-    <Columns2 strokeWidth={1} color="black" />
-  ) : (
-    <Rows2 strokeWidth={1} color="black" />
-  )}
-</Button>
       </div>
 
       {/* Сетка товаров */}
-      <div className={`grid ${singleColumn ? 'grid-cols-1' : 'grid-cols-2'} gap-[5px] px-2`}>
-        {products.map(product => (
+      <div className={`grid ${singleColumn ? "grid-cols-1" : "grid-cols-2"} gap-[5px] px-2`}>
+        {products.map((product) => (
           <ProductCardMobile
             key={product.href}
             title={product.title}
@@ -182,6 +113,20 @@ export default function App() {
           />
         ))}
       </div>
+
+      {/* Fullscreen фильтры */}
+      {filtersOpen && (
+        <div
+          className="fixed inset-0 z-50 bg-white p-6 overflow-auto"
+          style={{ backdropFilter: "blur(4px)" }}
+          role="dialog"
+          aria-modal="true"
+        >
+          <h2 className="text-xl font-bold mb-4">Настройки фильтров</h2>
+          <CustomFilters />
+          {/* Инструкция, что можно закрыть кнопкой назад Telegram */}
+        </div>
+      )}
     </div>
   );
 }
