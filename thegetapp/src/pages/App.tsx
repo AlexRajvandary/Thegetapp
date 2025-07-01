@@ -246,7 +246,7 @@ const products = [
     />
   </Card>
 
-  <div className="mx-4 bg-gradient-to-br from-sky-400 to-pink-400 rounded-[30px] py-2 my-2">
+  <div className="mx-4 col-span-2 bg-gradient-to-br from-sky-400 to-pink-400 rounded-[30px] py-2 my-2">
         <Carousel visibleSlides={2} items={subscriptions.map(subscription => (
   <SubscriptionCardMobile
     key={subscription.title}         // обязательно уникальный key
