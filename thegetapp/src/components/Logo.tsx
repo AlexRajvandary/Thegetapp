@@ -26,36 +26,17 @@ const letters = [
 ];
 
 const LogoTheGetBalloons = () => {
-  const firstRow = letters.slice(0, 3);
-  const secondRow = letters.slice(3);
-
   return (
-    <div className="flex flex-col space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0 sm:justify-center">
-      {/* Первая строка: ширина 100%, контент по центру */}
-      <div className="w-full flex space-x-2">
-        {firstRow.map(({ src, alt }, i) => (
-          <img
-            key={i}
-            src={src}
-            alt={alt}
-            className="h-[115px] w-auto sm:h-[100px]"
-            draggable={false}
-          />
-        ))}
-      </div>
-
-      {/* Вторая строка: ширина 100%, контент по центру */}
-      <div className="w-full flex space-x-2">
-        {secondRow.map(({ src, alt }, i) => (
-          <img
-            key={i}
-            src={src}
-            alt={alt}
-            className="h-[115px] w-auto sm:h-[220px]"
-            draggable={false}
-          />
-        ))}
-      </div>
+    <div className="flex justify-center items-center space-x-2 h-[60px] sm:h-[100px]">
+      {letters.map(({ src, alt }, i) => (
+        <img
+          key={i}
+          src={src}
+          alt={alt}
+          className="h-full w-auto"
+          draggable={false}
+        />
+      ))}
     </div>
   );
 };
