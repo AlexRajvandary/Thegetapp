@@ -145,13 +145,13 @@ export default function App() {
       <div className="px-[10px] py-[15px] flex items-center gap-2">
         <SearchInput />
         <Button isIconOnly variant="light">
-          <Funnel strokeWidth={1} color="black" />
+          <Funnel strokeWidth={1.5} color="black" />
         </Button>
         <Button
           isIconOnly
           variant="light"
         >
-          <ArrowDownUp strokeWidth={1} color="black" />
+          <ArrowDownUp strokeWidth={1.5} color="black" />
         </Button>
         <Button
   isIconOnly
@@ -159,9 +159,9 @@ export default function App() {
   onPress={() => setSingleColumn(prev => !prev)}
 >
   {singleColumn ? (
-    <Columns2 strokeWidth={1} color="black" />
+    <Columns2 strokeWidth={1.5} color="black" />
   ) : (
-    <Rows2 strokeWidth={1} color="black" />
+    <Rows2 strokeWidth={1.5} color="black" />
   )}
 </Button>
       </div>
