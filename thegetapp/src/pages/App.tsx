@@ -3,7 +3,7 @@ import LogoTheGetBalloons from "../components/Logo";
 import ProductCardMobile from "../components/ProductCardMobile";
 import SearchInput from "../components/SearchInput";
 import CustomFilters from "../components/CustomFilters";
-import { ArrowDownUp, Columns2, Rows2, Settings2 } from "lucide-react";
+import { ArrowDownUp, Columns2, Funnel, Rows2 } from "lucide-react";
 import { Button } from "@heroui/react";
 import { backButton } from "@telegram-apps/sdk-react";
 
@@ -150,7 +150,7 @@ const products = [
           onClick={() => setFiltersOpen(true)}
           aria-label="Открыть фильтры"
         >
-          <Settings2 strokeWidth={1} color="black" />
+          <Funnel strokeWidth={1} color="black" />
         </Button>
         <Button isIconOnly variant="light">
           <ArrowDownUp strokeWidth={1} color="black" />
