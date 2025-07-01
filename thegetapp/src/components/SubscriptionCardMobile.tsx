@@ -26,7 +26,7 @@ export default function SubscriptionCardMobile({
     <img
     src={imageSrc}
     alt={title}
-      className="w-full object-cover rounded h-[150px]"
+      className="w-full object-cover rounded h-[160px]"
   />
   <div className="px-1 flex flex-col gap-1 text-center"> 
         <h2 className="text-sm font-semibold text-foreground line-clamp-2" onClick={() => !isLoading && navigate(href)}>
