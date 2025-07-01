@@ -4,6 +4,8 @@ import { Accordion, AccordionItem, Checkbox, Slider, CheckboxGroup } from "@hero
 type FiltersProps = {
   selectedCategories: string[];
   setSelectedCategories: React.Dispatch<React.SetStateAction<string[]>>;
+  selectedBrands: string[];
+  setSelectedBrands: React.Dispatch<React.SetStateAction<string[]>>;
   selectedColors: string[];
   setSelectedColors: React.Dispatch<React.SetStateAction<string[]>>;
   selectedSizes: string[];
@@ -15,6 +17,7 @@ type FiltersProps = {
 };
 
 const categories = ["Футболки", "Куртки", "Обувь", "Аксессуары"];
+const brands = ["Adidas", "Nike" , "Rebook"];
 const colors = ["Красный", "Синий", "Зелёный", "Чёрный", "Белый"];
 const sizes = ["S", "M", "L", "XL"];
 const genders = ["Мужской", "Женский", "Унисекс"];
@@ -22,6 +25,8 @@ const genders = ["Мужской", "Женский", "Унисекс"];
 export default function Filters({
   selectedCategories,
   setSelectedCategories,
+  selectedBrands,
+  setSelectedBrands,
   selectedColors,
   setSelectedColors,
   selectedSizes,
@@ -53,6 +58,24 @@ export default function Filters({
               checked={selectedCategories.includes(cat)}
               onChange={() =>
                 toggleSelection(cat, selectedCategories, setSelectedCategories)
+              }
+             value={cat}
+            >{cat}</Checkbox>
+          ))}
+            </CheckboxGroup>
+         
+        </div>
+      </AccordionItem>
+
+       <AccordionItem title="Бренд">
+        <div className="flex flex-col space-y-2 mt-2">
+            <CheckboxGroup label="Бренд">
+                 {brands.map((cat) => (
+            <Checkbox
+              key={cat}
+              checked={selectedBrands.includes(cat)}
+              onChange={() =>
+                toggleSelection(cat, selectedBrands, setSelectedBrands)
               }
              value={cat}
             >{cat}</Checkbox>

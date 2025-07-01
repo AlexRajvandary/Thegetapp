@@ -12,6 +12,7 @@ import Filters from "../components/Filters";
 export default function App() {
   const [singleColumn, setSingleColumn] = useState(false);
   const [filtersOpen, setFiltersOpen] = useState(false);
+  const [selectedBrands, setSelectedBrands] = useState<string[]>([]);
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [selectedColors, setSelectedColors] = useState<string[]>([]);
   const [selectedSizes, setSelectedSizes] = useState<string[]>([]);
@@ -285,6 +286,8 @@ const products = [
           <Filters
             selectedCategories={selectedCategories}
             setSelectedCategories={setSelectedCategories}
+            selectedBrands={selectedBrands}
+            setSelectedBrands={setSelectedBrands}
             selectedColors={selectedColors}
             setSelectedColors={setSelectedColors}
             selectedSizes={selectedSizes}
