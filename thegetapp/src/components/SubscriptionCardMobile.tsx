@@ -1,4 +1,4 @@
-import { Card, Skeleton } from "@heroui/react";
+import { Card, Chip, Skeleton } from "@heroui/react";
 import { useNavigate } from "react-router-dom";
 
 type ProductCardProps = {
@@ -30,7 +30,7 @@ export default function SubscriptionCardMobile({
   />
   <div className="px-1 flex flex-col gap-1 text-center"> 
         <h2 className="text-sm font-semibold text-foreground line-clamp-2" onClick={() => !isLoading && navigate(href)}>
-          {isLoading ? <Skeleton className="h-[16px] w-4/5 rounded-md" /> : title}
+          {isLoading ? <Skeleton className="h-[16px] w-4/5 rounded-md" /> : <Chip>title</Chip>}
         </h2>
       </div>
 </Card>
