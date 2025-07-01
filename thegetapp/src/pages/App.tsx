@@ -291,7 +291,7 @@ const products = [
         <h2 className="mx-4 font-extrabold text-[24px] leading-[130%] tracking-[-0.01em]">
           Подписки
         </h2>
-      <div className="mx-4 bg-gray-200 rounded-lg py-2 my-2">
+      <div className="mx-4 bg-gray-200 rounded-[30px] py-2 my-2">
         <Carousel visibleSlides={2} items={subscriptions.map(subscription => (
   <SubscriptionCardMobile
     key={subscription.title}         // обязательно уникальный key
