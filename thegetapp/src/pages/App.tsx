@@ -247,6 +247,9 @@ const products = [
   </Card>
 
   <div className="col-span-2 bg-gradient-to-br from-sky-400 to-pink-400 rounded-[14px] py-2 my-2">
+     <div className="sticky top-0 z-20 bg-white/30 backdrop-blur-md rounded-t-[14px] px-4 py-2 mb-2 text-center font-semibold text-white text-lg select-none">
+    Оплачивай любые подписки
+  </div>
         <Carousel visibleSlides={2} items={subscriptions.map(subscription => (
   <SubscriptionCardMobile
     key={subscription.title}         // обязательно уникальный key
