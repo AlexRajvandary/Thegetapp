@@ -5,6 +5,7 @@ import ProductCardMobile from "../components/ProductCardMobile";
 import SearchInput from "../components/SearchInput";
 import { ArrowDownUp, Columns2, Funnel, Rows2 } from "lucide-react";
 import { Button } from "@heroui/react";
+import CustomFilters from "../components/CustomFilters";
 
 type SearchIconProps = {
   size?: number;
@@ -145,7 +146,7 @@ export default function App() {
       <div className="px-[10px] py-[15px] flex items-center gap-2">
         <SearchInput />
         <Button isIconOnly variant="light">
-          <Funnel strokeWidth={1.5} color="black" />
+          <CustomFilters/>
         </Button>
         <Button
           isIconOnly
