@@ -29,6 +29,20 @@ if (requestFullscreen.isAvailable()) {
   await requestFullscreen();
 }
 
+import { popup } from '@telegram-apps/sdk';
+
+if (popup.open.isAvailable()) {
+  // popup.isOpened() -> false
+  const promise = popup.open({
+    title: 'Hello!',
+    message: 'Here is a test message.',
+    buttons: [{ id: 'my-id', type: 'default', text: 'Default text' }],
+  });
+  // popup.isOpened() -> true
+  const buttonId = await promise;
+  // popup.isOpened() -> false
+}
+
 createRoot(document.getElementById('root')!).render(
   
   <StrictMode>
