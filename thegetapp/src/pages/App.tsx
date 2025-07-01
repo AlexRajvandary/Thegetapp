@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import LogoTheGetBalloons from "../components/Logo";
 import ProductCardMobile from "../components/ProductCardMobile";
 import SearchInput from "../components/SearchInput";
-import { ArrowDownUp, Settings2 } from "lucide-react";
+import { ArrowDownUp, Columns2, Funnel, Rows2, Settings2 } from "lucide-react";
 import { Button } from "@heroui/react";
 
 type SearchIconProps = {
@@ -145,15 +145,25 @@ export default function App() {
       <div className="px-[10px] py-[15px] flex items-center gap-2">
         <SearchInput />
         <Button isIconOnly variant="light">
-          <Settings2 strokeWidth={1} color="black" />
+          <Funnel strokeWidth={1} color="black" />
         </Button>
         <Button
           isIconOnly
           variant="light"
-          onClick={() => setSingleColumn(prev => !prev)}
         >
           <ArrowDownUp strokeWidth={1} color="black" />
         </Button>
+        <Button
+  isIconOnly
+  variant="light"
+  onPress={() => setSingleColumn(prev => !prev)}
+>
+  {singleColumn ? (
+    <Columns2 strokeWidth={1} color="black" />
+  ) : (
+    <Rows2 strokeWidth={1} color="black" />
+  )}
+</Button>
       </div>
 
       {/* Сетка товаров */}
