@@ -1,5 +1,4 @@
-import { Card, Chip, Skeleton } from "@heroui/react";
-import { useNavigate } from "react-router-dom";
+import { Card } from "@heroui/react";
 
 type ProductCardProps = {
   imageSrc?: string;
