@@ -6,6 +6,7 @@ import CustomFilters from "../components/CustomFilters";
 import { ArrowDownUp, Columns2, Funnel, Rows2 } from "lucide-react";
 import { Button } from "@heroui/react";
 import { backButton } from "@telegram-apps/sdk-react";
+import Carousel from "../components/Carousel";
 
 export default function App() {
   const [singleColumn, setSingleColumn] = useState(false);
@@ -135,13 +136,90 @@ const products = [
       href: "/product"
     }
   ];
+  const subscriptions = [
+ {
+      imageSrc: '/spotify.png',
+      title: "Spotify",
+      label: "Bestseller",
+      category: "Music",
+      price: "$129.99",
+      href: "/subscribtion"
+    },
+     {
+      imageSrc: '/adobe.png',
+      title: "Adobe",
+      label: "Bestseller",
+      category: "Work",
+      price: "$129.99",
+      href: "/subscribtion"
+    },
+    {
+      imageSrc: '/deezer.png',
+      title: "Deezer",
+      label: "Bestseller",
+      category: "Music",
+      price: "$129.99",
+      href: "/subscribtion"
+    },
+    {
+      imageSrc: '/discord.png',
+      title: "Discord",
+      label: "Bestseller",
+      category: "Social",
+      price: "$129.99",
+      href: "/subscribtion"
+    },
+    {
+      imageSrc: '/disney.png',
+      title: "Disney",
+      label: "Bestseller",
+      category: "Film",
+      price: "$129.99",
+      href: "/subscribtion"
+    },
+    {
+      imageSrc: '/netflix.png',
+      title: "Netflix",
+      label: "Bestseller",
+      category: "Film",
+      price: "$129.99",
+      href: "/subscribtion"
+    },
+    {
+      imageSrc: '/prime.png',
+      title: "Prime",
+      label: "Bestseller",
+      category: "Film",
+      price: "$129.99",
+      href: "/subscribtion"
+    },
+    {
+      imageSrc: '/youtube.png',
+      title: "Youtube",
+      label: "Bestseller",
+      category: "Film",
+      price: "$129.99",
+      href: "/subscribtion"
+    },
+
+  ];
 
   return (
     <div>
       <div className="flex pt-[110px] pb-[30px] bg-transparent mx-4 sm:mx-0 sm:justify-center">
         <LogoTheGetBalloons />
       </div>
-
+      <Carousel items={subscriptions.map(subscription => (
+  <ProductCardMobile
+    key={subscription.title}         // обязательно уникальный key
+    title={subscription.title}
+    price={subscription.price}
+    imageSrc={subscription.imageSrc}
+    category={subscription.category}
+    href={subscription.href}
+    label={subscription.label}
+  />
+))} />
       <div className="px-[10px] py-[15px] flex items-center gap-2">
         <SearchInput />
         <Button
