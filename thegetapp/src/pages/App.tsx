@@ -8,6 +8,7 @@ import { backButton } from "@telegram-apps/sdk-react";
 import Carousel from "../components/Carousel";
 import SubscriptionCardMobile from "../components/SubscriptionCardMobile";
 import Filters from "../components/Filters";
+import FilterChips from "../components/FilterChips";
 
 export default function App() {
   const [singleColumn, setSingleColumn] = useState(false);
@@ -281,7 +282,33 @@ const products = [
           role="dialog"
           aria-modal="true"
         >
-          <h2 className="text-xl font-bold mb-4">Настройки фильтров</h2>
+          <h2 className="text-xl font-bold mb-4">Выберите Фильтры</h2>
+          <FilterChips
+  categories={selectedCategories}
+  brands={selectedBrands}
+  colors={selectedColors}
+  sizes={selectedSizes}
+  genders={selectedGenders}
+  priceRange={priceRange}
+  onRemove={(type, value) => {
+    if (type === "category") {
+      setSelectedCategories((prev) => prev.filter((c) => c !== value));
+    }
+    if (type === "color") {
+      setSelectedColors((prev) => prev.filter((c) => c !== value));
+    }
+    if (type === "size") {
+      setSelectedSizes((prev) => prev.filter((s) => s !== value));
+    }
+    if (type === "gender") {
+      setSelectedGenders((prev) => prev.filter((g) => g !== value));
+    }
+    if (type === "price") {
+      setPriceRange([0, 1000]); // сброс диапазона
+    }
+  }}
+/>
+
          
           <Filters
             selectedCategories={selectedCategories}
