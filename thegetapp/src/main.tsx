@@ -25,10 +25,20 @@ if (swipeBehavior.mount.isAvailable()) {
   swipeBehavior.mount();
 }
 
-(async () => {
-     viewport.requestFullscreen();
-     //viewport.expand();
-})();
+async function initTg() {
+        init();
+
+        if (viewport.mount.isAvailable()) {
+          await viewport.mount();
+          viewport.expand();
+        }
+
+        if (viewport.requestFullscreen.isAvailable()) {
+          await viewport.requestFullscreen();
+        }
+      }
+    
+    initTg();
 
 
 createRoot(document.getElementById('root')!).render(
