@@ -30,7 +30,7 @@ const LogoTheGetBalloons = () => {
   const secondRow = letters.slice(3);
 
   return (
-    <div className="w-full flex flex-col space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0 sm:justify-center">
+    <div className="flex flex-col space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0 sm:justify-center">
       {/* Первая строка: ширина 100%, контент по центру */}
       <div className="w-full flex space-x-2">
         {firstRow.map(({ src, alt }, i) => (

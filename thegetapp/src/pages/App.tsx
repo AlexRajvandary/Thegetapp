@@ -3,6 +3,9 @@ import React from "react";
 import LogoTheGetBalloons from "../components/Logo";
 import { useLocation } from "react-router-dom";
 import ProductCardMobile from "../components/ProductCardMobile";
+import SearchInput from "../components/SearchInput";
+import { ArrowDownUp, Settings2 } from "lucide-react";
+import { Button } from "@heroui/react";
 
 type SearchIconProps = {
   size?: number;
@@ -140,11 +143,21 @@ export default function App() {
 
   return (
     <div>
-     <div className="w-full flex pl-[35px] py-[30px] bg-transparent mx-4 sm:mx-0 sm:justify-center">
+     <div className="flex pl-[35px] pt-[50px] pb-[30px] bg-transparent mx-4 sm:mx-0 sm:justify-center">
   <LogoTheGetBalloons />
-</div>      
+</div>  
+ <div className="px-[10px] py-[15px] flex items-center gap-2">
+    <SearchInput />
+    <Button isIconOnly variant="light">
+       <Settings2 strokeWidth={1} color="black"/>
+    </Button>
+    <Button isIconOnly variant="light">
+       <ArrowDownUp strokeWidth={1} color="black"/>
+    </Button>
+   
+  </div>   
     
-        <div className="grid grid-cols-2 gap-2.5 px-2">
+        <div className="grid grid-cols-2 gap-[5px] px-2">
   {products.map(product => (
    <ProductCardMobile title={product.title} 
                       price={product.price} 

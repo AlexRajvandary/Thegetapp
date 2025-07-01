@@ -57,14 +57,14 @@ export default function SearchInput({ placeholder = "Type to search..." }: Searc
             mainWrapper: "h-full",
             input: "text-small",
             inputWrapper:
-              "h-full font-normal text-default-800 bg-white dark:bg-default-500/20",
+              "h-full font-normal text-default-800 bg-gray-100 dark:bg-default-500/20",
           }}
           placeholder={placeholder}
           size="sm"
           startContent={<SearchIcon size={18} width={undefined} height={undefined} />}
           type="search"
-          variant="bordered"
-          radius="none"
+          variant="faded"
+          radius="lg"
         />
     </>)
 }

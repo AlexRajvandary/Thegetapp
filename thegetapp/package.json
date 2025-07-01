@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@heroui/react": "^2.7.10",
+    "@telegram-apps/sdk-react": "^3.3.6",
     "autoprefixer": "^10.4.21",
     "framer-motion": "11.9",
     "keen-slider": "^6.8.6",
