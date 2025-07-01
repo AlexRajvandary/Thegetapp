@@ -152,7 +152,7 @@ export default function App() {
           isIconOnly
           variant="light"
         >
-          <ArrowDownUp strokeWidth={1.5} color="black" />
+          <ArrowDownUp strokeWidth={1} color="black" />
         </Button>
         <Button
   isIconOnly
@@ -160,9 +160,9 @@ export default function App() {
   onPress={() => setSingleColumn(prev => !prev)}
 >
   {singleColumn ? (
-    <Columns2 strokeWidth={1.5} color="black" />
+    <Columns2 strokeWidth={1} color="black" />
   ) : (
-    <Rows2 strokeWidth={1.5} color="black" />
+    <Rows2 strokeWidth={1} color="black" />
   )}
 </Button>
       </div>
