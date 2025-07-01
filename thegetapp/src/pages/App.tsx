@@ -219,33 +219,7 @@ const products = [
       </div>
       <div className="mx-4">
        <div className="grid grid-cols-2 gap-3 px-3 pt-4 max-w-[600px] mx-auto">
-  {/* 2 карточки в ряд */}
-  <Card className="col-span-1 h-[100px] relative">
-    <CardHeader className="absolute z-10 top-2 left-2 flex-col !items-start text-white">
-      <p className="text-[10px] uppercase font-semibold opacity-70">What to watch</p>
-      <h4 className="text-[13px] font-bold leading-tight">Stream the Acme event</h4>
-    </CardHeader>
-    <Image
-      removeWrapper
-      className="z-0 w-full h-full object-cover rounded"
-      alt="Event"
-      src="https://heroui.com/images/card-example-4.jpeg"
-    />
-  </Card>
-
-  <Card className="col-span-1 h-[100px] relative">
-    <CardHeader className="absolute z-10 top-2 left-2 flex-col !items-start text-white">
-      <p className="text-[10px] uppercase font-semibold opacity-70">Plant a tree</p>
-      <h4 className="text-[13px] font-bold leading-tight">Contribute to the planet</h4>
-    </CardHeader>
-    <Image
-      removeWrapper
-      className="z-0 w-full h-full object-cover rounded"
-      alt="Tree"
-      src="https://heroui.com/images/card-example-3.jpeg"
-    />
-  </Card>
-
+ 
   <div className="col-span-2 bg-gradient-to-br from-sky-400 to-pink-400 rounded-[14px] py-4 my-2">
      <div className="sticky top-0 z-20 rounded-t-[14px] px-4 font-semibold text-white text-lg select-none">
         Оплачивай любые подписки
