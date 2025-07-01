@@ -262,6 +262,33 @@ const products = [
           )}
         </Button>
       </div>
+       <FilterChips
+      categories={selectedCategories}
+      brands={selectedBrands}
+      colors={selectedColors}
+      sizes={selectedSizes}
+      genders={selectedGenders}
+      priceRange={priceRange}
+      onRemove={(type, value) => {
+        if (type === "category") {
+          setSelectedCategories((prev) => prev.filter((c) => c !== value));
+        }
+        if (type === "brand") {
+          setSelectedBrands((prev) => prev.filter((b) => b !== value));
+        }
+        if (type === "color") {
+          setSelectedColors((prev) => prev.filter((c) => c !== value));
+        }
+        if (type === "size") {
+          setSelectedSizes((prev) => prev.filter((s) => s !== value));
+        }
+        if (type === "gender") {
+          setSelectedGenders((prev) => prev.filter((g) => g !== value));
+        }
+        if (type === "price") {
+          setPriceRange([0, 1000]); // сброс диапазона
+        }
+      }}/>
 
       {/* Сетка товаров */}
       <div className={`grid ${singleColumn ? "grid-cols-1" : "grid-cols-2"} gap-[5px] px-2`}>
