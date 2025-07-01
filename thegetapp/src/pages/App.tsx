@@ -287,23 +287,6 @@ const products = [
     />
   </Card>
 </div>
-
-        <h2 className="mx-4 font-extrabold text-[24px] leading-[130%] tracking-[-0.01em]">
-          Подписки
-        </h2>
-      <div className="mx-4 bg-gray-200 rounded-[30px] py-2 my-2">
-        <Carousel visibleSlides={2} items={subscriptions.map(subscription => (
-  <SubscriptionCardMobile
-    key={subscription.title}         // обязательно уникальный key
-    title={subscription.title}
-    price={subscription.price}
-    imageSrc={subscription.imageSrc}
-    category={subscription.category}
-    href={subscription.href}
-    label={subscription.label}
-  />
-))} />
-      </div>
       <h2 className="font-extrabold text-[24px] mx-4 py-[5px] leading-[130%] tracking-[-0.01em]">
         Каталог
       </h2>
