@@ -2,6 +2,7 @@ import { Card, Skeleton } from "@heroui/react";
 import { HeartIcon } from "./HeartIcon";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { ShoppingCart } from "lucide-react";
 
 type ProductCardProps = {
   imageSrc?: string;
@@ -62,6 +63,15 @@ export default function ProductCardMobile({
                 filledColor="red"
                 strokeColor={liked ? "red" : "black"}
                 size={22}
+              />
+            )}
+          </button>
+           <button disabled={isLoading}>
+            {isLoading ? (
+              <Skeleton className="h-[22px] w-[22px] rounded-full" />
+            ) : (
+              <ShoppingCart
+                strokeWidth={1}
               />
             )}
           </button>
