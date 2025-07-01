@@ -247,10 +247,9 @@ const products = [
   </Card>
 
   <div className="col-span-2 bg-gradient-to-br from-sky-400 to-pink-400 rounded-[14px] py-2 my-2">
-    <div className="absolute z-10 bg-white/30 backdrop-blur-md top-2 left-2 flex-col !items-start text-white">
-      <p className="text-[10px] uppercase font-semibold opacity-70">Supercharged</p>
-      <h4 className="text-[13px] font-bold leading-tight">Оплачивай любые подписки</h4>
-    </div>
+     <div className="sticky top-0 z-20 rounded-t-[14px] px-4 py-2 mb-2 font-semibold text-white text-lg select-none">
+        Оплачивай любые подписки
+      </div>
         <Carousel visibleSlides={2} items={subscriptions.map(subscription => (
   <SubscriptionCardMobile
     key={subscription.title}         // обязательно уникальный key
@@ -263,33 +262,6 @@ const products = [
   />
 ))} />
       </div>
-
-  {/* Ещё пара по 2 в ряд */}
-  <Card className="col-span-1 h-[100px] relative">
-    <CardHeader className="absolute z-10 top-2 left-2 flex-col !items-start text-white">
-      <p className="text-[10px] uppercase font-semibold opacity-70">Supercharged</p>
-      <h4 className="text-[13px] font-bold leading-tight">Beauty like a beast</h4>
-    </CardHeader>
-    <Image
-      removeWrapper
-      className="z-0 w-full h-full object-cover rounded"
-      alt="Beauty"
-      src="https://heroui.com/images/card-example-2.jpeg"
-    />
-  </Card>
-
-  <Card className="col-span-1 h-[100px] relative">
-    <CardHeader className="absolute z-10 top-2 left-2 flex-col !items-start text-white">
-      <p className="text-[10px] uppercase font-semibold opacity-70">New</p>
-      <h4 className="text-[13px] font-bold leading-tight">Acme camera</h4>
-    </CardHeader>
-    <Image
-      removeWrapper
-      className="z-0 w-full h-full object-cover rounded"
-      alt="Camera"
-      src="https://heroui.com/images/card-example-6.jpeg"
-    />
-  </Card>
 </div>
       <h2 className="font-extrabold text-[24px] mx-4 py-[5px] leading-[130%] tracking-[-0.01em]">
         Каталог
