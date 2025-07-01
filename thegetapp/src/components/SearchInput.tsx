@@ -58,7 +58,7 @@ export default function SearchInput({ placeholder = "Поиск" }: SearchInputP
             mainWrapper: "h-full",
             input: "text-small",
             inputWrapper:
-              "h-full font-normal text-default-800 bg-gray-100 dark:bg-default-500/20",
+              "h-full font-normal text-default-800 bg-[#f2f2f7] dark:bg-default-500/20",
           }}
           placeholder={placeholder}
           size="sm"
