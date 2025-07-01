@@ -26,7 +26,8 @@ if (swipeBehavior.mount.isAvailable()) {
 }
 
 (async () => {
-     await viewport.requestFullscreen();
+    // await viewport.requestFullscreen();
+     viewport.expand();
 })();
 
 
