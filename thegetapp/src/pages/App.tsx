@@ -246,15 +246,9 @@ const products = [
     />
   </Card>
 
-  {/* Одна большая на всю ширину */}
-  <Card className="col-span-2 h-[200px] relative">
-    <CardHeader className="absolute z-10 top-2 left-2 flex-col !items-start text-white">
-      <p className="text-[10px] uppercase font-semibold opacity-70">Your day your way</p>
-      <h4 className="text-[14px] font-bold leading-tight">Checklist for better sleep</h4>
-    </CardHeader>
-   <div className="mx-4 bg-gray-200 rounded-[30px] py-2 my-2">
+  <div className="mx-4 bg-gradient-to-br from-sky-400 to-pink-400 rounded-[30px] py-2 my-2">
         <Carousel visibleSlides={2} items={subscriptions.map(subscription => (
-    <SubscriptionCardMobile
+  <SubscriptionCardMobile
     key={subscription.title}         // обязательно уникальный key
     title={subscription.title}
     price={subscription.price}
@@ -265,7 +259,6 @@ const products = [
   />
 ))} />
       </div>
-  </Card>
 
   {/* Ещё пара по 2 в ряд */}
   <Card className="col-span-1 h-[100px] relative">
