@@ -8,7 +8,7 @@ import RouterWrapper from './RouterWrapper.jsx';
 import './index.css'
 import { AuthProvider } from './components/AuthContext.js';
 import { init, backButton } from '@telegram-apps/sdk-react';
-import { closingBehavior, swipeBehavior, requestFullscreen, popup } from '@telegram-apps/sdk';
+import { closingBehavior, swipeBehavior, requestFullscreen, viewport } from '@telegram-apps/sdk';
 
 
 
@@ -26,22 +26,12 @@ if (swipeBehavior.mount.isAvailable()) {
 }
 
 (async () => {
-const msg = requestFullscreen.isAvailable();
-if (requestFullscreen.isAvailable()) {
-  await requestFullscreen();
+
+if (viewport.requestFullscreen.isAvailable()) {
+  await viewport.requestFullscreen();
+  viewport.isFullscreen(); // true
 }
 
-if (popup.open.isAvailable()) {
-  // popup.isOpened() -> false
-  const promise = popup.open({
-    title: 'Hello!',
-    message: `${msg}`,
-    buttons: [{ id: 'my-id', type: 'default', text: 'Default text' }],
-  });
-  // popup.isOpened() -> true
-  await promise;
-  // popup.isOpened() -> false
-}
 })();
 
 
