@@ -65,7 +65,7 @@ export default function SearchInput({ placeholder = "Поиск" }: SearchInputP
           startContent={<Search size={18} strokeWidth={1.5} />}
           type="search"
           variant="flat"
-          radius="lg"
+          radius="full"
         />
     </>)
 }
