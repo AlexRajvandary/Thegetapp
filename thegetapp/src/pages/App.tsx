@@ -7,6 +7,7 @@ import { ArrowDownUp, Columns2, Funnel, Rows2 } from "lucide-react";
 import { Button } from "@heroui/react";
 import { backButton } from "@telegram-apps/sdk-react";
 import Carousel from "../components/Carousel";
+import SubscriptionCardMobile from "../components/SubscriptionCardMobile";
 
 export default function App() {
   const [singleColumn, setSingleColumn] = useState(false);
@@ -211,7 +212,7 @@ const products = [
       </div>
       <div className="mx-4 bg-gray-200 rounded-md">
         <Carousel visibleSlides={2} items={subscriptions.map(subscription => (
-  <ProductCardMobile
+  <SubscriptionCardMobile
     key={subscription.title}         // обязательно уникальный key
     title={subscription.title}
     price={subscription.price}
