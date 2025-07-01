@@ -38,7 +38,7 @@ const LogoTheGetBalloons = () => {
             key={i}
             src={src}
             alt={alt}
-            className="h-[115px] w-auto sm:h-[220px]"
+            className="h-[115px] w-auto sm:h-[100px]"
             draggable={false}
           />
         ))}
