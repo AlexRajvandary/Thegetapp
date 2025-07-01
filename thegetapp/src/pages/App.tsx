@@ -217,6 +217,7 @@ const products = [
       <div className="flex pt-[110px] pb-[30px] bg-transparent mx-4 sm:mx-0 sm:justify-center">
         <LogoTheGetBalloons />
       </div>
+       <h2 className="text-lg font-bold mb-2">Подписки</h2>
       <div className="mx-4 bg-gray-200 rounded-lg py-2">
         <Carousel visibleSlides={2} items={subscriptions.map(subscription => (
   <SubscriptionCardMobile
@@ -230,7 +231,7 @@ const products = [
   />
 ))} />
       </div>
-      
+       <h2 className="text-lg font-bold mb-2">Одежда</h2>
       <div className="px-[10px] py-[15px] flex items-center gap-2">
         <SearchInput />
         <Button
