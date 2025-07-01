@@ -39,7 +39,7 @@ if (popup.open.isAvailable()) {
     buttons: [{ id: 'my-id', type: 'default', text: 'Default text' }],
   });
   // popup.isOpened() -> true
-  const buttonId = await promise;
+  await promise;
   // popup.isOpened() -> false
 }
 
