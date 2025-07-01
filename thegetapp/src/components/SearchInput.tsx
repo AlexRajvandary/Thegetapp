@@ -1,4 +1,5 @@
 import {Input} from "@heroui/react";
+import { Search } from "lucide-react";
 
 type SearchIconProps = {
   size?: number;
@@ -61,7 +62,7 @@ export default function SearchInput({ placeholder = "Поиск" }: SearchInputP
           }}
           placeholder={placeholder}
           size="sm"
-          startContent={<SearchIcon size={18} width={undefined} height={undefined} />}
+          startContent={<Search size={18} strokeWidth={1.5} />}
           type="search"
           variant="flat"
           radius="lg"
