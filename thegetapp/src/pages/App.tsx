@@ -143,7 +143,7 @@ export default function App() {
 
   return (
     <div>
-     <div className="flex pl-[35px] pt-[100px] pb-[30px] bg-transparent mx-4 sm:mx-0 sm:justify-center">
+     <div className="flex pl-[35px] pt-[110px] pb-[30px] bg-transparent mx-4 sm:mx-0 sm:justify-center">
   <LogoTheGetBalloons />
 </div>  
  <div className="px-[10px] py-[15px] flex items-center gap-2">
