@@ -60,8 +60,8 @@ export default function ImageGallery({ images }: Props) {
     {
       initial: 0,
       slides: {
-        perView: 4,
-        spacing: 10,
+        perView: 10,
+        spacing: 5,
       },
     },
     [ThumbnailPlugin(instanceRef)]
@@ -113,7 +113,7 @@ export default function ImageGallery({ images }: Props) {
             <img
               src={src}
               alt={`Thumbnail ${index + 1}`}
-              className="w-full h-[90px] object-cover"
+              className="w-full h-[30px] object-cover"
             />
           </div>
         ))}
