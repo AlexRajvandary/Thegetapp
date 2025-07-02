@@ -9,6 +9,7 @@ import Carousel from "../components/Carousel";
 import SubscriptionCardMobile from "../components/SubscriptionCardMobile";
 import Filters from "../components/Filters";
 import FilterChips from "../components/FilterChips";
+import { Link } from "react-router-dom";
 
 export default function App() {
   const [singleColumn, setSingleColumn] = useState(false);
@@ -69,7 +70,8 @@ const products = [
       label: "Bestseller",
       category: "Women sneakers",
       price: "$129.99",
-      href: "/product"
+      href: "/product",
+      imageSrces: ["https://media-assets.grailed.com/prd/listing/temp/66688f71562d46939932e6f3d58a654c?w=800","https://media-assets.grailed.com/prd/listing/temp/66688f71562d46939932e6f3d58a654c?w=800","https://media-assets.grailed.com/prd/listing/temp/66688f71562d46939932e6f3d58a654c?w=800",]
     },
     {
       imageSrc: "https://media-assets.grailed.com/prd/listing/temp/7091b3adf6b0496795fe9bf0af550a9d?w=800",
@@ -77,7 +79,8 @@ const products = [
       label: "New",
       category: "T-Shirt",
       price: "$109.99",
-      href: "/product"
+      href: "/product",
+      imageSrces: ["https://media-assets.grailed.com/prd/listing/temp/66688f71562d46939932e6f3d58a654c?w=800","https://media-assets.grailed.com/prd/listing/temp/66688f71562d46939932e6f3d58a654c?w=800","https://media-assets.grailed.com/prd/listing/temp/66688f71562d46939932e6f3d58a654c?w=800",]
     },
     {
       imageSrc: "https://media-assets.grailed.com/prd/listing/temp/e1fb8280f2a645b9b7735ba29be88bdd?w=800",
@@ -85,7 +88,8 @@ const products = [
       label: "Bestseller",
       category: "Women sneakers",
       price: "$129.99",
-      href: "/product"
+      href: "/product",
+      imageSrces: ["https://media-assets.grailed.com/prd/listing/temp/66688f71562d46939932e6f3d58a654c?w=800","https://media-assets.grailed.com/prd/listing/temp/66688f71562d46939932e6f3d58a654c?w=800","https://media-assets.grailed.com/prd/listing/temp/66688f71562d46939932e6f3d58a654c?w=800",]
     },
     {
       imageSrc: "https://media-assets.grailed.com/prd/listing/48549855/b40a8af8b5ec4e3295dd5cda53501b1f?w=800",
@@ -93,7 +97,8 @@ const products = [
       label: "New",
       category: "Men sneakers",
       price: "$109.99",
-      href: "/product"
+      href: "/product",
+      imageSrces: ["https://media-assets.grailed.com/prd/listing/temp/66688f71562d46939932e6f3d58a654c?w=800","https://media-assets.grailed.com/prd/listing/temp/66688f71562d46939932e6f3d58a654c?w=800","https://media-assets.grailed.com/prd/listing/temp/66688f71562d46939932e6f3d58a654c?w=800",]
     },
     {
       imageSrc: "https://media-assets.grailed.com/prd/listing/temp/df113a4515bf442295a74f9199c93020?w=800",
@@ -101,7 +106,8 @@ const products = [
       label: "Bestseller",
       category: "Moncler Maya Jacket",
       price: "549.99",
-      href: "/product"
+      href: "/product",
+      imageSrces: ["https://media-assets.grailed.com/prd/listing/temp/66688f71562d46939932e6f3d58a654c?w=800","https://media-assets.grailed.com/prd/listing/temp/66688f71562d46939932e6f3d58a654c?w=800","https://media-assets.grailed.com/prd/listing/temp/66688f71562d46939932e6f3d58a654c?w=800",]
     },
     {
       imageSrc: "https://assets.adidas.com/images/w_1880,f_auto,q_auto/2c6e7fe3f66d4bdda664d1030d28c9f9_9366/JQ7409_01_00_standard.jpg.",
@@ -109,7 +115,8 @@ const products = [
       label: "New",
       category: "Men sneakers",
       price: "$109.99",
-      href: "/product"
+      href: "/product",
+      imageSrces: ["https://media-assets.grailed.com/prd/listing/temp/66688f71562d46939932e6f3d58a654c?w=800","https://media-assets.grailed.com/prd/listing/temp/66688f71562d46939932e6f3d58a654c?w=800","https://media-assets.grailed.com/prd/listing/temp/66688f71562d46939932e6f3d58a654c?w=800",]
     },
     {
       imageSrc: "https://assets.adidas.com/images/w_1880,f_auto,q_auto/2c6e7fe3f66d4bdda664d1030d28c9f9_9366/JQ7409_01_00_standard.jpg",
@@ -117,7 +124,8 @@ const products = [
       label: "Bestseller",
       category: "Women sneakers",
       price: "$129.99",
-      href: "/product"
+      href: "/product",
+      imageSrces: ["https://media-assets.grailed.com/prd/listing/temp/66688f71562d46939932e6f3d58a654c?w=800","https://media-assets.grailed.com/prd/listing/temp/66688f71562d46939932e6f3d58a654c?w=800","https://media-assets.grailed.com/prd/listing/temp/66688f71562d46939932e6f3d58a654c?w=800",]
     },
     {
       imageSrc: "https://assets.adidas.com/images/w_1880,f_auto,q_auto/2c6e7fe3f66d4bdda664d1030d28c9f9_9366/JQ7409_01_00_standard.jpg.",
@@ -125,7 +133,8 @@ const products = [
       label: "New",
       category: "Men sneakers",
       price: "$109.99",
-      href: "/product"
+      href: "/product",
+      imageSrces: ["https://media-assets.grailed.com/prd/listing/temp/66688f71562d46939932e6f3d58a654c?w=800","https://media-assets.grailed.com/prd/listing/temp/66688f71562d46939932e6f3d58a654c?w=800","https://media-assets.grailed.com/prd/listing/temp/66688f71562d46939932e6f3d58a654c?w=800",]
     },
     {
       imageSrc: "https://assets.adidas.com/images/w_1880,f_auto,q_auto/2c6e7fe3f66d4bdda664d1030d28c9f9_9366/JQ7409_01_00_standard.jpg",
@@ -133,7 +142,8 @@ const products = [
       label: "Bestseller",
       category: "Women sneakers",
       price: "$129.99",
-      href: "/product"
+      href: "/product",
+      imageSrces: ["https://media-assets.grailed.com/prd/listing/temp/66688f71562d46939932e6f3d58a654c?w=800","https://media-assets.grailed.com/prd/listing/temp/66688f71562d46939932e6f3d58a654c?w=800","https://media-assets.grailed.com/prd/listing/temp/66688f71562d46939932e6f3d58a654c?w=800",]
     },
     {
       imageSrc: "https://assets.adidas.com/images/w_1880,f_auto,q_auto/2c6e7fe3f66d4bdda664d1030d28c9f9_9366/JQ7409_01_00_standard.jpg.",
@@ -141,7 +151,8 @@ const products = [
       label: "New",
       category: "Men sneakers",
       price: "$109.99",
-      href: "/product"
+      href: "/product",
+      imageSrces: ["https://media-assets.grailed.com/prd/listing/temp/66688f71562d46939932e6f3d58a654c?w=800","https://media-assets.grailed.com/prd/listing/temp/66688f71562d46939932e6f3d58a654c?w=800","https://media-assets.grailed.com/prd/listing/temp/66688f71562d46939932e6f3d58a654c?w=800",]
     }
   ];
   const subscriptions = [
@@ -300,16 +311,16 @@ const products = [
       {/* Сетка товаров */}
       <div className={`grid ${singleColumn ? "grid-cols-1" : "grid-cols-2"} gap-[5px] px-2`}>
         {products.map((product) => (
-          <ProductCardMobile
+          <Link
+  to="/product/123"
+  state={{ product }}
+> <ProductCardMobile
             key={product.href}
-            title={product.title}
-            price={product.price}
-            imageSrc={product.imageSrc}
-            category={product.category}
-            href={product.href}
-            label={product.label}
+            product={product}
             singleColumn={singleColumn}
-          />
+            
+          /></Link>
+          
         ))}
       </div>
 

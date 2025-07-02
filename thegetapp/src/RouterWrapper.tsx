@@ -11,11 +11,11 @@ import {
 import App from './pages/App';
 import About from './pages/About';
 import Catalog from './pages/Catalog';
-import Product from './pages/ProductPage';
 import UserPage from "./pages/UserPage";
 import Favorites from "./pages/Favorites";
 import Orders from "./pages/Orders";
 import Order from "./pages/Order";
+import ProductPage from "./pages/ProductPage";
 
 export default function RouterWrapper() {
   const navigate = useNavigate();
@@ -27,7 +27,7 @@ export default function RouterWrapper() {
         <Route path="/" element={<App />} />
         <Route path="/about" element={<About />} />
         <Route path="/catalog" element={<Catalog />} />
-        <Route path="/product" element={<Product />} />
+        <Route path="/product" element={<ProductPage />} />
         <Route path="/user" element={<UserPage />} />
         <Route path="/favorites" element={<Favorites />} />
         <Route path="/orders" element={<Orders />} />
