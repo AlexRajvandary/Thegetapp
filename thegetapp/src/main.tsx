@@ -12,21 +12,20 @@ import { closingBehavior, swipeBehavior, viewport } from '@telegram-apps/sdk';
 
 
 
-// Initialize the package telegram-apps.
-init();
 
-backButton.mount();
-
-if (closingBehavior.mount.isAvailable()) {
-  closingBehavior.mount();
-}
-
-if (swipeBehavior.mount.isAvailable()) {
-  swipeBehavior.mount();
-}
 
 async function initTg() {
         init();
+
+      backButton.mount();
+
+    if (closingBehavior.mount.isAvailable()) {
+      closingBehavior.mount();
+    }
+
+    if (swipeBehavior.mount.isAvailable()) {
+      swipeBehavior.mount();
+    }
 
         if (viewport.mount.isAvailable()) {
           await viewport.mount();
@@ -37,8 +36,10 @@ async function initTg() {
           await viewport.requestFullscreen();
         }
       }
+    if(import.meta.env.MODE === "development"){
+      initTg();
+    }
     
-    initTg();
 
 
 createRoot(document.getElementById('root')!).render(

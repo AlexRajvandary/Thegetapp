@@ -1,24 +1,58 @@
 
 import ImageGallery from "../components/ImageGallery";
 import { Button } from "@heroui/react";
-import { useLocation } from "react-router-dom";
-
-import React from "react";
+import React, { useEffect } from "react";
 import { HeartIcon, BookmarkIcon } from "lucide-react";
+import type { Product } from "../components/Product";
+import { useNavigate } from "react-router-dom";
+import { backButton } from "@telegram-apps/sdk-react";
 
 
 const sizes = ["XS", "S", "M", "L", "XL"];
 const colors = ["Black", "White", "Blue", "Red"];
 
+const exampleProduct: Product = {
+  imageSrc: "https://media-assets.grailed.com/prd/listing/temp/e8efcd3b5d0b49909fffd2c1cbc42ab0?w=800",
+  imageSrces: [
+    "https://media-assets.grailed.com/prd/listing/temp/b8427be4143c4ce4b06150d9192e1f92?w=800",
+    "https://media-assets.grailed.com/prd/listing/temp/776526df19b641a3ad40f99a78b58986?w=800",
+    "https://media-assets.grailed.com/prd/listing/temp/960958b1240a48ed8fecc220b32cfd4d?w=800",
+     "https://media-assets.grailed.com/prd/listing/temp/b8427be4143c4ce4b06150d9192e1f92?w=800",
+    "https://media-assets.grailed.com/prd/listing/temp/776526df19b641a3ad40f99a78b58986?w=800",
+    "https://media-assets.grailed.com/prd/listing/temp/960958b1240a48ed8fecc220b32cfd4d?w=800",
+     "https://media-assets.grailed.com/prd/listing/temp/b8427be4143c4ce4b06150d9192e1f92?w=800",
+    "https://media-assets.grailed.com/prd/listing/temp/776526df19b641a3ad40f99a78b58986?w=800",
+    "https://media-assets.grailed.com/prd/listing/temp/960958b1240a48ed8fecc220b32cfd4d?w=800"
+  ],
+  title: "Air Jordan 4 Retro 'Red Cement'",
+  label: "Limited Edition",
+  category: "Bag",
+  price: "$4999.99",
+  href: "/products/air-jordan-4-red-cement"
+};
+
+
 export default function ProductPage() {
   const [liked, setLiked] = React.useState(false);
   const [saved, setSaved] = React.useState(false);
-  const location = useLocation();
-  const product = location.state?.product;
-  if (!product) return <p>Продукт не найден</p>;
 
   const [selectedSize, setSelectedSize] = React.useState<string | null>(null);
   const [selectedColor, setSelectedColor] = React.useState<string | null>(null);
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (backButton.mount.isAvailable()) backButton.mount();
+    if (backButton.show.isAvailable()) backButton.show();
+
+    const handler = () => navigate(-1);
+    if (backButton.onClick.isAvailable()) backButton.onClick(handler);
+
+    return () => {
+      backButton.offClick(handler);
+      if (backButton.hide.isAvailable()) backButton.hide();
+    };
+  }, [navigate]);
 
   const handleAddToCart = () => {
     if (!selectedSize || !selectedColor) {
@@ -33,7 +67,7 @@ export default function ProductPage() {
     <div className="px-4 md:px-[140px]">
       <div className="flex flex-col md:flex-row py-8 gap-6 md:gap-12">
         <div className="w-full md:w-[60%]">
-          <ImageGallery images={product.imageSrces} />
+          <ImageGallery images={exampleProduct.imageSrces} />
         </div>
 
         <div className="w-full md:w-[30%] flex flex-col justify-start">

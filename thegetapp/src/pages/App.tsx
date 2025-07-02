@@ -312,7 +312,7 @@ const products = [
       <div className={`grid ${singleColumn ? "grid-cols-1" : "grid-cols-2"} gap-[5px] px-2`}>
         {products.map((product) => (
           <Link
-  to="/product/123"
+  to="/product"
   state={{ product }}
 > <ProductCardMobile
             key={product.href}
