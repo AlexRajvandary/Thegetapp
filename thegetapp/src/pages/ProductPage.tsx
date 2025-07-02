@@ -42,7 +42,9 @@ export default function ProductPage() {
   const navigate = useNavigate();
 
   useEffect(() => {
+    console.log(backButton.mount.isAvailable());
     if (backButton.mount.isAvailable()) backButton.mount();
+     console.log(backButton.show.isAvailable());
     if (backButton.show.isAvailable()) backButton.show();
 
     const handler = () => navigate(-1);
