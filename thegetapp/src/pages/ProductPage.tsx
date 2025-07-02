@@ -53,7 +53,10 @@ export default function ProductPage() {
     if (backButton.onClick.isAvailable()) backButton.onClick(handler);
 
     return () => {
-      backButton.offClick(handler);
+      if(backButton.offClick.isAvailable()){
+        backButton.offClick(handler);
+      }
+      
       if (backButton.hide.isAvailable()) backButton.hide();
     };
   }, [navigate]);
@@ -74,6 +77,30 @@ export default function ProductPage() {
           <ImageGallery images={exampleProduct.imageSrces} />
         </div>
 
+        <div className="flex items-center justify-between w-full mb-6">
+           <p className="text-2xl text-black font-bold text-end">$129.99</p>
+            <div className="flex items-center gap-2">
+               
+              <Button isIconOnly aria-label="Like" variant="light" onPress={() => setLiked(!liked)}>
+                <HeartIcon
+                  fill={liked ? "red" : "none"}
+                  stroke={liked ? "red" : "black"}
+                  size={25}
+                  strokeWidth={1}
+                />
+              </Button>
+              <Button isIconOnly aria-label="Save" variant="light" onPress={() => setSaved(!saved)}>
+                <BookmarkIcon
+                  fill={saved ? "black" : "none"}
+                  stroke="black"
+                  size={25}
+                  strokeWidth={1}
+                />
+              </Button>
+            </div>
+          
+          </div>
+
         <div className="w-full md:w-[30%] flex flex-col justify-start">
           <h1 className="text-lg md:text-[18px] font-bold mb-4">Tee × Tee Shirt × Vintage</h1>
           <p className="text-sm md:text-[14px] font-medium mb-2">Категория: Women sneakers</p>
@@ -84,25 +111,7 @@ export default function ProductPage() {
             Yugioh Tee Shirt Vintage 90s Y2k Joey Wheeler Blue Eyes White Dragon Longsleeve Shirt Size S/XS
           </p>
 
-          <div className="flex items-center justify-between w-full mb-6">
-            <div className="flex items-center gap-2">
-              <Button isIconOnly aria-label="Like" variant="light" onPress={() => setLiked(!liked)}>
-                <HeartIcon
-                  fill={liked ? "red" : "none"}
-                  stroke={liked ? "red" : "black"}
-                  size={25}
-                />
-              </Button>
-              <Button isIconOnly aria-label="Save" variant="light" onPress={() => setSaved(!saved)}>
-                <BookmarkIcon
-                  fill={saved ? "black" : "none"}
-                  stroke="black"
-                  size={25}
-                />
-              </Button>
-            </div>
-            <p className="text-2xl text-black font-bold text-end">$129.99</p>
-          </div>
+          
 
           {/* Размер */}
           <div className="mb-4">
