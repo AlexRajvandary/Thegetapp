@@ -4,11 +4,10 @@ import { Button } from "@heroui/react";
 import React from "react";
 import { HeartIcon, BookmarkIcon } from "lucide-react";
 import type { Product } from "../components/Product";
-/*
 import { useNavigate } from "react-router-dom";
 import { backButton } from "@telegram-apps/sdk-react";
 import { useEffect } from "react";
-*/
+
 
 const sizes = ["XS", "S", "M", "L", "XL"];
 const colors = ["Black", "White", "Blue", "Red"];
@@ -40,7 +39,7 @@ export default function ProductPage() {
 
   const [selectedSize, setSelectedSize] = React.useState<string | null>(null);
   const [selectedColor, setSelectedColor] = React.useState<string | null>(null);
-/*
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -57,7 +56,7 @@ export default function ProductPage() {
       if (backButton.hide.isAvailable()) backButton.hide();
     };
   }, [navigate]);
-*/
+
   const handleAddToCart = () => {
     if (!selectedSize || !selectedColor) {
       alert("Please select size and color");

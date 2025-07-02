@@ -7,12 +7,7 @@ import RouterWrapper from './RouterWrapper.jsx';
 
 import './index.css'
 import { AuthProvider } from './components/AuthContext.js';
-import { init, backButton } from '@telegram-apps/sdk-react';
-import { closingBehavior, swipeBehavior, viewport } from '@telegram-apps/sdk';
-
-
-
-
+import { init, backButton, closingBehavior, swipeBehavior, viewport } from '@telegram-apps/sdk-react';
 
 async function initTg() {
         init();
@@ -36,7 +31,7 @@ async function initTg() {
           await viewport.requestFullscreen();
         }
       }
-    if(import.meta.env.MODE === "development"){
+    if(import.meta.env.MODE === "production"){
       initTg();
     }
     
