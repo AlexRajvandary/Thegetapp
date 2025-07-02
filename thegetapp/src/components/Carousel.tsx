@@ -6,14 +6,15 @@ import "../index.css"; // Для точек и оформления
 interface CarouselProps {
   items: React.ReactNode[]; // список карточек
   visibleSlides?: number;   // сколько видно сразу
+  mode?: "free" | "snap" | "free-snap" | undefined;
 }
 
-export default function Carousel({ items, visibleSlides = 3 }: CarouselProps) {
+export default function Carousel({ items, visibleSlides = 3, mode = "free" }: CarouselProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [loaded, setLoaded] = useState(false);
 
   const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
-    mode: "free",
+    mode: mode,
     slides: {
       perView: visibleSlides,
       spacing: 10,
