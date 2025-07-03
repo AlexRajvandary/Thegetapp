@@ -3,7 +3,7 @@ import React from "react";
 import { HeartIcon, BookmarkIcon } from "lucide-react";
 import type { Product } from "../components/Product";
 import { useNavigate } from "react-router-dom";
-import { backButton, mainButton, miniApp } from "@telegram-apps/sdk-react";
+import { backButton, mainButton, miniApp, openTelegramLink } from "@telegram-apps/sdk-react";
 import { useEffect } from "react";
 import CountryFlag from "../components/CountryFlag";
 import ImageGallery from "../components/ImageGallery";
@@ -188,7 +188,12 @@ mainButton.setParams({
 
   {/* Кнопка */}
   <a
-    href="https://web.telegram.org/k/#@getmvp"
+    onClick={()=>{
+      if (openTelegramLink.isAvailable()) {
+        openTelegramLink('https://web.telegram.org/k/#@getmvp');
+      }
+
+    }}
     target="_blank"
     rel="noopener noreferrer"
     className="shrink-0"
