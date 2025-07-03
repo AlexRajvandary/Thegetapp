@@ -3,7 +3,7 @@ import React from "react";
 import { HeartIcon, BookmarkIcon } from "lucide-react";
 import type { Product } from "../components/Product";
 import { useNavigate } from "react-router-dom";
-import { backButton, mainButton } from "@telegram-apps/sdk-react";
+import { backButton, mainButton, miniApp } from "@telegram-apps/sdk-react";
 import { useEffect } from "react";
 import CountryFlag from "../components/CountryFlag";
 import CarouselDefault from "../components/CarouselDefault";
@@ -44,9 +44,11 @@ export default function ProductPage() {
     if (backButton.show.isAvailable()) backButton.show();
 
     if(mainButton.mount.isAvailable()) {mainButton.mount();
+      miniApp.setBottomBarColor("#FFFFFF");
 mainButton.setParams({
   isVisible: true,
-  text: "Оформить",
+  text: "Добавить в корзину",
+  backgroundColor: "#000000"
 });
     }
       const handler = () => {
