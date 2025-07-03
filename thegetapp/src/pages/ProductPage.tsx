@@ -188,17 +188,17 @@ mainButton.setParams({
 
   {/* Кнопка */}
   <a
-    onClick={()=>{
-      if (openTelegramLink.isAvailable()) {
-        openTelegramLink('https://web.telegram.org/k/#@getmvp');
-      }
-
-    }}
     target="_blank"
     rel="noopener noreferrer"
     className="shrink-0"
   >
     <Button
+    onPress={()=>{
+      if (openTelegramLink.isAvailable()) {
+        openTelegramLink('https://web.telegram.org/k/#@getmvp');
+      }
+
+    }}
     radius="full"
       endContent={
         <Avatar
