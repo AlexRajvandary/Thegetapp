@@ -167,22 +167,22 @@ mainButton.setParams({
 </Button>
               ))}
             </div>
-           <div className="bg-gray-200 my-4 p-4 rounded-md text-left font-thin space-y-3">
+           <div className="bg-gray-100 my-4 p-4 rounded-md text-left font-thin space-y-3">
   <p>
     Другие размеры и цвета — под заказ.
    <span className="inline-flex items-center gap-2">
       Напишите нам, чтобы узнать подробности.
       <br/>Также доставляем любые товары из-за рубежа:
     </span>
-<div className="flex items-center justify-between flex-wrap mt-2">
+<div className="flex items-center justify-between flex-wrap mt-3">
   {/* Флаги */}
   <div className="flex items-center gap-2 flex-wrap">
-    <Avatar isBordered size="sm" src="https://flagcdn.com/w40/us.png" />
-    <Avatar isBordered size="sm" src="https://flagcdn.com/w40/eu.png" />
-    <Avatar isBordered size="sm" src="https://flagcdn.com/w40/gb.png" />
-    <Avatar isBordered size="sm" src="https://flagcdn.com/w40/de.png" />
-    <Avatar isBordered size="sm" src="https://flagcdn.com/w40/it.png" />
-    <Avatar isBordered size="sm" src="https://flagcdn.com/w40/jp.png" />
+    <Avatar isBordered className="w-6 h-6" src="https://flagcdn.com/w40/us.png" />
+    <Avatar isBordered className="w-6 h-6" src="https://flagcdn.com/w40/eu.png" />
+    <Avatar isBordered className="w-6 h-6" src="https://flagcdn.com/w40/gb.png" />
+    <Avatar isBordered className="w-6 h-6" src="https://flagcdn.com/w40/de.png" />
+    <Avatar isBordered className="w-6 h-6" src="https://flagcdn.com/w40/it.png" />
+    <Avatar isBordered className="w-6 h-6" src="https://flagcdn.com/w40/jp.png" />
   </div>
 
   {/* Кнопка */}
@@ -193,14 +193,16 @@ mainButton.setParams({
     className="shrink-0"
   >
     <Button
-      startContent={
+    radius="full"
+      endContent={
         <Avatar
+          isBordered
           src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg"
           alt="Telegram"
-          className="w-5 h-5"
+          className="w-6 h-6"
         />
       }
-      className="text-sm px-4 py-1"
+      className="text-sm px-4 py-1 bg-gradient-to-r from-gray-100 to-white shadow-md"
     >
       Написать
     </Button>
