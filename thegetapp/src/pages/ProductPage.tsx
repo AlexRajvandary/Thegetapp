@@ -111,9 +111,7 @@ mainButton.setParams({
           
 
         <div className="w-full md:w-[30%] flex flex-col justify-start mx-[10px]">
-          <h1 className="text-lg md:text-[15px] my-2 font-semibold">Футболка Nike Shine</h1>
-         
-                 <p className="text-[18px] leading-[130%] tracking-[-0.01em]">$129.99</p>
+          <h1 className="text-[23px] md:text-[27px] my-2 font-bold">Футболка Nike Shine</h1>
                      <div className="flex items-center gap-2 my-[10px]">
             <Chip variant="bordered" radius="sm" size="md"
                    classNames={{
@@ -126,6 +124,11 @@ mainButton.setParams({
                     content: "font-thin",
                 }}>Adidas</Chip>
             <CountryFlag countryKey="gb" />
+              <Chip variant="bordered" radius="sm" size="md"
+                   classNames={{
+                    base: " border-thin",
+                    content: "font-thin",
+                }}>Оригинал</Chip>
            
           </div>
                  <div className="bg-gray-200 rounded-md mr-4 mb-[10px] p-4">
@@ -209,7 +212,7 @@ mainButton.setParams({
           className="w-6 h-6"
         />
       }
-      className="text-sm px-4 py-1 bg-white shadow-md"
+      className="text-sm pl-4 pr-2 py-1 bg-white shadow-md"
     >
       Написать
     </Button>
