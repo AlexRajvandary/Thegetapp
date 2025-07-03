@@ -1,6 +1,6 @@
 import { Avatar, Button, Chip } from "@heroui/react";
 import React from "react";
-import { HeartIcon, BookmarkIcon, Share } from "lucide-react";
+import { HeartIcon, BookmarkIcon, Share, ShieldCheck } from "lucide-react";
 import type { Product } from "../components/Product";
 import { useNavigate } from "react-router-dom";
 import { backButton, hapticFeedback, mainButton, miniApp, openTelegramLink } from "@telegram-apps/sdk-react";
@@ -113,18 +113,14 @@ mainButton.setParams({
         <div className="w-full md:w-[30%] flex flex-col justify-start mx-[10px]">
           <h1 className="text-[23px] md:text-[27px] my-2 font-bold">Футболка Nike Shine</h1>
                      <div className="flex items-center gap-2 my-[10px]">
-            <Chip variant="bordered" radius="sm" size="md"
-                   classNames={{
-                    base: " border-thin",
-                    content: "font-thin",
-                }}>Sneakers</Chip>
+            
            <Chip variant="bordered" radius="sm" size="md"
                    classNames={{
                     base: " border-thin",
                     content: "font-thin",
                 }}>Adidas</Chip>
             <CountryFlag countryKey="gb" />
-              <Chip variant="bordered" radius="sm" size="md"
+              <Chip variant="bordered" radius="sm" size="md" startContent={<ShieldCheck strokeWidth={1}/>}
                    classNames={{
                     base: " border-thin",
                     content: "font-thin",
