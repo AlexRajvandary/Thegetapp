@@ -70,15 +70,17 @@ export default function ProductPage() {
   };
 
   return (
-    <div className="px-2 pt-[100px] md:px-[140px]">
-      <div className="flex flex-col md:flex-row py-8 gap-4 md:gap-12">
-        <div className="w-full md:w-[60%]">
+    <>
+       <div className="w-full md:w-[60%]">
           <CarouselDefault visibleSlides={1} items={exampleProduct.imageSrces.map(imageSrc =>  
             <img src={imageSrc}
                  alt={exampleProduct.title}
                  loading="lazy"
               />)}/>
         </div>
+    <div className="px-2 md:px-[140px]">
+      <div className="flex flex-col md:flex-row py-8 gap-4 md:gap-12">
+     
 
         <div className="flex items-center justify-between w-full mb-2">
            <p className="font-bold text-[24px] py-[5px] leading-[130%] tracking-[-0.01em]">$129.99</p>
@@ -170,5 +172,6 @@ export default function ProductPage() {
         </div>
       </div>
     </div>
+    </>
   );
 }

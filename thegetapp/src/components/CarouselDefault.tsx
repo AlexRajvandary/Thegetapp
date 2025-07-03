@@ -15,7 +15,7 @@ export default function CarouselDefault({ items, visibleSlides = 3 }: CarouselPr
   const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
     slides: {
       perView: visibleSlides,
-      spacing: 10,
+      spacing: 0,
     },
     initial: 0,
     slideChanged(slider) {
