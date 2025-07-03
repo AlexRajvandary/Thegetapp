@@ -20,11 +20,11 @@ export default function SubscriptionCardMobile({
     return(
         <Card key={href}
             isPressable
-            className="shadow-none ml-[30px] flex flex-col rounded bg-transparent">
+            className="shadow-none ml-[30px] flex flex-col rounded-xl bg-transparent">
     <img
     src={imageSrc}
     alt={title}
-      className="w-full object-cover rounded h-[90px]"
+      className="w-full object-cover rounded h-[80px]"
   />
 </Card>
 
