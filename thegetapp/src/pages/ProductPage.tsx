@@ -103,10 +103,10 @@ mainButton.setParams({
           
 
         <div className="w-full md:w-[30%] flex flex-col justify-start mx-[10px]">
-          <h1 className="text-lg md:text-[15px] mb-4 font-semibold">Футболка Nike Shine</h1>
+          <h1 className="text-lg md:text-[15px] my-2 font-semibold">Футболка Nike Shine</h1>
          
-                 <p className="text-[18px] py-[5px] leading-[130%] tracking-[-0.01em]">$129.99</p>
-                  <div className="flex items-center gap-2 my-2">
+                 <p className="text-[18px] leading-[130%] tracking-[-0.01em]">$129.99</p>
+                     <div className="flex items-center gap-2 my-4">
             <Chip variant="bordered" size="sm"
                    classNames={{
                     base: " border-thin",
@@ -120,11 +120,9 @@ mainButton.setParams({
             <CountryFlag countryKey="gb" />
            
           </div>
-          <p className="text-sm md:text-[14px] font-thin mb-4">
-            Yugioh Tee Shirt Vintage 90s Y2k Joey Wheeler Blue Eyes White Dragon Longsleeve Shirt Size S/XS
-          </p>
-
-          {/* Размер */}
+                 <div className="bg-gray-100 rounded-md mr-4 mb-[10px] p-4">
+                
+          
           <div className="mb-4">
            
             <div className="flex flex-wrap gap-2">
@@ -142,10 +140,7 @@ mainButton.setParams({
             </div>
           </div>
 
-          {/* Цвет */}
-          <div className="mb-4">
-           
-            <div className="flex gap-2">
+           <div className="flex gap-2">
   {colors.map((color) => {
     const isSelected = selectedColor === color;
     return (
@@ -159,7 +154,16 @@ mainButton.setParams({
     );
   })}
 </div>
-           <div className="bg-gray-100 my-4 p-4 rounded-md text-jusify font-thin text-sm md:text-[14px] space-y-3">
+                 </div>
+                  
+
+        
+
+          
+          <div className="mb-4">
+           
+           
+           <div className="bg-gray-100 mr-4 p-4 rounded-md text-jusify font-thin text-sm md:text-[14px] space-y-3">
   <p>
     Другие размеры и цвета — под заказ.
    <span className="inline-flex items-center text-justify gap-2">
@@ -209,7 +213,7 @@ mainButton.setParams({
   </p>
 
  
-</div>
+            </div>
 
           </div>
         </div>
