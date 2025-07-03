@@ -136,8 +136,8 @@ mainButton.setParams({
                   key={size}
                   size="sm"
                   variant={selectedSize === size ? "solid" : "ghost"}
-                  color={selectedSize === size ? "primary" : "default"}
-                  className="rounded-md border-gray-200"
+                  className={`rounded-md capitalize flex items-center gap-2 border border-gray-200 transition
+                            ${selectedSize === size ? "bg-gray-500 text-white" : "bg-transparent text-black"}`}
                   onPress={() => setSelectedSize(size)}
                 >
                   {size}
@@ -152,19 +152,20 @@ mainButton.setParams({
             <div className="flex flex-wrap gap-2">
               {colors.map((color) => (
                 <Button
-  key={color}
-  size="sm"
-  variant={selectedColor === color ? "solid" : "ghost"}
-  color={selectedColor === color ? "primary" : "default"}
-  className="rounded-md capitalize flex items-center gap-2 border-gray-200"
-  onPress={() => setSelectedColor(color)}
->
-  <span
-    className="w-4 h-4 rounded-full border border-gray-300"
-    style={{ backgroundColor: color.toLowerCase() }}
-  ></span>
-  {color}
-</Button>
+      key={color}
+      size="sm"
+      variant={selectedColor === color ? "solid" : "ghost"}
+      className={`rounded-md capitalize flex items-center gap-2 border border-gray-200 transition
+        ${selectedColor === color ? "bg-gray-500 text-white" : "bg-transparent text-black"}
+      `}
+      onPress={() => setSelectedColor(color)}
+    >
+      <span
+        className="w-4 h-4 rounded-full border border-gray-300"
+        style={{ backgroundColor: color.toLowerCase() }}
+      />
+      {color}
+    </Button>
               ))}
             </div>
            <div className="bg-gray-100 my-4 p-4 rounded-md text-left font-thin space-y-3">
