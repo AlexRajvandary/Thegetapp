@@ -46,6 +46,10 @@ export default function CountryFlag({ countryKey }: Props) {
 
   return (
     <Chip variant="faded"
+     classNames={{
+                    base: "bg-black bg-opacity-60 border-small border-black/30 shadow-pink-500/30",
+                    content: "drop-shadow shadow-black text-white",
+                }}
       startContent={
         <Avatar
           alt={country.label}

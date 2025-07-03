@@ -108,10 +108,18 @@ mainButton.setParams({
           </div>
 
         <div className="w-full md:w-[30%] flex flex-col justify-start">
-          <h1 className="text-lg md:text-[18px] font-bold mb-4">Tee × Tee Shirt × Vintage</h1>
+          <h1 className="text-lg md:text-[18px] mb-4">Футболка Nike Shine</h1>
           <div className="flex items-center gap-2">
-            <Chip variant="faded">Sneakers</Chip>
-            <Chip variant="faded">Adidas</Chip>
+            <Chip variant="faded" 
+                   classNames={{
+                    base: "bg-black bg-opacity-60 border-small border-black/30 shadow-pink-500/30",
+                    content: "drop-shadow shadow-black text-white",
+                }}>Sneakers</Chip>
+            <Chip variant="faded"
+            classNames={{
+                    base: "bg-black bg-opacity-60 border-small border-black/30 shadow-pink-500/30",
+                    content: "drop-shadow shadow-black text-white",
+                }}>Adidas</Chip>
             <CountryFlag countryKey="gb" />
           </div>
 
@@ -121,7 +129,7 @@ mainButton.setParams({
 
           {/* Размер */}
           <div className="mb-4">
-            <p className="font-semibold mb-2">Выберите размер:</p>
+            <p className="font-thin mb-2">Размер:</p>
             <div className="flex flex-wrap gap-2">
               {sizes.map((size) => (
                 <Button
@@ -129,7 +137,7 @@ mainButton.setParams({
                   size="sm"
                   variant={selectedSize === size ? "solid" : "ghost"}
                   color={selectedSize === size ? "primary" : "default"}
-                  className="rounded-md"
+                  className="rounded-md border-gray-200"
                   onPress={() => setSelectedSize(size)}
                 >
                   {size}
@@ -140,7 +148,7 @@ mainButton.setParams({
 
           {/* Цвет */}
           <div className="mb-4">
-            <p className="font-semibold mb-2">Выберите цвет:</p>
+            <p className="font-thin mb-2">Цвет:</p>
             <div className="flex flex-wrap gap-2">
               {colors.map((color) => (
                 <Button
@@ -148,7 +156,7 @@ mainButton.setParams({
   size="sm"
   variant={selectedColor === color ? "solid" : "ghost"}
   color={selectedColor === color ? "primary" : "default"}
-  className="rounded-md capitalize flex items-center gap-2"
+  className="rounded-md capitalize flex items-center gap-2 border-gray-200"
   onPress={() => setSelectedColor(color)}
 >
   <span
@@ -158,6 +166,14 @@ mainButton.setParams({
   {color}
 </Button>
               ))}
+            </div>
+            <div className="bg-gray-200 my-4 p-4 rounded-md text-left font-thin">
+              Другие размеры и цвета— под заказ.
+⚡️Напишите нам, чтобы узнать подробности.
+
+Так же, доставляем любые товары из-за рубежа.
+Америка, Европа, Англия и другие страны.
+👉 Нажмите, чтобы уточнить подробности.
             </div>
           </div>
         </div>
