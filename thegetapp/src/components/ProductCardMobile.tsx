@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ShoppingCart } from "lucide-react";
 import type { Product } from "./Product";
+import { hapticFeedback } from "@telegram-apps/sdk-react";
 
 type ProductCardProps = {
   product: Product;
@@ -46,7 +47,12 @@ export default function ProductCardMobile({
           {isLoading ? <Skeleton className="w-1/3 h-[10px]" /> : product.label}
         </span>
 
-          <button onClick={() => !isLoading && setLiked(!liked)} disabled={isLoading}>
+          <button  onClick={() => {
+    if (!isLoading) {
+      hapticFeedback?.impactOccurred?.("medium");
+      setLiked(!liked);
+    }
+  }} disabled={isLoading}>
             {isLoading ? (
               <Skeleton className="h-[22px] w-[22px] rounded-full" />
             ) : (

@@ -3,7 +3,7 @@ import React from "react";
 import { HeartIcon, BookmarkIcon, Share } from "lucide-react";
 import type { Product } from "../components/Product";
 import { useNavigate } from "react-router-dom";
-import { backButton, mainButton, miniApp, openTelegramLink, hapticFeedback } from "@telegram-apps/sdk-react";
+import { backButton, hapticFeedback, mainButton, miniApp, openTelegramLink } from "@telegram-apps/sdk-react";
 import { useEffect } from "react";
 import CountryFlag from "../components/CountryFlag";
 import ImageGallery from "../components/ImageGallery";
