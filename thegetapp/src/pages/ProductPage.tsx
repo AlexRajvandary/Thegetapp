@@ -196,6 +196,7 @@ mainButton.setParams({
     onPress={()=>{
       if (openTelegramLink.isAvailable()) {
         openTelegramLink('https://web.telegram.org/k/#@getmvp');
+        console.log("button link pressed")
       }
 
     }}
