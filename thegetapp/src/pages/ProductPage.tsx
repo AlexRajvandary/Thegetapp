@@ -144,25 +144,22 @@ mainButton.setParams({
   {colors.map((color) => {
     const isSelected = selectedColor === color;
     return (
-      <div
+      <Avatar
+      isBordered
+      size="sm"
+      fallback={<div className="w-full h-full bg-red-500 rounded-full" />} 
         key={color}
         onClick={() => setSelectedColor(color)}
-        className={`w-[30px] h-[30px] rounded-full cursor-pointer border-2 transition
-          ${isSelected ? "border-blue-500" : "border-gray-300"}`}
+       color = {isSelected ? "success" : "default"}
         style={{ backgroundColor: color.toLowerCase() }}
+        className="m-1"
       />
     );
   })}
 </div>
                  </div>
                   
-
-        
-
-          
           <div className="mb-4">
-           
-           
            <div className="bg-gray-100 mr-4 p-4 rounded-md text-jusify font-thin text-sm md:text-[14px] space-y-3">
   <p>
     Другие размеры и цвета — под заказ.
