@@ -1,4 +1,4 @@
-import { useState, useEffect, type MutableRefObject } from "react";
+import { type MutableRefObject } from "react";
 import { useKeenSlider } from "keen-slider/react";
 import type { KeenSliderPlugin, KeenSliderInstance } from "keen-slider";
 import "keen-slider/keen-slider.min.css";

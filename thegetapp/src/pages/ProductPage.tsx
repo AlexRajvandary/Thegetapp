@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 import { backButton, mainButton, miniApp } from "@telegram-apps/sdk-react";
 import { useEffect } from "react";
 import CountryFlag from "../components/CountryFlag";
-import CarouselDefault from "../components/CarouselDefault";
 import ImageGallery from "../components/ImageGallery";
 
 
@@ -78,7 +77,6 @@ mainButton.setParams({
   return (
     <>
        <div className="w-full mt-[100px] md:w-[60%]">
-         
           <ImageGallery images={exampleProduct.imageSrces}/>
         </div>
     <div className="px-2 md:px-[140px]">
