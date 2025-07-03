@@ -1,4 +1,4 @@
-import { Button, Chip } from "@heroui/react";
+import { Avatar, Button, Chip } from "@heroui/react";
 import React from "react";
 import { HeartIcon, BookmarkIcon } from "lucide-react";
 import type { Product } from "../components/Product";
@@ -84,7 +84,7 @@ mainButton.setParams({
      
 
         <div className="flex items-center justify-between w-full mb-2">
-           <p className="font-bold text-[24px] py-[5px] leading-[130%] tracking-[-0.01em]">$129.99</p>
+           <p className="text-[24px] py-[5px] leading-[130%] tracking-[-0.01em]">$129.99</p>
             <div className="flex items-center gap-2">
                
               <Button isIconOnly aria-label="Like" variant="light" onPress={() => setLiked(!liked)}>
@@ -112,13 +112,13 @@ mainButton.setParams({
           <div className="flex items-center gap-2">
             <Chip variant="faded" 
                    classNames={{
-                    base: "bg-black bg-opacity-60 border-small border-black/30 shadow-pink-500/30",
-                    content: "drop-shadow shadow-black text-white",
+                    base: "bg-gray-200 border-thin",
+                    content: "font-thin",
                 }}>Sneakers</Chip>
             <Chip variant="faded"
             classNames={{
-                    base: "bg-black bg-opacity-60 border-small border-black/30 shadow-pink-500/30",
-                    content: "drop-shadow shadow-black text-white",
+                    base: "bg-gray-200 border-thin",
+                    content: "font-thin",
                 }}>Adidas</Chip>
             <CountryFlag countryKey="gb" />
           </div>
@@ -167,14 +167,50 @@ mainButton.setParams({
 </Button>
               ))}
             </div>
-            <div className="bg-gray-200 my-4 p-4 rounded-md text-left font-thin">
-              Другие размеры и цвета— под заказ.
-⚡️Напишите нам, чтобы узнать подробности.
+           <div className="bg-gray-200 my-4 p-4 rounded-md text-left font-thin space-y-3">
+  <p>
+    Другие размеры и цвета — под заказ.
+   <span className="inline-flex items-center gap-2">
+      Напишите нам, чтобы узнать подробности.
+      <br/>Также доставляем любые товары из-за рубежа:
+    </span>
+<div className="flex items-center justify-between flex-wrap mt-2">
+  {/* Флаги */}
+  <div className="flex items-center gap-2 flex-wrap">
+    <Avatar isBordered size="sm" src="https://flagcdn.com/w40/us.png" />
+    <Avatar isBordered size="sm" src="https://flagcdn.com/w40/eu.png" />
+    <Avatar isBordered size="sm" src="https://flagcdn.com/w40/gb.png" />
+    <Avatar isBordered size="sm" src="https://flagcdn.com/w40/de.png" />
+    <Avatar isBordered size="sm" src="https://flagcdn.com/w40/it.png" />
+    <Avatar isBordered size="sm" src="https://flagcdn.com/w40/jp.png" />
+  </div>
 
-Так же, доставляем любые товары из-за рубежа.
-Америка, Европа, Англия и другие страны.
-👉 Нажмите, чтобы уточнить подробности.
-            </div>
+  {/* Кнопка */}
+  <a
+    href="https://web.telegram.org/k/#@getmvp"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="shrink-0"
+  >
+    <Button
+      startContent={
+        <Avatar
+          src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg"
+          alt="Telegram"
+          className="w-5 h-5"
+        />
+      }
+      className="text-sm px-4 py-1"
+    >
+      Написать
+    </Button>
+  </a>
+</div>
+  </p>
+
+ 
+</div>
+
           </div>
         </div>
       </div>
