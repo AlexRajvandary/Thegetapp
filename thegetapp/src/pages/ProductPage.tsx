@@ -3,7 +3,7 @@ import React from "react";
 import { HeartIcon, BookmarkIcon } from "lucide-react";
 import type { Product } from "../components/Product";
 import { useNavigate } from "react-router-dom";
-import { backButton } from "@telegram-apps/sdk-react";
+import { backButton, mainButton } from "@telegram-apps/sdk-react";
 import { useEffect } from "react";
 import CountryFlag from "../components/CountryFlag";
 import CarouselDefault from "../components/CarouselDefault";
@@ -43,9 +43,18 @@ export default function ProductPage() {
     if (backButton.mount.isAvailable()) backButton.mount();
     if (backButton.show.isAvailable()) backButton.show();
 
+    if(mainButton.mount.isAvailable()) {mainButton.mount();
+mainButton.setParams({
+  isVisible: true,
+  text: "Оформить",
+});
+    }
       const handler = () => {
         navigate(-1);
-    if (backButton.hide.isAvailable()) backButton.hide();
+    if (backButton.hide.isAvailable()){ 
+      backButton.hide();
+      mainButton.setParams({isVisible: false});
+    }
   };
     if (backButton.onClick.isAvailable()) backButton.onClick(handler);
 
@@ -54,7 +63,11 @@ export default function ProductPage() {
         backButton.offClick(handler);
       }
       
-      if (backButton.hide.isAvailable()) backButton.hide();
+      if (backButton.hide.isAvailable())
+        {
+           backButton.hide();
+            mainButton.setParams({isVisible: false});
+          }
     };
   }, [navigate]);
 
