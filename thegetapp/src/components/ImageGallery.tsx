@@ -51,7 +51,7 @@ export default function ImageGallery({ images }: Props) {
     initial: 0,
     slides: {
       perView: 1,
-      spacing: 200,
+      spacing: 0,
       origin: "center",
     },
   });
@@ -61,29 +61,14 @@ export default function ImageGallery({ images }: Props) {
       initial: 0,
       slides: {
         perView: 10,
-        spacing: 5,
+        spacing: 0,
       },
     },
     [ThumbnailPlugin(instanceRef)]
   );
 
-  const [modalIndex, setModalIndex] = useState<number | null>(null);
-
-  const openModal = (index: number) => setModalIndex(index);
-  const closeModal = () => setModalIndex(null);
-
-  // Закрытие по Escape
-  useEffect(() => {
-    const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") closeModal();
-    };
-    window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
-  }, []);
-
   return (
-    <div className="flex flex-col gap-4">
-      {/* Main gallery без стрелок */}
+    <div className="flex flex-col">
       <div className="relative flex items-center justify-center w-full">
         <div ref={sliderRef} className="keen-slider overflow-hidden w-full">
           {images.map((src, index) => (
@@ -95,7 +80,6 @@ export default function ImageGallery({ images }: Props) {
                 src={src}
                 alt={`Product ${index + 1}`}
                 className="max-w-full max-h-[700px] object-contain cursor-zoom-in"
-                onClick={() => openModal(index)}
                 loading="lazy"
               />
             </div>
@@ -113,40 +97,11 @@ export default function ImageGallery({ images }: Props) {
             <img
               src={src}
               alt={`Thumbnail ${index + 1}`}
-              className="w-full h-[30px] object-cover"
+              className="w-full h-[40px] object-cover"
             />
           </div>
         ))}
       </div>
-
-      {/* Modal без стрелок */}
-      {modalIndex !== null && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center"
-          onClick={closeModal}
-        >
-          <div
-            className="relative w-full max-w-screen-md px-8"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Крестик */}
-            <button
-              onClick={closeModal}
-              className="absolute top-[-25px] right-[-20px] text-white text-[40px] z-50 hover:scale-110 transition-transform"
-              aria-label="Close modal"
-            >
-              &times;
-            </button>
-
-            {/* Картинка */}
-            <img
-              src={images[modalIndex]}
-              alt="Full view"
-              className="max-h-[90vh] mx-auto object-contain"
-            />
-          </div>
-        </div>
-      )}
     </div>
   );
 }

@@ -7,6 +7,7 @@ import { backButton, mainButton, miniApp } from "@telegram-apps/sdk-react";
 import { useEffect } from "react";
 import CountryFlag from "../components/CountryFlag";
 import CarouselDefault from "../components/CarouselDefault";
+import ImageGallery from "../components/ImageGallery";
 
 
 const sizes = ["XS", "S", "M", "L", "XL"];
@@ -77,11 +78,8 @@ mainButton.setParams({
   return (
     <>
        <div className="w-full mt-[100px] md:w-[60%]">
-          <CarouselDefault visibleSlides={1} items={exampleProduct.imageSrces.map(imageSrc =>  
-            <img src={imageSrc}
-                 alt={exampleProduct.title}
-                 loading="lazy"
-              />)}/>
+         
+          <ImageGallery images={exampleProduct.imageSrces}/>
         </div>
     <div className="px-2 md:px-[140px]">
       <div className="flex flex-col md:flex-row py-8 gap-4 md:gap-12">
