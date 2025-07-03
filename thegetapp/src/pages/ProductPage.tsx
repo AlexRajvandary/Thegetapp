@@ -13,17 +13,15 @@ const sizes = ["XS", "S", "M", "L", "XL"];
 const colors = ["Black", "White", "Blue", "Red"];
 
 const exampleProduct: Product = {
-  imageSrc: "https://media-assets.grailed.com/prd/listing/temp/e8efcd3b5d0b49909fffd2c1cbc42ab0?w=800",
+  imageSrc: "https://optim.tildacdn.com/stor3437-6166-4235-b766-356234326234/-/format/webp/40083269.jpg.webp",
   imageSrces: [
-    "https://media-assets.grailed.com/prd/listing/temp/b8427be4143c4ce4b06150d9192e1f92?w=800",
-    "https://media-assets.grailed.com/prd/listing/temp/776526df19b641a3ad40f99a78b58986?w=800",
-    "https://media-assets.grailed.com/prd/listing/temp/960958b1240a48ed8fecc220b32cfd4d?w=800",
-     "https://media-assets.grailed.com/prd/listing/temp/b8427be4143c4ce4b06150d9192e1f92?w=800",
-    "https://media-assets.grailed.com/prd/listing/temp/776526df19b641a3ad40f99a78b58986?w=800",
-    "https://media-assets.grailed.com/prd/listing/temp/960958b1240a48ed8fecc220b32cfd4d?w=800",
-     "https://media-assets.grailed.com/prd/listing/temp/b8427be4143c4ce4b06150d9192e1f92?w=800",
-    "https://media-assets.grailed.com/prd/listing/temp/776526df19b641a3ad40f99a78b58986?w=800",
-    "https://media-assets.grailed.com/prd/listing/temp/960958b1240a48ed8fecc220b32cfd4d?w=800"
+    "https://optim.tildacdn.com/stor3437-6166-4235-b766-356234326234/-/format/webp/40083269.jpg.webp",
+    "https://optim.tildacdn.com/stor3836-6331-4130-a664-623632643334/-/contain/830x830/center/center/-/format/webp/39386419.jpg.webp",
+    "https://optim.tildacdn.com/stor6663-6163-4633-a138-623262363535/-/contain/830x830/center/center/-/format/webp/76203654.jpg.webp",
+    "https://optim.tildacdn.com/stor3935-6538-4430-b238-396231373835/-/contain/830x830/center/center/-/format/webp/39685334.jpg.webp",
+    "https://optim.tildacdn.com/stor3031-6461-4035-b532-396332653039/-/contain/830x830/center/center/-/format/webp/37599655.jpg.webp",
+    "https://optim.tildacdn.com/stor6166-3737-4164-a463-393630353965/-/contain/830x830/center/center/-/format/webp/80671998.jpg.webp",
+    "https://optim.tildacdn.com/stor6461-6639-4565-b737-383234373764/-/format/webp/81286816.jpg.webp",
   ],
   title: "Air Jordan 4 Retro 'Red Cement'",
   label: "Limited Edition",
