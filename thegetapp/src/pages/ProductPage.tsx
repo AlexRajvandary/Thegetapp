@@ -202,7 +202,7 @@ mainButton.setParams({
           className="w-6 h-6"
         />
       }
-      className="text-sm px-4 py-1 bg-gradient-to-r from-gray-100 to-white shadow-md"
+      className="text-sm px-4 py-1 bg-white shadow-md"
     >
       Написать
     </Button>
