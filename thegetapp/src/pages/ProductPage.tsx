@@ -170,16 +170,6 @@ mainButton.setParams({
               ))}
             </div>
           </div>
-
-          {/* Кнопка Добавить в корзину */}
-          <Button
-            onPress={handleAddToCart}
-            color="success"
-            size="lg"
-            className="w-full bg-gradient-to-tr my-2 from-pink-500 to-yellow-500 text-white shadow-lg rounded-none"
-          >
-            Добавить в корзину
-          </Button>
         </div>
       </div>
     </div>
