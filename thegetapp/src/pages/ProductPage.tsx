@@ -76,7 +76,7 @@ mainButton.setParams({
 
   return (
     <>
-       <div className="w-full md:w-[60%]">
+       <div className="w-full mt-[100px] md:w-[60%]">
           <CarouselDefault visibleSlides={1} items={exampleProduct.imageSrces.map(imageSrc =>  
             <img src={imageSrc}
                  alt={exampleProduct.title}
