@@ -1,9 +1,9 @@
 import { Avatar, Button, Chip } from "@heroui/react";
 import React from "react";
-import { HeartIcon, BookmarkIcon } from "lucide-react";
+import { HeartIcon, BookmarkIcon, Share } from "lucide-react";
 import type { Product } from "../components/Product";
 import { useNavigate } from "react-router-dom";
-import { backButton, mainButton, miniApp, openTelegramLink } from "@telegram-apps/sdk-react";
+import { backButton, mainButton, miniApp, openTelegramLink, hapticFeedback } from "@telegram-apps/sdk-react";
 import { useEffect } from "react";
 import CountryFlag from "../components/CountryFlag";
 import ImageGallery from "../components/ImageGallery";
@@ -82,7 +82,12 @@ mainButton.setParams({
     <div className="px-2 md:px-[140px]">
       <div className="flex flex-col md:flex-row py-2 md:gap-12">
             <div className="flex items-center w-full gap-2">
-              <Button isIconOnly aria-label="Like" variant="light" onPress={() => setLiked(!liked)}>
+              <Button isIconOnly aria-label="Like" variant="light" onPress={() => 
+                {
+                  hapticFeedback.impactOccurred('medium');
+                  setLiked(!liked)
+                }
+              }>
                 <HeartIcon
                   fill={liked ? "red" : "none"}
                   stroke={liked ? "red" : "black"}
@@ -98,6 +103,9 @@ mainButton.setParams({
                   strokeWidth={1}
                 />
               </Button>
+              <Button isIconOnly aria-label="Share" variant="light">
+                <Share strokeWidth={1}/>
+              </Button>
             </div>
           
           
@@ -106,13 +114,13 @@ mainButton.setParams({
           <h1 className="text-lg md:text-[15px] my-2 font-semibold">Футболка Nike Shine</h1>
          
                  <p className="text-[18px] leading-[130%] tracking-[-0.01em]">$129.99</p>
-                     <div className="flex items-center gap-2 my-4">
-            <Chip variant="bordered" size="sm"
+                     <div className="flex items-center gap-2 my-[10px]">
+            <Chip variant="bordered" radius="sm" size="md"
                    classNames={{
                     base: " border-thin",
                     content: "font-thin",
                 }}>Sneakers</Chip>
-           <Chip variant="bordered" size="sm"
+           <Chip variant="bordered" radius="sm" size="md"
                    classNames={{
                     base: " border-thin",
                     content: "font-thin",
@@ -120,7 +128,7 @@ mainButton.setParams({
             <CountryFlag countryKey="gb" />
            
           </div>
-                 <div className="bg-gray-100 rounded-md mr-4 mb-[10px] p-4">
+                 <div className="bg-gray-200 rounded-md mr-4 mb-[10px] p-4">
                 
           
           <div className="mb-4">
@@ -160,7 +168,7 @@ mainButton.setParams({
                  </div>
                   
           <div className="mb-4">
-           <div className="bg-gray-100 mr-4 p-4 rounded-md text-jusify font-thin text-sm md:text-[14px] space-y-3">
+           <div className="bg-gray-200 mr-4 p-4 rounded-md text-jusify font-thin text-sm md:text-[14px] space-y-3">
   <p>
     Другие размеры и цвета — под заказ.
    <span className="inline-flex items-center text-justify gap-2">

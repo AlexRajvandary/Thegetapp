@@ -45,7 +45,7 @@ export default function CountryFlag({ countryKey }: Props) {
   if (!country) return null;
 
   return (
-    <Chip variant="bordered" size="sm"
+    <Chip variant="bordered" radius="sm" size="md"
    classNames={{
                     base: "border-thin",
                     content: "font-thin",
