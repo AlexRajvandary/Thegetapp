@@ -3,7 +3,7 @@ import React from "react";
 import { HeartIcon, BookmarkIcon, Share, ShieldCheck } from "lucide-react";
 import type { Product } from "../components/Product";
 import { useNavigate } from "react-router-dom";
-import { backButton, hapticFeedback, mainButton, miniApp, openTelegramLink, switchInlineQuery } from "@telegram-apps/sdk-react";
+import { backButton, hapticFeedback, mainButton, miniApp, openTelegramLink, shareURL } from "@telegram-apps/sdk-react";
 import { useEffect } from "react";
 import CountryFlag from "../components/CountryFlag";
 import ImageGallery from "../components/ImageGallery";
@@ -108,7 +108,7 @@ mainButton.setParams({
               </Button>
               <Button isIconOnly aria-label="Share" variant="light" onPress={() => {
                   hapticFeedback?.impactOccurred("medium");
-                  switchInlineQuery.ifAvailable('Check this out!', ['users', 'groups']);
+                  shareURL('https://t.me/TheGetTestBot?startapp=myapp', 'Look! Some cool app here!');
                 }}>
                 <Share strokeWidth={1}/>
               </Button>
