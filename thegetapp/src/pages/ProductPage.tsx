@@ -80,13 +80,8 @@ mainButton.setParams({
           <ImageGallery images={exampleProduct.imageSrces}/>
         </div>
     <div className="px-2 md:px-[140px]">
-      <div className="flex flex-col md:flex-row py-8 gap-4 md:gap-12">
-     
-
-        <div className="flex items-center justify-between w-full mb-2">
-           <p className="text-[24px] py-[5px] leading-[130%] tracking-[-0.01em]">$129.99</p>
-            <div className="flex items-center gap-2">
-               
+      <div className="flex flex-col md:flex-row py-2 md:gap-12">
+            <div className="flex items-center w-full gap-2">
               <Button isIconOnly aria-label="Like" variant="light" onPress={() => setLiked(!liked)}>
                 <HeartIcon
                   fill={liked ? "red" : "none"}
@@ -105,38 +100,39 @@ mainButton.setParams({
               </Button>
             </div>
           
-          </div>
+          
 
-        <div className="w-full md:w-[30%] flex flex-col justify-start">
-          <h1 className="text-lg md:text-[18px] mb-4">Футболка Nike Shine</h1>
-          <div className="flex items-center gap-2">
-            <Chip variant="faded" 
+        <div className="w-full md:w-[30%] flex flex-col justify-start mx-[10px]">
+          <h1 className="text-lg md:text-[15px] mb-4 font-semibold">Футболка Nike Shine</h1>
+         
+                 <p className="text-[18px] py-[5px] leading-[130%] tracking-[-0.01em]">$129.99</p>
+                  <div className="flex items-center gap-2 my-2">
+            <Chip variant="bordered" size="sm"
                    classNames={{
-                    base: "bg-gray-200 border-thin",
+                    base: " border-thin",
                     content: "font-thin",
                 }}>Sneakers</Chip>
-            <Chip variant="faded"
-            classNames={{
-                    base: "bg-gray-200 border-thin",
+           <Chip variant="bordered" size="sm"
+                   classNames={{
+                    base: " border-thin",
                     content: "font-thin",
                 }}>Adidas</Chip>
             <CountryFlag countryKey="gb" />
+           
           </div>
-
-          <p className="text-sm md:text-[14px] font-thin my-4">
+          <p className="text-sm md:text-[14px] font-thin mb-4">
             Yugioh Tee Shirt Vintage 90s Y2k Joey Wheeler Blue Eyes White Dragon Longsleeve Shirt Size S/XS
           </p>
 
           {/* Размер */}
           <div className="mb-4">
-            <p className="font-thin mb-2">Размер:</p>
+           
             <div className="flex flex-wrap gap-2">
               {sizes.map((size) => (
                 <Button
                   key={size}
-                  size="sm"
-                  variant={selectedSize === size ? "solid" : "ghost"}
-                  className={`rounded-md capitalize flex items-center gap-2 border border-gray-200 transition
+                  variant={selectedSize === size ? "solid" : "flat"}
+                  className={`rounded-md w-[30px] h-[30px] min-w-[30px] flex items-center border border-gray-200 transition
                             ${selectedSize === size ? "bg-gray-500 text-white" : "bg-transparent text-black"}`}
                   onPress={() => setSelectedSize(size)}
                 >
@@ -148,30 +144,25 @@ mainButton.setParams({
 
           {/* Цвет */}
           <div className="mb-4">
-            <p className="font-thin mb-2">Цвет:</p>
-            <div className="flex flex-wrap gap-2">
-              {colors.map((color) => (
-                <Button
-      key={color}
-      size="sm"
-      variant={selectedColor === color ? "solid" : "ghost"}
-      className={`rounded-md capitalize flex items-center gap-2 border border-gray-200 transition
-        ${selectedColor === color ? "bg-gray-500 text-white" : "bg-transparent text-black"}
-      `}
-      onPress={() => setSelectedColor(color)}
-    >
-      <span
-        className="w-4 h-4 rounded-full border border-gray-300"
+           
+            <div className="flex gap-2">
+  {colors.map((color) => {
+    const isSelected = selectedColor === color;
+    return (
+      <div
+        key={color}
+        onClick={() => setSelectedColor(color)}
+        className={`w-[30px] h-[30px] rounded-full cursor-pointer border-2 transition
+          ${isSelected ? "border-blue-500" : "border-gray-300"}`}
         style={{ backgroundColor: color.toLowerCase() }}
       />
-      {color}
-    </Button>
-              ))}
-            </div>
-           <div className="bg-gray-100 my-4 p-4 rounded-md text-left font-thin space-y-3">
+    );
+  })}
+</div>
+           <div className="bg-gray-100 my-4 p-4 rounded-md text-jusify font-thin text-sm md:text-[14px] space-y-3">
   <p>
     Другие размеры и цвета — под заказ.
-   <span className="inline-flex items-center gap-2">
+   <span className="inline-flex items-center text-justify gap-2">
       Напишите нам, чтобы узнать подробности.
       <br/>Также доставляем любые товары из-за рубежа:
     </span>
