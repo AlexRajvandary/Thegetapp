@@ -232,7 +232,7 @@ const products = [
        <div className="grid grid-cols-2 gap-3 px-3 pt-4 max-w-[600px] mx-auto">
  
   <div className="col-span-2 bg-gradient-to-br from-sky-400 to-pink-400 rounded-[14px] py-4 my-2">
-     <div className="top-0 z-20 font-extrabold text-[24px] mx-4 py-[5px] leading-[130%] tracking-[-0.01em] text-white select-none">
+     <div className="top-0 z-20 font-extrabold text-[24px] mx-4 py-[10px] leading-[130%] tracking-[-0.01em] text-white select-none">
         Оплачивай любые подписки
       </div>
         <Carousel visibleSlides={2} items={subscriptions.map(subscription => (
