@@ -5,8 +5,8 @@ import type { Product } from "../components/Product";
 import { useNavigate } from "react-router-dom";
 import { backButton } from "@telegram-apps/sdk-react";
 import { useEffect } from "react";
-import Carousel from "../components/Carousel";
 import CountryFlag from "../components/CountryFlag";
+import CarouselDefault from "../components/CarouselDefault";
 
 
 const sizes = ["XS", "S", "M", "L", "XL"];
@@ -70,18 +70,18 @@ export default function ProductPage() {
   };
 
   return (
-    <div className="px-4 pt-[100px] md:px-[140px]">
-      <div className="flex flex-col md:flex-row py-8 gap-6 md:gap-12">
+    <div className="px-2 pt-[100px] md:px-[140px]">
+      <div className="flex flex-col md:flex-row py-8 gap-4 md:gap-12">
         <div className="w-full md:w-[60%]">
-          <Carousel visibleSlides={1} items={exampleProduct.imageSrces.map(imageSrc =>  
+          <CarouselDefault visibleSlides={1} items={exampleProduct.imageSrces.map(imageSrc =>  
             <img src={imageSrc}
                  alt={exampleProduct.title}
                  loading="lazy"
               />)}/>
         </div>
 
-        <div className="flex items-center justify-between w-full mb-6">
-           <p className="text-2xl text-black font-bold text-end">$129.99</p>
+        <div className="flex items-center justify-between w-full mb-2">
+           <p className="font-bold text-[24px] py-[5px] leading-[130%] tracking-[-0.01em]">$129.99</p>
             <div className="flex items-center gap-2">
                
               <Button isIconOnly aria-label="Like" variant="light" onPress={() => setLiked(!liked)}>
@@ -112,7 +112,7 @@ export default function ProductPage() {
             <CountryFlag countryKey="gb" />
           </div>
 
-          <p className="text-sm md:text-[14px] font-thin mb-4">
+          <p className="text-sm md:text-[14px] font-thin my-4">
             Yugioh Tee Shirt Vintage 90s Y2k Joey Wheeler Blue Eyes White Dragon Longsleeve Shirt Size S/XS
           </p>
 

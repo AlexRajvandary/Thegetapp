@@ -8,12 +8,11 @@ interface CarouselProps {
   visibleSlides?: number;   // сколько видно сразу
 }
 
-export default function Carousel({ items, visibleSlides = 3 }: CarouselProps) {
+export default function CarouselDefault({ items, visibleSlides = 3 }: CarouselProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [loaded, setLoaded] = useState(false);
 
   const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
-    mode: "free",
     slides: {
       perView: visibleSlides,
       spacing: 10,
