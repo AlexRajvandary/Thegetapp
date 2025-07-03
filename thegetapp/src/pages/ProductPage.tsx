@@ -44,6 +44,7 @@ export default function ProductPage() {
     if (backButton.show.isAvailable()) backButton.show();
 
     if(mainButton.mount.isAvailable()) {mainButton.mount();
+      miniApp.mountSync();
       miniApp.setBottomBarColor("#FFFFFF");
 mainButton.setParams({
   isVisible: true,
