@@ -108,7 +108,7 @@ mainButton.setParams({
               </Button>
               <Button isIconOnly aria-label="Share" variant="light" onPress={() => {
                   hapticFeedback?.impactOccurred("medium");
-                  shareURL('https://t.me/TheGetTestBot/app?startapp=myapp', 'Look! Some cool app here!');
+                  shareURL('https://t.me/TheGetTestBot/theget', 'Look! Some cool app here!');
                 }}>
                 <Share strokeWidth={1}/>
               </Button>
