@@ -71,15 +71,6 @@ mainButton.setParams({
     };
   }, [navigate]);
 
-  const handleAddToCart = () => {
-    if (!selectedSize || !selectedColor) {
-      alert("Please select size and color");
-      return;
-    }
-
-    console.log("Added to cart", { size: selectedSize, color: selectedColor });
-  };
-
   return (
     <>
        <div className="w-full md:w-[60%]">
