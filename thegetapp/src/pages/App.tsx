@@ -327,7 +327,7 @@ const products = [
       {/* Fullscreen фильтры */}
      {filtersOpen && (
   <div
-    className="fixed inset-0 z-50 bg-white/70 backdrop:blur-sm pt-[110px] pb-[200px] p-6 overflow-auto"
+    className="fixed inset-0 z-50 bg-white pt-[110px] pb-[200px] p-6 overflow-auto"
     style={{ backdropFilter: "blur(4px)" }}
     role="dialog"
     aria-modal="true"

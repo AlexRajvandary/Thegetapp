@@ -1,5 +1,5 @@
 import React from "react";
-import { Accordion, AccordionItem, Autocomplete, AutocompleteItem, Checkbox, CheckboxGroup, Tab, Tabs } from "@heroui/react";
+import { Accordion, AccordionItem, Checkbox, CheckboxGroup, Tab, Tabs } from "@heroui/react";
 import ColorPicker from "./ColorPicker";
 import PriceRangeSlider from "./SliderHistogram";
 
@@ -62,17 +62,17 @@ export default function Filters({
   };
 
   return (
-    <Accordion variant="shadow" selectionMode="multiple" defaultExpandedKeys={["1", "2"]}>
-        <AccordionItem title="Цена" key="1">
+    <Accordion variant="shadow" selectionMode="multiple" defaultExpandedKeys={["1", "2", "3"]}>
+        <AccordionItem title="Цена" key="1" className="pl-[10px]">
         <div>
         <PriceRangeSlider/>
         </div>
       </AccordionItem>
-      <AccordionItem title="Категория" key="2">
+      <AccordionItem title="Категория" key="2" className="pl-[10px]">
         <div className="flex flex-col justify-center space-y-2 mt-2">
           <Tabs className="flex justify-center">
             <Tab title="Обувь">
-                <CheckboxGroup className="ml-[75px]">
+                <CheckboxGroup className="ml-[30px] mb-[10px]">
                  {shoesCategories.map((cat) => (
             <Checkbox
               key={cat}
@@ -86,7 +86,7 @@ export default function Filters({
             </CheckboxGroup>
             </Tab>
             <Tab title="Одежда">
-                <CheckboxGroup className="ml-[75px]">
+                <CheckboxGroup className="ml-[30px] mb-[30px]">
                  {clothsCategories.map((cat) => (
             <Checkbox
               key={cat}
@@ -100,7 +100,7 @@ export default function Filters({
             </CheckboxGroup>
             </Tab>
             <Tab title="Аксессуары">
-                <CheckboxGroup className="ml-[75px]">
+                <CheckboxGroup className="ml-[30px] mb-[30px]">
                  {accessoriesCategories.map((cat) => (
             <Checkbox
               key={cat}
@@ -118,28 +118,36 @@ export default function Filters({
         </div>
       </AccordionItem>
 
-       <AccordionItem title="Бренд" key="3">
-        <div className="flex flex-col space-y-2 mt-2">
-          <Autocomplete multiple>
-            {brands.map((brand) => (
-              <AutocompleteItem onChange={() =>
-                toggleSelection(brand, selectedBrands, setSelectedBrands)}>
-                  {brand}
-                </AutocompleteItem>))}
-          </Autocomplete>  
-        </div>
-      </AccordionItem>
-
-      <AccordionItem title="Цвет" key="4">
-        <div className="flex flex-col space-y-2">
+      <AccordionItem title="Цвет" key="3" className="pl-[10px]">
+        <div className="flex flex-col space-y-2 px-[30px] mb-[30px]">
             <ColorPicker colors={availableColors} selectedColors={selectedColors} onChange={setSelectedColors}/>
        
         </div>
       </AccordionItem>
 
-      <AccordionItem title="Размер" key="5">
+       <AccordionItem title="Бренд" key="4" className="pl-[10px]">
+        <div className="flex flex-col space-y-2 mt-2">
+            <CheckboxGroup className="ml-[30px] mb-[30px]">
+                 {brands.map((cat) => (
+            <Checkbox
+              key={cat}
+              checked={selectedBrands.includes(cat)}
+              onChange={() =>
+                toggleSelection(cat, selectedBrands, setSelectedBrands)
+              }
+             value={cat}
+            >{cat}</Checkbox>
+          ))}
+            </CheckboxGroup>
+         
+        </div>
+      </AccordionItem>
+
+      
+
+      <AccordionItem title="Размер" key="5" className="pl-[10px]">
         <div className="flex flex-col space-y-2">
-            <CheckboxGroup>
+            <CheckboxGroup className="ml-[30px] mb-[30px]">
                  {sizes.map((size) => (
             <Checkbox
               key={size}
@@ -153,8 +161,8 @@ export default function Filters({
         </div>
       </AccordionItem>
 
-      <AccordionItem title="Пол" key="6">
-        <div className="flex flex-col space-y-2">
+      <AccordionItem title="Пол" key="6" className="pl-[10px]">
+        <div className="flex flex-col space-y-2 mx-[30px] mb-[30px]">
             <CheckboxGroup>
                  {genders.map((gender) => (
             <Checkbox
