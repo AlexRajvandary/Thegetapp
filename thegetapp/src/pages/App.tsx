@@ -233,7 +233,7 @@ const products = [
  
   <div className="col-span-2 bg-gradient-to-br from-sky-400 to-pink-400 rounded-[14px] py-4 my-2">
      <div className="top-0 z-20 font-extrabold text-[22px] mx-4 py-[5px] leading-[130%] tracking-[-0.01em] text-white select-none">
-        Оплачивай любые подписки
+        Оплачивай любые сервисы
       </div>
         <Carousel visibleSlides={2} items={subscriptions.map(subscription => (
   <SubscriptionCardMobile

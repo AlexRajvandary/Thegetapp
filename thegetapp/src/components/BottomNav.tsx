@@ -16,8 +16,8 @@ export default function MobileBottomNav() {
   const avatarUrl = localStorage.getItem("avatarUrl");
 
   return (
-    <div className="fixed pb-[10px] bottom-0 left-0 w-full bg-white border-t shadow-md flex justify-around items-center h-[110px] z-50"
-      style={{ paddingBottom: 'calc(40px + env(safe-area-inset-bottom))' }}>
+    <div className="fixed pb-[10px] bottom-0 left-0 w-full bg-white/60 backdrop-blur-md border-t shadow-md flex justify-around items-center h-[90px] z-50"
+      style={{ paddingBottom: 'calc(30px + env(safe-area-inset-bottom))' }}>
       {tabs.map(({ name, path, icon: Icon }) => {
         const isActive = location.pathname === path;
 
