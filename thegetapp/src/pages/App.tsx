@@ -383,7 +383,6 @@ const products = [
   </div>
 )}
     </div>
-    <MobileBottomNav/>
   </div>
   );
 }
