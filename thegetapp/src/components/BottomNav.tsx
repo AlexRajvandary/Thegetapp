@@ -39,7 +39,7 @@ export default function MobileBottomNav() {
           <NavLink
             key={name}
             to={path}
-            className="relative flex flex-col items-center justify-center text-[10px]"
+            className="relative flex flex-col items-center justify-center text-[8px]"
           >
             {renderIcon()}
             <span
