@@ -2,6 +2,9 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom';
+import { retrieveLaunchParams } from '@telegram-apps/sdk-react';
+
+
 
 import RouterWrapper from './RouterWrapper.jsx';
 
@@ -11,7 +14,10 @@ import { init, backButton, closingBehavior, swipeBehavior, viewport } from '@tel
 
 async function initTg() {
         init();
-
+      const initDataRaw  = retrieveLaunchParams();
+      const avatarUrl = initDataRaw.tgWebAppData?.user?.photo_url;
+      console.log(avatarUrl);
+      console.log(initDataRaw.tgWebAppData?.user);
       backButton.mount();
 
     if (closingBehavior.mount.isAvailable()) {
