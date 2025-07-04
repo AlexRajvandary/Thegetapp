@@ -25,7 +25,7 @@ export default function UserPage() {
   
   {/* Контент поверх */}
   <Avatar className="w-24 h-24 mb-4 z-10" src={avatarUrl ?? undefined} />
-  <div className="bg-white/10 rounded-xl px-4 py-2 text-center backdrop-blur-sm shadow-sm z-10">
+  <div className="bg-white rounded-xl px-4 py-2 text-center backdrop-blur-sm shadow-sm z-10">
   <h1 className="text-2xl font-semibold">{first_name} {last_name}</h1>
   <h1 className="text-gray-500">@{username}</h1>
 </div>
