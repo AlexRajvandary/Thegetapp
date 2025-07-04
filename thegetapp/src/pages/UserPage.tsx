@@ -12,13 +12,26 @@ export default function UserPage() {
 
   return (<>
   
-    <div className="flex flex-col items-center pt-[70px] pb-8 ">
-        <Avatar className="w-24 h-24 mb-4" src={avatarUrl ?? undefined} />
-        <h1 className="text-2xl font-semibold">{first_name} {last_name}</h1>
-        <h1 className="text-gray-500">@{username}</h1>
-      </div>
+    <div className="relative flex flex-col items-center pt-[70px] pb-8 w-full overflow-hidden">
+  {/* Фоновое изображение с прозрачностью */}
+  <div
+    className="absolute inset-0 opacity-30 bg-blue-200"
+    style={{
+      backgroundImage: "url('bg.svg')",
+      backgroundSize: '300px auto',
+      pointerEvents: 'none', // чтобы не блокировал клики
+    }}
+  />
+  
+  {/* Контент поверх */}
+  <Avatar className="w-24 h-24 mb-4 z-10" src={avatarUrl ?? undefined} />
+  <div className="bg-white/10 rounded-xl px-4 py-2 text-center backdrop-blur-sm shadow-sm z-10">
+  <h1 className="text-2xl font-semibold">{first_name} {last_name}</h1>
+  <h1 className="text-gray-500">@{username}</h1>
+</div>
+</div>
 
-    <div className="p-4 pt-6">
+    <div className="px-4">
      <CustomTabs/>
     
     </div>
