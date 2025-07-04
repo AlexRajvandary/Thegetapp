@@ -23,12 +23,12 @@ export default function MobileBottomNav() {
            const renderIcon = () => {
           if (name === "Профиль") {
             return (
-              <Avatar className="w-5 h-5" src={avatarUrl!}/>
+              <Avatar className="w-6 h-6" src={avatarUrl!}/>
             );
           }
           return (
             <Icon
-              className={`w-5 h-5 transition-colors duration-300 ${
+              className={`w-6 h-6 transition-colors duration-300 ${
                 isActive ? "text-blue-600" : "text-gray-400"
               }`}
             />
@@ -43,7 +43,7 @@ export default function MobileBottomNav() {
           >
             {renderIcon()}
             <span
-              className={`mt-1 text-[8px] ${
+              className={`mt-1 text-[10px] ${
                 isActive ? "text-blue-600" : "text-gray-500"
               }`}
             >
