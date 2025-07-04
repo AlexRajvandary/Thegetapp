@@ -159,13 +159,12 @@ mainButton.setParams({
     return (
       <Avatar
       isBordered
-      size="sm"
       fallback={<div className="w-full h-full bg-red-500 rounded-full" />} 
-        key={color}
-        onClick={() => setSelectedColor(color)}
-       color = {isSelected ? "success" : "default"}
-        style={{ backgroundColor: color.toLowerCase() }}
-        className="m-1"
+      key={color}
+      onClick={() => setSelectedColor(color)}
+      color = {isSelected ? "success" : "default"}
+      style={{ backgroundColor: color.toLowerCase() }}
+      className="w-6 h-6 m-1"
       />
     );
   })}

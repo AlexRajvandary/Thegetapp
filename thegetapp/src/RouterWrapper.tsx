@@ -16,6 +16,8 @@ import Favorites from "./pages/Favorites";
 import Orders from "./pages/Orders";
 import Order from "./pages/Order";
 import ProductPage from "./pages/ProductPage";
+import CartPage from "./pages/CartPage";
+import MainLayout from "./components/Mainlayout";
 
 export default function RouterWrapper() {
   const navigate = useNavigate();
@@ -24,11 +26,16 @@ export default function RouterWrapper() {
   return (
     <HeroUIProvider navigate={navigate} useHref={href}>
       <Routes>
-        <Route path="/" element={<App />} />
+          {/* Страницы с нижней навигацией */}
+        <Route element={<MainLayout />}>
+          <Route path="/" element={<App />} />
+          <Route path="/cart" element={<CartPage />} />
+          <Route path="/user" element={<UserPage />} />
+        </Route>
+    
         <Route path="/about" element={<About />} />
         <Route path="/catalog" element={<Catalog />} />
         <Route path="/product" element={<ProductPage />} />
-        <Route path="/user" element={<UserPage />} />
         <Route path="/favorites" element={<Favorites />} />
         <Route path="/orders" element={<Orders />} />
         <Route path="/orders/:orderId" element={<Order/>} />
