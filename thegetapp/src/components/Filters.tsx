@@ -1,6 +1,7 @@
 import React from "react";
-import { Accordion, AccordionItem, Checkbox, Slider, CheckboxGroup } from "@heroui/react";
+import { Accordion, AccordionItem, Checkbox, CheckboxGroup } from "@heroui/react";
 import ColorPicker from "./ColorPicker";
+import PriceRangeSlider from "./SliderHistogram";
 
 type FiltersProps = {
   selectedCategories: string[];
@@ -45,7 +46,6 @@ export default function Filters({
   setSelectedSizes,
   selectedGenders,
   setSelectedGenders,
-  priceRange
 }: FiltersProps) {
   const toggleSelection = (
     value: string,
@@ -60,8 +60,13 @@ export default function Filters({
   };
 
   return (
-    <Accordion variant="shadow">
-      <AccordionItem title="Категория">
+    <Accordion variant="shadow" selectionMode="multiple" defaultExpandedKeys={["1", "2"]}>
+        <AccordionItem title="Цена" key="1">
+        <div>
+        <PriceRangeSlider/>
+        </div>
+      </AccordionItem>
+      <AccordionItem title="Категория" key="2">
         <div className="flex flex-col space-y-2 mt-2">
             <CheckboxGroup label="Категория">
                  {categories.map((cat) => (
@@ -79,7 +84,7 @@ export default function Filters({
         </div>
       </AccordionItem>
 
-       <AccordionItem title="Бренд">
+       <AccordionItem title="Бренд" key="3">
         <div className="flex flex-col space-y-2 mt-2">
             <CheckboxGroup label="Бренд">
                  {brands.map((cat) => (
@@ -97,32 +102,14 @@ export default function Filters({
         </div>
       </AccordionItem>
 
-      <AccordionItem title="Цвет">
+      <AccordionItem title="Цвет" key="4">
         <div className="flex flex-col space-y-2 mt-2">
             <ColorPicker colors={availableColors} selectedColors={selectedColors} onChange={setSelectedColors}/>
        
         </div>
       </AccordionItem>
 
-      <AccordionItem title="Цена, $">
-        <div className="mt-4 px-2">
-          <Slider
-      className="max-w-md"
-      defaultValue={[100, 500]}
-      formatOptions={{style: "currency", currency: "USD"}}
-      label="Price Range"
-      maxValue={1000}
-      minValue={0}
-      step={50}
-    />
-          <div className="flex justify-between mt-2 text-sm">
-            <span>{priceRange[0]}</span>
-            <span>{priceRange[1]}</span>
-          </div>
-        </div>
-      </AccordionItem>
-
-      <AccordionItem title="Размер">
+      <AccordionItem title="Размер" key="5">
         <div className="flex flex-col space-y-2 mt-2">
             <CheckboxGroup>
                  {sizes.map((size) => (
@@ -138,7 +125,7 @@ export default function Filters({
         </div>
       </AccordionItem>
 
-      <AccordionItem title="Пол">
+      <AccordionItem title="Пол" key="6">
         <div className="flex flex-col space-y-2 mt-2">
             <CheckboxGroup label="Пол">
                  {genders.map((gender) => (
