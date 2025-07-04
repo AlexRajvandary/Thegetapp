@@ -13,6 +13,7 @@ const MotionDiv = motion.div as React.FC<React.HTMLAttributes<HTMLDivElement>>;
 
 export default function MobileBottomNav() {
   const location = useLocation();
+  const avatarUrl = localStorage.getItem("avatarUrl");
 
   return (
     <div className="fixed bottom-0 left-0 w-full bg-white border-t shadow-md flex justify-around items-center h-16 z-50">
@@ -22,7 +23,7 @@ export default function MobileBottomNav() {
            const renderIcon = () => {
           if (name === "Профиль") {
             return (
-              <Avatar className="w-7 h-7"/>
+              <Avatar className="w-7 h-7" src={avatarUrl!}/>
             );
           }
           return (

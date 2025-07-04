@@ -20,13 +20,15 @@ export default function UserPage() {
     // TODO: добавить логику выхода, очистки сессии и редиректа
     alert("Выход из аккаунта");
   };
-
+  const avatarUrl = localStorage.getItem("avatarUrl");
+   const first_name = localStorage.getItem("first_name");
+    const last_name = localStorage.getItem("last_name");
   return (
     <div className="p-4 pt-10">
       <div className="flex flex-col items-center mb-8">
-        <Avatar className="w-24 h-24 mb-4"/>
-        <h1 className="text-2xl font-semibold">{user.name}</h1>
-        <p className="text-gray-500">{user.email}</p>
+        <Avatar className="w-24 h-24 mb-4" src={avatarUrl!}/>
+        <h1 className="text-2xl font-semibold">{first_name}</h1>
+        <p className="text-gray-500">{last_name}</p>
       </div>
 
       <div className="max-w-md mx-auto">

@@ -4,8 +4,6 @@ import { createRoot } from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom';
 import { retrieveLaunchParams } from '@telegram-apps/sdk-react';
 
-
-
 import RouterWrapper from './RouterWrapper.jsx';
 
 import './index.css'
@@ -15,9 +13,16 @@ import { init, backButton, closingBehavior, swipeBehavior, viewport } from '@tel
 async function initTg() {
         init();
       const initDataRaw  = retrieveLaunchParams();
-      const avatarUrl = initDataRaw.tgWebAppData?.user?.photo_url;
-      console.log(avatarUrl);
-      console.log(initDataRaw.tgWebAppData?.user);
+      const user = initDataRaw.tgWebAppData?.user;
+      if(user){
+        const avatarUrl = user.photo_url!;
+        const name = user.first_name;
+        const lastname = user.last_name!;
+        localStorage.setItem("avatarUrl", avatarUrl);
+        localStorage.setItem("first_name", name);
+        localStorage.setItem("last_name", lastname);
+      }
+    
       backButton.mount();
 
     if (closingBehavior.mount.isAvailable()) {
