@@ -8,7 +8,7 @@ export default function UserPage() {
   const avatarUrl = localStorage.getItem("avatarUrl");
   const first_name = localStorage.getItem("first_name") ?? "Пользователь";
   const last_name = localStorage.getItem("last_name") ?? "Фамилия";
-  const username = localStorage.getItem("username") ?? "Логин";
+  const username = localStorage.getItem("user_name") ?? "Логин";
 
   return (<>
   
