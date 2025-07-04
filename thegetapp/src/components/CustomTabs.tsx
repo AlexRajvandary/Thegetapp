@@ -99,7 +99,7 @@ export default function CustomTabs() {
               <Package />
               <span>Заказы</span>
               <Chip size="sm" variant="faded">
-                32
+                3
               </Chip>
             </div>
           }
@@ -110,9 +110,6 @@ export default function CustomTabs() {
             <div className="flex items-center space-x-2">
               <Heart />
               <span>Избранное</span>
-              <Chip size="sm" variant="faded">
-                3
-              </Chip>
             </div>
           }
         />
@@ -122,9 +119,6 @@ export default function CustomTabs() {
             <div className="flex items-center space-x-2">
               <Eye />
               <span>Просмотренное</span>
-              <Chip size="sm" variant="faded">
-                1
-              </Chip>
             </div>
           }
         />
