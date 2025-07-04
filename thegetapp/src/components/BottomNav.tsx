@@ -23,12 +23,12 @@ export default function MobileBottomNav() {
            const renderIcon = () => {
           if (name === "Профиль") {
             return (
-              <Avatar className="w-7 h-7" src={avatarUrl!}/>
+              <Avatar className="w-5 h-5" src={avatarUrl!}/>
             );
           }
           return (
             <Icon
-              className={`w-6 h-6 transition-colors duration-300 ${
+              className={`w-5 h-5 transition-colors duration-300 ${
                 isActive ? "text-blue-600" : "text-gray-400"
               }`}
             />
@@ -39,7 +39,7 @@ export default function MobileBottomNav() {
           <NavLink
             key={name}
             to={path}
-            className="relative flex flex-col items-center justify-center text-sm"
+            className="relative flex flex-col items-center justify-center text-[10px]"
           >
             {renderIcon()}
             <span
