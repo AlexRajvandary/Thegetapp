@@ -9,7 +9,7 @@ export default function UserPage() {
   const last_name = localStorage.getItem("last_name") ?? "";
 
   return (
-    <div className="p-4 pt-10">
+    <div className="p-4 pt-10 mt-[70px]">
       <div className="flex flex-col items-center mb-8">
         <Avatar className="w-24 h-24 mb-4" src={avatarUrl ?? undefined} />
         <h1 className="text-2xl font-semibold">{first_name}</h1>
