@@ -3,7 +3,7 @@ import LogoTheGetBalloons from "../components/Logo";
 import ProductCardMobile from "../components/ProductCardMobile";
 import SearchInput from "../components/SearchInput";
 import { ArrowDownUp, Columns2, Funnel, Rows2 } from "lucide-react";
-import { Button } from "@heroui/react";
+import { Button, Pagination } from "@heroui/react";
 import { backButton } from "@telegram-apps/sdk-react";
 import Carousel from "../components/Carousel";
 import SubscriptionCardMobile from "../components/SubscriptionCardMobile";
@@ -224,7 +224,7 @@ const products = [
   ];
 
   return (
-    <div>
+    <div className="mb-[50px]">
       <div className="flex pt-[110px] pb-[30px] bg-transparent mx-4 sm:mx-0 sm:justify-center">
         <LogoTheGetBalloons />
       </div>
@@ -323,6 +323,16 @@ const products = [
           
         ))}
       </div>
+      <div className="mx-[5px]">
+          <Pagination
+      showControls
+      initialPage={1}
+      radius="md"
+      total={10}
+      variant="light"
+    />
+      </div>
+      
 
       {/* Fullscreen фильтры */}
      {filtersOpen && (

@@ -18,9 +18,11 @@ async function initTg() {
         const avatarUrl = user.photo_url!;
         const name = user.first_name;
         const lastname = user.last_name!;
+        const username = user.username!;
         localStorage.setItem("avatarUrl", avatarUrl);
         localStorage.setItem("first_name", name);
         localStorage.setItem("last_name", lastname);
+        localStorage.setItem("user_name", username);
       }
     
       backButton.mount();

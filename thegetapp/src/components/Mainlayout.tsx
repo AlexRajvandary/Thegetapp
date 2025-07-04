@@ -5,7 +5,8 @@ export default function MainLayout() {
   return (
     <div className="pb-20"> {/* отступ под навигацию */}
       <Outlet />
-      <MobileBottomNav />
+     
+      <MobileBottomNav/>
     </div>
   );
 }

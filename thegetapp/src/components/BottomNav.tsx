@@ -1,7 +1,7 @@
 import { Home, ShoppingCart, User } from "lucide-react";
 import { NavLink, useLocation } from "react-router-dom";
-import { motion } from "framer-motion";
 import { Avatar } from "@heroui/react";
+import { MotionDiv } from '../components/common/motion'
 
 const tabs = [
   { name: "Главная", path: "/", icon: Home },
@@ -9,38 +9,34 @@ const tabs = [
   { name: "Профиль", path: "/user", icon: User },
 ];
 
-const MotionDiv = motion.div as React.FC<React.HTMLAttributes<HTMLDivElement>>;
-
 export default function MobileBottomNav() {
   const location = useLocation();
   const avatarUrl = localStorage.getItem("avatarUrl");
 
   return (
-    <div className="fixed pb-[10px] bottom-0 left-0 w-full bg-white/60 backdrop-blur-md border-t shadow-md flex justify-around items-center h-[90px] z-50"
-      style={{ paddingBottom: 'calc(30px + env(safe-area-inset-bottom))' }}>
+    <div
+      className="fixed pb-[10px] bottom-0 left-0 w-full bg-white/60 backdrop-blur-md border-t shadow-md flex justify-around items-center h-[90px] z-50"
+      style={{ paddingBottom: "calc(30px + env(safe-area-inset-bottom))" }}
+    >
       {tabs.map(({ name, path, icon: Icon }) => {
         const isActive = location.pathname === path;
 
-           const renderIcon = () => {
-          if (name === "Профиль") {
-            return (
-              <Avatar className="w-6 h-6" src={avatarUrl!}/>
-            );
-          }
-          return (
+        const renderIcon = () =>
+          name === "Профиль" ? (
+            <Avatar className="w-6 h-6" src={avatarUrl || undefined} />
+          ) : (
             <Icon
               className={`w-6 h-6 transition-colors duration-300 ${
                 isActive ? "text-blue-600" : "text-gray-400"
               }`}
             />
           );
-        };
 
         return (
           <NavLink
             key={name}
             to={path}
-            className="relative flex flex-col items-center justify-center text-[8px]"
+            className="relative flex flex-1 flex-col items-center justify-center text-[8px] h-full"
           >
             {renderIcon()}
             <span
@@ -50,11 +46,14 @@ export default function MobileBottomNav() {
             >
               {name}
             </span>
-            {isActive && (
-              <MotionDiv
-                className="absolute -top-[10px] w-14 h-[2px] rounded-full bg-blue-600"
+
+           {isActive && (
+            <MotionDiv
+              layoutId="active-tab-indicator"
+              className="absolute top-0 left-0 w-full h-[2px] rounded-full bg-blue-600"
+              transition={{ type: "spring", stiffness: 300, damping: 26 }}
               />
-            )}
+          )}
           </NavLink>
         );
       })}
