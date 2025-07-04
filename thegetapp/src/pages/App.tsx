@@ -10,7 +10,6 @@ import SubscriptionCardMobile from "../components/SubscriptionCardMobile";
 import Filters from "../components/Filters";
 import FilterChips from "../components/FilterChips";
 import { Link } from "react-router-dom";
-import MobileBottomNav from "../components/BottomNav";
 
 export default function App() {
   const [singleColumn, setSingleColumn] = useState(false);
