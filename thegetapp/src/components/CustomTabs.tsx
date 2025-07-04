@@ -1,5 +1,5 @@
 import {Tabs, Tab, Chip} from "@heroui/react";
-import { Heart, Package } from "lucide-react";
+import { Eye, Heart, Package } from "lucide-react";
 import type { SVGProps } from "react";
 import type { JSX } from "react/jsx-runtime";
 
@@ -97,19 +97,19 @@ export default function CustomTabs() {
           title={
             <div className="flex items-center space-x-2">
               <Package />
-              <span>Orders</span>
+              <span>Заказы</span>
               <Chip size="sm" variant="faded">
-                9
+                32
               </Chip>
             </div>
           }
         />
         <Tab
-          key="music"
+          key="favorites"
           title={
             <div className="flex items-center space-x-2">
               <Heart />
-              <span>Favorites</span>
+              <span>Избранное</span>
               <Chip size="sm" variant="faded">
                 3
               </Chip>
@@ -120,8 +120,8 @@ export default function CustomTabs() {
           key="videos"
           title={
             <div className="flex items-center space-x-2">
-              <VideoIcon />
-              <span>Videos</span>
+              <Eye />
+              <span>Просмотренное</span>
               <Chip size="sm" variant="faded">
                 1
               </Chip>
