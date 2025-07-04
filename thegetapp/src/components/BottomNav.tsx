@@ -43,7 +43,7 @@ export default function MobileBottomNav() {
           >
             {renderIcon()}
             <span
-              className={`mt-1 text-xs ${
+              className={`mt-1 text-[8px] ${
                 isActive ? "text-blue-600" : "text-gray-500"
               }`}
             >
