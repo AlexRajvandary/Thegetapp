@@ -37,7 +37,7 @@ export default function SearchPage() {
     }, [navigate]);
 
   return (
-    <div className="p-4">
+    <div className="p-4 mt-[110px]">
       <input
         ref={inputRef}
         type="text"

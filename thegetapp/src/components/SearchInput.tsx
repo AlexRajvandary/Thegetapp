@@ -14,7 +14,6 @@ type SearchInputProps = {
   readOnly?: boolean;
 };
 
-
 export const SearchIcon: React.FC<SearchIconProps> = ({
   size = 24,
   strokeWidth = 1.5,
