@@ -11,6 +11,7 @@ type SearchIconProps = {
 
 type SearchInputProps = {
   placeholder?: string;
+  readOnly?: boolean;
 };
 
 
@@ -50,9 +51,10 @@ export const SearchIcon: React.FC<SearchIconProps> = ({
   );
 };
 
-export default function SearchInput({ placeholder = "Поиск" }: SearchInputProps){
+export default function SearchInput({ placeholder = "Поиск", readOnly = false }: SearchInputProps){
     return(<>
       <Input
+          readOnly = {readOnly}
           classNames={{
             base: "max-w-full sm:max-w-[30rem] h-10",
             mainWrapper: "h-full",

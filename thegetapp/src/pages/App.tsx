@@ -9,7 +9,7 @@ import Carousel from "../components/Carousel";
 import SubscriptionCardMobile from "../components/SubscriptionCardMobile";
 import Filters from "../components/Filters";
 import FilterChips from "../components/FilterChips";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function App() {
   const [singleColumn, setSingleColumn] = useState(false);
@@ -20,6 +20,7 @@ export default function App() {
   const [selectedSizes, setSelectedSizes] = useState<string[]>([]);
   const [selectedGenders, setSelectedGenders] = useState<string[]>([]);
   const [priceRange, setPriceRange] = useState<[number, number]>([0, 1000]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Монтируем кнопку назад, если доступна
@@ -252,7 +253,10 @@ const products = [
         Каталог
       </h2>
       <div className="px-[10px] py-[15px] flex items-center gap-2">
-        <SearchInput />
+        <div onClick={() => navigate('/search')}>
+           <SearchInput readOnly/>
+        </div>
+       
         <Button
           isIconOnly
           variant="light"

@@ -18,6 +18,7 @@ import Order from "./pages/Order";
 import ProductPage from "./pages/ProductPage";
 import CartPage from "./pages/CartPage";
 import MainLayout from "./components/Mainlayout";
+import SearchPage from "./pages/SearchPage";
 
 export default function RouterWrapper() {
   const navigate = useNavigate();
@@ -34,6 +35,7 @@ export default function RouterWrapper() {
         </Route>
     
         <Route path="/about" element={<About />} />
+        <Route path="/search" element={<SearchPage />} />
         <Route path="/catalog" element={<Catalog />} />
         <Route path="/product" element={<ProductPage />} />
         <Route path="/favorites" element={<Favorites />} />
