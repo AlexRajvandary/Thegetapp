@@ -1,5 +1,8 @@
 import { Trash2, Minus, Plus } from "lucide-react";
 import { Button } from "@heroui/react";
+import { backButton } from "@telegram-apps/sdk-react";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 type CartItem = {
   id: string;
@@ -12,15 +15,15 @@ type CartItem = {
 const cartItems: CartItem[] = [
   {
     id: "1",
-    name: "Nike Air Force 1",
-    image: "https://via.placeholder.com/100",
-    price: 12999,
+    name: "Spotify Premium",
+    image: "/spotify.png",
+    price: 1299,
     quantity: 1,
   },
   {
     id: "2",
     name: "Adidas Campus 00s",
-    image: "https://via.placeholder.com/100",
+    image: "https://media-assets.grailed.com/prd/listing/temp/66688f71562d46939932e6f3d58a654c?w=800",
     price: 8999,
     quantity: 2,
   },
@@ -31,9 +34,36 @@ export default function CartPage() {
     (sum, item) => sum + item.price * item.quantity,
     0
   );
+  const navigate = useNavigate();
+
+useEffect(() => {
+      if (backButton.mount.isAvailable()) backButton.mount();
+      if (backButton.show.isAvailable()) backButton.show();
+
+      const handler = () => {
+        navigate(-1);
+        if (backButton.hide.isAvailable()){ 
+        backButton.hide();
+      }
+    };
+      if (backButton.onClick.isAvailable()) backButton.onClick(handler);
+  
+      return () => {
+        if(backButton.offClick.isAvailable()){
+          backButton.offClick(handler);
+        }
+        
+        if (backButton.hide.isAvailable())
+          {
+             backButton.hide();
+            
+            }
+      };
+    }, [navigate]);
+
 
   return (
-    <div className="p-4 pb-20">
+    <div className="p-4 pb-20 mt-[110px]">
       <h1 className="text-xl font-semibold mb-4">Корзина</h1>
 
       {cartItems.map((item) => (

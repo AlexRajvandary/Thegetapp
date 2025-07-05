@@ -2,6 +2,7 @@ import React from "react";
 import { Accordion, AccordionItem, Checkbox, CheckboxGroup, Tab, Tabs } from "@heroui/react";
 import ColorPicker from "./ColorPicker";
 import PriceRangeSlider from "./SliderHistogram";
+import SizeGridMultiSelect from "./SizeSelector";
 
 type FiltersProps = {
   selectedCategories: string[];
@@ -34,7 +35,7 @@ const availableColors = [
     "#8b5cf6", // фиолетовый
     "#ec4899", // розовый
   ];
-const sizes = ["S", "M", "L", "XL"];
+const sizes = ["XXXS","XXS","XS","S", "M", "L", "XL", "XXL", "XXXL"];
 const genders = ["Мужской", "Женский", "Унисекс"];
 
 export default function Filters({
@@ -147,16 +148,13 @@ export default function Filters({
 
       <AccordionItem title="Размер" key="5" className="pl-[10px]">
         <div className="flex flex-col space-y-2">
-            <CheckboxGroup className="ml-[30px] mb-[30px]">
-                 {sizes.map((size) => (
-            <Checkbox
-              key={size}
-              checked={selectedSizes.includes(size)}
-              onChange={() => toggleSelection(size, selectedSizes, setSelectedSizes)}
-              value={size}
-            >{size}</Checkbox>
-          ))}
-            </CheckboxGroup>
+            
+            <SizeGridMultiSelect
+              sizes={sizes}
+              selectedSizes={selectedSizes}
+              toggleSelection={toggleSelection}
+              setSelectedSizes={setSelectedSizes}
+            />
          
         </div>
       </AccordionItem>
