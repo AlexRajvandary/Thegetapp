@@ -45,10 +45,10 @@ export default function CountryFlag({ countryKey }: Props) {
   if (!country) return null;
 
   return (
-    <Chip variant="bordered" radius="sm" size="md"
+    <Chip variant="flat" radius="sm" size="lg"
    classNames={{
                     base: "border-thin",
-                    content: "font-thin",
+                    content: "font-bold text-gray-600",
                 }}
       startContent={
         <Avatar

@@ -38,7 +38,7 @@ export default function FilterChips({
           <Chip
             key={`${chip.type}-${chip.label}-${idx}`}
             onClose={() => onRemove(chip.type, chip.label)}
-            className="bg-gray-200 text-sm"
+            className="bg-gray-200 text-sm font-mono"
           >
             <div className="flex items-center gap-1">
               {isColor && (

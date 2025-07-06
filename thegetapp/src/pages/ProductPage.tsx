@@ -7,6 +7,7 @@ import { backButton, hapticFeedback, mainButton, miniApp, openTelegramLink, shar
 import { useEffect } from "react";
 import CountryFlag from "../components/CountryFlag";
 import ImageGallery from "../components/ImageGallery";
+import clsx from "clsx";
 
 
 const sizes = ["XS", "S", "M", "L", "XL"];
@@ -120,20 +121,20 @@ mainButton.setParams({
           <h1 className="text-[23px] md:text-[27px] my-2 font-bold">Футболка Nike Shine</h1>
                      <div className="flex items-center gap-2 my-[10px]">
             
-           <Chip variant="bordered" radius="sm" size="md"
-                   classNames={{
-                    base: " border-thin",
-                    content: "font-thin",
+           <Chip variant="flat" radius="sm" size="lg"
+                  classNames={{
+                    base: "border-thin",
+                    content: "font-bold text-gray-600",
                 }}>Adidas</Chip>
             <CountryFlag countryKey="gb" />
-              <Chip variant="bordered" radius="sm" size="md" startContent={<ShieldCheck strokeWidth={1}/>}
-                   classNames={{
-                    base: " border-thin",
-                    content: "font-thin",
+              <Chip variant="flat" radius="sm" size="lg" startContent={<ShieldCheck strokeWidth={1}/>}
+                  classNames={{
+                    base: "border-thin",
+                    content: "font-bold text-gray-600",
                 }}>Оригинал</Chip>
            
           </div>
-                 <div className="bg-gray-200 rounded-md mr-4 mb-[10px] p-4">
+                 <div className="bg-gray-100 rounded-md mr-4 mb-[10px] p-4">
                 
           
           <div className="mb-4">
@@ -141,10 +142,11 @@ mainButton.setParams({
             <div className="flex flex-wrap gap-2">
               {sizes.map((size) => (
                 <Button
+                radius="sm"
                   key={size}
-                  variant={selectedSize === size ? "solid" : "flat"}
-                  className={`rounded-md w-[30px] h-[30px] min-w-[30px] flex items-center border border-gray-200 transition
-                            ${selectedSize === size ? "bg-gray-500 text-white" : "bg-transparent text-black"}`}
+                  className={`h-8 w-[30px] text-s font-bold border transition ${
+                 selectedSize === size ? "bg-blue-600 text-white" : "bg-gray-300 text-gray-600"
+                }`}
                   onPress={() => setSelectedSize(size)}
                 >
                   {size}
@@ -162,9 +164,12 @@ mainButton.setParams({
       fallback={<div className="w-full h-full bg-red-500 rounded-full" />} 
       key={color}
       onClick={() => setSelectedColor(color)}
-      color = {isSelected ? "success" : "default"}
+      color = {isSelected ? "primary" : "default"}
       style={{ backgroundColor: color.toLowerCase() }}
-      className="w-6 h-6 m-1"
+       className={clsx(
+                  "w-8 h-8 m-1 rounded-full border-2 transition",
+                  isSelected ? "scale-110" : "",
+                )}
       />
     );
   })}
@@ -172,7 +177,7 @@ mainButton.setParams({
                  </div>
                   
           <div className="mb-4">
-           <div className="bg-gray-200 mr-4 p-4 rounded-md text-jusify font-thin text-sm md:text-[14px] space-y-3">
+           <div className="bg-gray-100 mr-4 p-4 rounded-md text-jusify font-thin text-sm md:text-[14px] space-y-3">
   <p>
     Другие размеры и цвета — под заказ.
    <span className="inline-flex items-center text-justify gap-2">

@@ -27,13 +27,11 @@ const availableColors = [
     "black",
     "white",
     "gray",
-    "red",
-    "blue",
-    "green",
-    "yellow",
-    "orange",
+    "#006FEE",
+    "#17C964",
+    "#F5A524",
     "#8b5cf6", // фиолетовый
-    "#ec4899", // розовый
+    "#F31260", // розовый
   ];
 const sizes = ["XXXS","XXS","XS","S", "M", "L", "XL", "XXL", "XXXL"];
 const genders = ["Мужской", "Женский", "Унисекс"];

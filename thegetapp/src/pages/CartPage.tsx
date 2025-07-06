@@ -74,7 +74,7 @@ useEffect(() => {
           <img
             src={item.image}
             alt={item.name}
-            className="w-20 h-20 object-cover rounded"
+            className="w-[100px] h-[100px] object-cover"
           />
           <div className="flex-1">
             <h2 className="text-md font-medium">{item.name}</h2>

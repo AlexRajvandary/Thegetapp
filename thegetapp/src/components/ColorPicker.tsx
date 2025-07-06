@@ -1,3 +1,4 @@
+import { Avatar } from "@heroui/react";
 import clsx from "clsx";
 
 type ColorPickerProps = {
@@ -17,18 +18,26 @@ export default function ColorPicker({ colors, selectedColors, onChange }: ColorP
 
   return (
     <div className="flex flex-wrap gap-3">
-      {colors.map((color) => (
-        <button
-          key={color}
-          onClick={() => toggleColor(color)}
-          className={clsx(
+      
+        {colors.map((color) => {
+   
+    return (
+      <Avatar
+      isBordered
+      fallback={<div className="w-full h-full bg-red-500 rounded-full" />} 
+      key={color}
+      onClick={() => toggleColor(color)}
+      color = {selectedColors.includes(color)  ? "primary" : "default"}
+      style={{ backgroundColor: color }}
+      aria-label={`Color ${color}`}
+      className={clsx(
             "w-8 h-8 rounded-full border-2 transition",
-            selectedColors.includes(color) ? "border-blue-600 scale-110" : "border-gray-300",
+            selectedColors.includes(color) ? "scale-110" : "",
           )}
-          style={{ backgroundColor: color }}
-          aria-label={`Color ${color}`}
-        />
-      ))}
+          
+      />
+    );
+  })}
     </div>
   );
 }

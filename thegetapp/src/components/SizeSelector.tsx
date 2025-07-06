@@ -36,8 +36,8 @@ export default function SizeGridMultiSelect({
             onPress={() =>
               toggleSelection(size, selectedSizes, setSelectedSizes)
             }
-            className={`h-8 w-10 text-xs border transition font-medium ${
-                 selected ? "bg-blue-600 text-white" : "bg-gray-200 text-black"
+            className={`h-8 w-10 text-s border transition font-black ${
+                 selected ? "bg-blue-500 text-white" : "bg-gray-200 text-gray-400"
                 }`}
           >
             {size}
