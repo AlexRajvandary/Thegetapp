@@ -186,7 +186,7 @@ export default function ProductPage() {
       </div>
          
     </div>
- <div className="flex items-center w-full justify-between gap-2 bg-white/70 backdrop-blur-md px-[18px] py-2 sticky bottom-0 z-50">
+ <div className="flex items-center w-full justify-between gap-2 bg-white/70 backdrop-blur-md pb-[50px] px-[18px] py-2 sticky bottom-0 z-50">
   <div className="flex items-center gap-2">
     <Button isIconOnly aria-label="Like" variant="light" onPress={() => {
       if(hapticFeedback?.isSupported()){
@@ -211,7 +211,7 @@ export default function ProductPage() {
     </Button>
   </div>
 
-  <div className="flex items-center gap-2">
+  <div className="flex items-center gap-2 ">
     <Button className="text-[13px] font-bold" startContent={<ShoppingBasket strokeWidth={1}/>}>В корзину</Button>
     <Button className="text-[13px] font-bold" color="primary">Купить</Button>
   </div>

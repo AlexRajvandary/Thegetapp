@@ -329,7 +329,7 @@ const products = [
      
 
       {/* Сетка товаров */}
-      <div className={`grid ${singleColumn ? "grid-cols-1" : "grid-cols-2"} gap-[5px] px-2`}>
+      <div className={`grid ${singleColumn ? "grid-cols-1" : "grid-cols-2"} gap-[5px] px-[2px]`}>
         {products.map((product) => (
           <Link
   to="/product"

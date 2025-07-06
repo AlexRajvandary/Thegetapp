@@ -26,16 +26,16 @@ export default function ProductCardMobile({
     onClick={() => navigate(product.href)}
     src={product.imageSrc}
     alt={product.title}
-      className={`w-full object-cover rounded ${
-          singleColumn ? "h-[280px]" : "h-[180px]"
+      className={`w-full object-cover rounded-t-md ${
+          singleColumn ? "h-[400px]" : "h-[280px]"
         }`}
   />
-  <div className="py-3 pl-1 flex flex-col gap-1 text-left bg-white">
+  <div className="py-3 flex flex-col gap-1 text-left bg-white shadow-md rounded-b-md  h-[100px]">
    
   {isLoading ? (
     <Skeleton className="h-[16px] w-[60px] rounded-md" />
   ) : (
-    <div className="grid grid-cols-[auto_auto_1fr_auto] items-center w-full gap-2">
+    <div className="grid grid-cols-[auto_auto_1fr_auto] items-center p-1 w-full gap-2">
       {/* Цена */}
       <p className="text-md font-bold text-black whitespace-nowrap">
         {product.price}
@@ -67,7 +67,7 @@ export default function ProductCardMobile({
       </button>
     </div>
   )}        
-        <h2 className="text-[13px] text-foreground  line-clamp-2">
+        <h2 className="text-[13px] text-foreground  line-clamp-2 p-1">
           {isLoading ? <Skeleton className="h-[16px] w-4/5 rounded-md" /> : product.title}
         </h2>
 
