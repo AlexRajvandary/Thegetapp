@@ -10,7 +10,8 @@ type Props = {
     setSelected: React.Dispatch<React.SetStateAction<string[]>>
   ) => void;
   setSelectedSizes: React.Dispatch<React.SetStateAction<string[]>>;
-  columns?: number; // по умолчанию 4
+  columns?: number;
+  header?: string | null;
 };
 
 export default function SizeGridMultiSelect({
@@ -19,10 +20,15 @@ export default function SizeGridMultiSelect({
   toggleSelection,
   setSelectedSizes,
   columns = 4,
+  header = null
 }: Props) {
   return (
+    <div className="mx-auto mb-[30px]">
+    <div className="font-bold pb-3 pt-5">
+      {header}
+    </div>
     <div
-      className={`grid gap-2 mx-auto mb-[30px]`}
+      className={`grid gap-2 `}
       style={{ gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))` }}
     >
       {sizes.map((size) => {
@@ -45,5 +51,7 @@ export default function SizeGridMultiSelect({
         );
       })}
     </div>
+    </div>
+    
   );
 }

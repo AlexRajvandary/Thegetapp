@@ -33,7 +33,38 @@ const availableColors = [
     "#8b5cf6", // фиолетовый
     "#F31260", // розовый
   ];
-const sizes = ["XXXS","XXS","XS","S", "M", "L", "XL", "XXL", "XXXL"];
+const sizes = [
+  {
+    title: "Верх",
+    values: ["XXS / 40", "XS / 42", "S / 44–46", "M / 48–50", "L / 52–54", "XL / 56", "XXL / 58"]
+  },
+  {
+    title: "Низ",
+    values: ["26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44"]
+  },
+  {
+    title: "Верхняя одежда",
+    values: ["XXS / 40", "XS / 42", "S / 44–46", "M / 48–50", "L / 52–54", "XL / 56", "XXL / 58"]
+  },
+  {
+    title: "Обувь",
+    values: ["5", "5.5", "6", "6.5", "7", "7.5", "8", "8.5", "9", "9.5", "10", "10.5", "11", "11.5", "12", "12.5", "13", "14", "15"]
+  },
+  {
+    title: "Костюмы и пиджаки",
+    values: [
+      "34S", "34R", "36S", "36R", "38S", "38R", "38L",
+      "40S", "40R", "40L", "42S", "42R", "42L", "44S",
+      "44R", "44L", "46S", "46R", "46L", "48S", "48R",
+      "48L", "50S", "50R", "50L", "52S", "52R", "52L", "54R", "54L"
+    ]
+  },
+  {
+    title: "Аксессуары",
+    values: ["OS", "26", "28", "30", "32", "34", "36", "38", "40", "42", "44", "46"]
+  }
+];
+
 const genders = ["Мужской", "Женский", "Унисекс"];
 
 export default function Filters({
@@ -144,15 +175,18 @@ export default function Filters({
 
       
 
-      <AccordionItem title="Размер" key="5" className="pl-[10px]">
+      <AccordionItem title="Размер" key="5" className="pl-[10px] pb-[20px]">
         <div className="flex flex-col space-y-2">
-            
-            <SizeGridMultiSelect
-              sizes={sizes}
-              selectedSizes={selectedSizes}
-              toggleSelection={toggleSelection}
-              setSelectedSizes={setSelectedSizes}
-            />
+            {sizes.map(({ title, values }) => (
+      <SizeGridMultiSelect
+        key={title}
+        header={title}
+        sizes={values}
+        selectedSizes={selectedSizes}
+        toggleSelection={toggleSelection}
+        setSelectedSizes={setSelectedSizes}
+      />
+    ))}
          
         </div>
       </AccordionItem>
