@@ -27,6 +27,48 @@ const cartItems: CartItem[] = [
     price: 8999,
     quantity: 2,
   },
+   {
+    id: "2",
+    name: "Adidas Campus 00s",
+    image: "https://media-assets.grailed.com/prd/listing/temp/66688f71562d46939932e6f3d58a654c?w=800",
+    price: 8999,
+    quantity: 2,
+  },
+   {
+    id: "2",
+    name: "Adidas Campus 00s",
+    image: "https://media-assets.grailed.com/prd/listing/temp/66688f71562d46939932e6f3d58a654c?w=800",
+    price: 8999,
+    quantity: 2,
+  },
+   {
+    id: "2",
+    name: "Adidas Campus 00s",
+    image: "https://media-assets.grailed.com/prd/listing/temp/66688f71562d46939932e6f3d58a654c?w=800",
+    price: 8999,
+    quantity: 2,
+  },
+   {
+    id: "2",
+    name: "Adidas Campus 00s",
+    image: "https://media-assets.grailed.com/prd/listing/temp/66688f71562d46939932e6f3d58a654c?w=800",
+    price: 8999,
+    quantity: 2,
+  },
+   {
+    id: "2",
+    name: "Adidas Campus 00s",
+    image: "https://media-assets.grailed.com/prd/listing/temp/66688f71562d46939932e6f3d58a654c?w=800",
+    price: 8999,
+    quantity: 2,
+  },
+   {
+    id: "2",
+    name: "Adidas Campus 00s",
+    image: "https://media-assets.grailed.com/prd/listing/temp/66688f71562d46939932e6f3d58a654c?w=800",
+    price: 8999,
+    quantity: 2,
+  },
 ];
 
 export default function CartPage() {
@@ -63,7 +105,8 @@ useEffect(() => {
 
 
   return (
-    <div className="p-4 pb-20 mt-[110px]">
+    <>
+    <div className="p-4 pb-5 mt-[110px]">
       <h1 className="text-xl font-semibold mb-4">Корзина</h1>
 
       {cartItems.map((item) => (
@@ -96,8 +139,11 @@ useEffect(() => {
           </Button>
         </div>
       ))}
-
-      <div className="mt-6 flex justify-between items-center text-lg font-semibold">
+   
+     
+    </div>
+       <div className="sticky bottom-[90px] z-50 p-4 pt-2 bg-white">
+         <div className=" flex justify-between items-center text-lg font-semibold">
         <span>Итого:</span>
         <span>{total.toLocaleString("ru-RU")} ₽</span>
       </div>
@@ -105,6 +151,7 @@ useEffect(() => {
       <Button className="w-full mt-4 bg-blue-600 text-white hover:bg-blue-700">
         Оформить заказ
       </Button>
-    </div>
+      </div>
+      </>
   );
 }

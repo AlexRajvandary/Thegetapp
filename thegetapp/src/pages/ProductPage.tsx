@@ -1,14 +1,13 @@
 import { Avatar, Button, Chip } from "@heroui/react";
 import React from "react";
-import { HeartIcon, BookmarkIcon, Share, ShieldCheck } from "lucide-react";
+import { HeartIcon, Share, ShieldCheck, ShoppingBasket } from "lucide-react";
 import type { Product } from "../components/Product";
 import { useNavigate } from "react-router-dom";
-import { backButton, hapticFeedback, mainButton, miniApp, openTelegramLink, shareURL } from "@telegram-apps/sdk-react";
+import { backButton, hapticFeedback, openTelegramLink, shareURL } from "@telegram-apps/sdk-react";
 import { useEffect } from "react";
 import CountryFlag from "../components/CountryFlag";
 import ImageGallery from "../components/ImageGallery";
 import clsx from "clsx";
-
 
 const sizes = ["XS", "S", "M", "L", "XL"];
 const colors = ["Black", "White", "Blue", "Red"];
@@ -33,7 +32,6 @@ const exampleProduct: Product = {
 
 export default function ProductPage() {
   const [liked, setLiked] = React.useState(false);
-  const [saved, setSaved] = React.useState(false);
 
   const [selectedSize, setSelectedSize] = React.useState<string | null>(null);
   const [selectedColor, setSelectedColor] = React.useState<string | null>(null);
@@ -41,23 +39,15 @@ export default function ProductPage() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (backButton.mount.isAvailable()) backButton.mount();
-    if (backButton.show.isAvailable()) backButton.show();
-
-    if(mainButton.mount.isAvailable()) {mainButton.mount();
-      miniApp.mountSync();
-      miniApp.setBottomBarColor("#FFFFFF");
-mainButton.setParams({
-  isVisible: true,
-  text: "Добавить в корзину",
-  backgroundColor: "#000000"
-});
+   
+    if(backButton.mount.isAvailable()) {backButton.mount();
+     
+      if (backButton.show.isAvailable()) backButton.show();
     }
       const handler = () => {
         navigate(-1);
     if (backButton.hide.isAvailable()){ 
       backButton.hide();
-      mainButton.setParams({isVisible: false});
     }
   };
     if (backButton.onClick.isAvailable()) backButton.onClick(handler);
@@ -70,7 +60,6 @@ mainButton.setParams({
       if (backButton.hide.isAvailable())
         {
            backButton.hide();
-            mainButton.setParams({isVisible: false});
           }
     };
   }, [navigate]);
@@ -82,41 +71,6 @@ mainButton.setParams({
         </div>
     <div className="px-2 md:px-[140px]">
       <div className="flex flex-col md:flex-row py-2 md:gap-12">
-            <div className="flex items-center w-full gap-2">
-              <Button isIconOnly aria-label="Like" variant="light" onPress={() => 
-                {
-                  hapticFeedback.impactOccurred('medium');
-                  setLiked(!liked)
-                }
-              }>
-                <HeartIcon
-                  fill={liked ? "red" : "none"}
-                  stroke={liked ? "red" : "black"}
-                  size={25}
-                  strokeWidth={1}
-                />
-              </Button>
-              <Button isIconOnly aria-label="Save" variant="light" onPress={() => {
-                hapticFeedback?.impactOccurred("medium");
-                setSaved(!saved)
-                }}>
-                <BookmarkIcon
-                  fill={saved ? "black" : "none"}
-                  stroke="black"
-                  size={25}
-                  strokeWidth={1}
-                />
-              </Button>
-              <Button isIconOnly aria-label="Share" variant="light" onPress={() => {
-                  hapticFeedback?.impactOccurred("medium");
-                  shareURL('https://t.me/TheGetTestBot/theget', 'Look! Some cool app here!');
-                }}>
-                <Share strokeWidth={1}/>
-              </Button>
-            </div>
-          
-          
-
         <div className="w-full md:w-[30%] flex flex-col justify-start mx-[10px]">
           <h1 className="text-[23px] md:text-[27px] my-2 font-bold">Футболка Nike Shine</h1>
                      <div className="flex items-center gap-2 my-[10px]">
@@ -135,8 +89,6 @@ mainButton.setParams({
            
           </div>
                  <div className="bg-gray-100 rounded-md mr-4 mb-[10px] p-4">
-                
-          
           <div className="mb-4">
            
             <div className="flex flex-wrap gap-2">
@@ -232,7 +184,39 @@ mainButton.setParams({
           </div>
         </div>
       </div>
+         
     </div>
+ <div className="flex items-center w-full justify-between gap-2 bg-white/70 backdrop-blur-md px-[18px] py-2 sticky bottom-0 z-50">
+  <div className="flex items-center gap-2">
+    <Button isIconOnly aria-label="Like" variant="light" onPress={() => {
+      if(hapticFeedback?.isSupported()){
+        hapticFeedback.impactOccurred('medium');
+      }
+      
+      setLiked(!liked)
+    }}>
+      <HeartIcon
+        fill={liked ? "red" : "none"}
+        stroke={liked ? "red" : "black"}
+        size={25}
+        strokeWidth={1}
+      />
+    </Button>
+
+    <Button isIconOnly aria-label="Share" variant="light" onPress={() => {
+      hapticFeedback?.impactOccurred("medium");
+      shareURL('https://t.me/TheGetTestBot/theget', 'Look! Some cool app here!');
+    }}>
+      <Share strokeWidth={1}/>
+    </Button>
+  </div>
+
+  <div className="flex items-center gap-2">
+    <Button className="text-[13px] font-bold" startContent={<ShoppingBasket strokeWidth={1}/>}>В корзину</Button>
+    <Button className="text-[13px] font-bold" color="primary">Купить</Button>
+  </div>
+</div>
+
     </>
   );
 }
