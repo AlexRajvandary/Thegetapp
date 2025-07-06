@@ -63,17 +63,18 @@ export default function ProductPage() {
 
   const navigate = useNavigate();
 
-  useEffect(() => {
+ useEffect(() => {
+  let isMounted = true;
+
   const showUI = async () => {
     mainButton.setParams({ isVisible: false });
 
-    await preloadImages([exampleProduct.imageSrc, ...exampleProduct.imageSrces]);
+    await preloadImages(exampleProduct.imageSrces);
 
-    await new Promise((res) => setTimeout(res, 300));
+    if (!isMounted) return;
 
     setImagesLoaded(true);
-    try {
-          // Telegram UI
+
     if (backButton.mount.isAvailable()) backButton.mount();
     if (backButton.show.isAvailable()) backButton.show();
     if (mainButton.mount.isAvailable()) {
@@ -86,10 +87,6 @@ export default function ProductPage() {
         backgroundColor: "#000000",
       });
     }
-    } catch (error) {
-      console.log(`Exception caught! ${(error as Error).message}`);
-   }
-
   };
 
   showUI();
@@ -105,6 +102,7 @@ export default function ProductPage() {
   if (backButton.onClick.isAvailable()) backButton.onClick(handler);
 
   return () => {
+    isMounted = false;
     if (backButton.offClick.isAvailable()) backButton.offClick(handler);
     if (backButton.hide.isAvailable()) {
       backButton.hide();
