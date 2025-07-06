@@ -10,15 +10,17 @@ type CartItem = {
   image: string;
   price: number;
   quantity: number;
+  isSubscription?: boolean;
 };
 
 const cartItems: CartItem[] = [
   {
     id: "1",
     name: "Spotify Premium",
-    image: "/spotify.png",
+    image: "/spotify.webp",
     price: 1299,
     quantity: 1,
+    isSubscription: true
   },
   {
     id: "2",
@@ -26,6 +28,7 @@ const cartItems: CartItem[] = [
     image: "https://media-assets.grailed.com/prd/listing/temp/66688f71562d46939932e6f3d58a654c?w=800",
     price: 8999,
     quantity: 2,
+    isSubscription: false
   },
    {
     id: "2",
@@ -33,6 +36,7 @@ const cartItems: CartItem[] = [
     image: "https://media-assets.grailed.com/prd/listing/temp/66688f71562d46939932e6f3d58a654c?w=800",
     price: 8999,
     quantity: 2,
+    isSubscription: false
   },
    {
     id: "2",
@@ -40,6 +44,7 @@ const cartItems: CartItem[] = [
     image: "https://media-assets.grailed.com/prd/listing/temp/66688f71562d46939932e6f3d58a654c?w=800",
     price: 8999,
     quantity: 2,
+     isSubscription: false
   },
    {
     id: "2",
@@ -47,6 +52,7 @@ const cartItems: CartItem[] = [
     image: "https://media-assets.grailed.com/prd/listing/temp/66688f71562d46939932e6f3d58a654c?w=800",
     price: 8999,
     quantity: 2,
+     isSubscription: false
   },
    {
     id: "2",
@@ -54,6 +60,7 @@ const cartItems: CartItem[] = [
     image: "https://media-assets.grailed.com/prd/listing/temp/66688f71562d46939932e6f3d58a654c?w=800",
     price: 8999,
     quantity: 2,
+     isSubscription: false
   },
    {
     id: "2",
@@ -61,6 +68,7 @@ const cartItems: CartItem[] = [
     image: "https://media-assets.grailed.com/prd/listing/temp/66688f71562d46939932e6f3d58a654c?w=800",
     price: 8999,
     quantity: 2,
+     isSubscription: false
   },
    {
     id: "2",
@@ -68,6 +76,7 @@ const cartItems: CartItem[] = [
     image: "https://media-assets.grailed.com/prd/listing/temp/66688f71562d46939932e6f3d58a654c?w=800",
     price: 8999,
     quantity: 2,
+     isSubscription: false
   },
 ];
 
@@ -106,39 +115,44 @@ useEffect(() => {
 
   return (
     <>
-    <div className="p-4 pb-5 mt-[110px]">
-      <h1 className="text-xl font-semibold mb-4">Корзина</h1>
+    <div className="p-2 pb-5 mt-[110px]">
+      <h1 className="text-xl font-semibold mb-4 pl-4">Корзина</h1>
 
-      {cartItems.map((item) => (
-        <div
-          key={item.id}
-          className="flex items-center gap-4 mb-4 border-b pb-4"
-        >
-          <img
-            src={item.image}
-            alt={item.name}
-            className="w-[100px] h-[100px] object-cover"
-          />
-          <div className="flex-1">
-            <h2 className="text-md font-medium">{item.name}</h2>
-            <div className="text-sm text-gray-500">
-              {item.price.toLocaleString("ru-RU")} ₽
-            </div>
-            <div className="flex items-center gap-2 mt-2">
-              <Button isIconOnly>
-                <Minus size={16} />
-              </Button>
-              <span className="w-6 text-center">{item.quantity}</span>
-              <Button isIconOnly>
-                <Plus size={16} />
-              </Button>
-            </div>
-          </div>
-          <Button variant="ghost" isIconOnly className="text-red-500">
-            <Trash2 size={20} />
-          </Button>
-        </div>
-      ))}
+     {cartItems.map((item) => (
+  <div
+    key={item.id}
+    className="flex mb-4 border-b pb-4"
+  >
+    <img
+      src={item.image}
+      alt={item.name}
+      className={`object-contain rounded ${
+        item.isSubscription
+          ? 'w-[100px] h-[100px] ml-[50px]'   // для подписок — маленькое изображение
+          : 'w-[250px] h-[250px]' // для обычных товаров — больше
+      }`}
+    />
+    <div className="flex-1">
+      <h2 className="text-sm font-medium">{item.name}</h2>
+      <div className="text-sm text-gray-500">
+        {item.price.toLocaleString("ru-RU")} ₽
+      </div>
+      <div className="flex items-center gap-2 mt-2">
+        <Button isIconOnly variant="light" >
+          <Minus size={12} />
+        </Button>
+        <span className="w-6 text-center">{item.quantity}</span>
+        <Button isIconOnly variant="light" >
+          <Plus size={12} />
+        </Button>
+      </div>
+    </div>
+    <Button variant="light" isIconOnly>
+      <Trash2 size={20} />
+    </Button>
+  </div>
+))}
+
    
      
     </div>
