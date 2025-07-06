@@ -158,7 +158,7 @@ const products = [
   ];
   const subscriptions = [
  {
-      imageSrc: '/spotify.png',
+      imageSrc: '/spotify.webp',
       title: "Spotify",
       label: "Bestseller",
       category: "Music",
@@ -166,7 +166,7 @@ const products = [
       href: "/subscribtion"
     },
      {
-      imageSrc: '/adobe.png',
+      imageSrc: '/adobe.webp',
       title: "Adobe",
       label: "Bestseller",
       category: "Work",
@@ -174,7 +174,7 @@ const products = [
       href: "/subscribtion"
     },
     {
-      imageSrc: '/deezer.png',
+      imageSrc: '/deezer.webp',
       title: "Deezer",
       label: "Bestseller",
       category: "Music",
@@ -182,7 +182,7 @@ const products = [
       href: "/subscribtion"
     },
     {
-      imageSrc: '/discord.png',
+      imageSrc: '/discord.webp',
       title: "Discord",
       label: "Bestseller",
       category: "Social",
@@ -190,7 +190,7 @@ const products = [
       href: "/subscribtion"
     },
     {
-      imageSrc: '/disney.png',
+      imageSrc: '/disney.webp',
       title: "Disney",
       label: "Bestseller",
       category: "Film",
@@ -198,7 +198,7 @@ const products = [
       href: "/subscribtion"
     },
     {
-      imageSrc: '/netflix.png',
+      imageSrc: '/netflix.webp',
       title: "Netflix",
       label: "Bestseller",
       category: "Film",
@@ -206,7 +206,7 @@ const products = [
       href: "/subscribtion"
     },
     {
-      imageSrc: '/prime.png',
+      imageSrc: '/prime.webp',
       title: "Prime",
       label: "Bestseller",
       category: "Film",
@@ -214,7 +214,7 @@ const products = [
       href: "/subscribtion"
     },
     {
-      imageSrc: '/youtube.png',
+      imageSrc: '/youtube.webp',
       title: "Youtube",
       label: "Bestseller",
       category: "Film",
