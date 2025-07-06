@@ -10,6 +10,7 @@ import SubscriptionCardMobile from "../components/SubscriptionCardMobile";
 import Filters from "../components/Filters";
 import FilterChips from "../components/FilterChips";
 import { Link, useNavigate } from "react-router-dom";
+import AbroadOrderExample from "../components/AbroadOrderExample";
 
 export default function App() {
   const [singleColumn, setSingleColumn] = useState(false);
@@ -247,6 +248,20 @@ const products = [
     label={subscription.label}
   />
 ))} />
+      </div>
+
+       <div className="col-span-2 bg-gradient-to-br from-sky-400 to-pink-400 rounded-[14px] py-4 my-2">
+     <div className="top-0 z-20 font-extrabold text-[22px] mx-4 py-[5px] leading-[130%] tracking-[-0.01em] text-white select-none">
+        Из-за границы под заказ
+      </div>
+       <Carousel
+  visibleSlides={1}
+  items={[
+    <AbroadOrderExample key="1" imageSrc="/OrderFromAbroad.jpg" />,
+    <AbroadOrderExample key="2" />,
+    <AbroadOrderExample key="3" />
+  ]}
+/>
       </div>
 </div>
       <h2 className="font-extrabold text-[24px] mx-4 py-[5px] leading-[130%] tracking-[-0.01em]">
