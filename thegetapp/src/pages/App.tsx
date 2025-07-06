@@ -257,9 +257,10 @@ const products = [
        <Carousel
   visibleSlides={1}
   items={[
-    <AbroadOrderExample key="1" imageSrc="/OrderFromAbroad.jpg" />,
-    <AbroadOrderExample key="2" />,
-    <AbroadOrderExample key="3" />
+    <AbroadOrderExample key="1" title="Хрупкий товар из Европы? Легко!" countryISO="cr" text="Недавно у нас оформили выкуп и доставку чашек ручной работы из Хорватии — хрупкий товар, но мы умеем с таким работать." imageSrc="/OrderFromAbroad.jpg" />,
+    <AbroadOrderExample key="2" title="Свежий заказ из Японии" imageSrc="OIP.webp" countryISO="jp" text="Клиент заказал цифровые камеры. Sony DSC-F707 и Fujifilm FinePix 1700Z. Так же — редкий USB-картридер для старых форматов медиа. Мы работаем с Mercari, Rakuten, Yahoo Auctions и другими японскими площадками. Если вы давно хотели товар из Японии, но не знали с чего начать — всё просто: отправляете ссылку на товар, а дальше мы берём всё на себя."/>,
+    <AbroadOrderExample key="3" title="С пустыми руками — не уходим!" countryISO="it" imageSrc="/labubu.jpg" text="Две куклы лимитированной серии, которые были выпущены специально для Италии, куплены нашим агентом, спустя несколько часов ожидания в очереди и нескольких дней подготовки. 2 штуки в наличии в Москве — через 15 дней"/>,
+    <AbroadOrderExample key="4" title="Оплата 9.100$ за победные лоты на аукционе." countryISO={["us", "fr" , "jp" , "hk", "cn"]} imageSrc="/soda.jpg" text="Сумма выкупов: ~4 млн. рублей. Число позиций: более 30 штук. США, Гонконг, Китай, Франция, Япония."/>
   ]}
 />
       </div>
