@@ -24,9 +24,11 @@ export default function SizeGridMultiSelect({
 }: Props) {
   return (
     <div className="mx-auto mb-[30px]">
-    <div className="font-bold pb-3 pt-5">
-      {header}
-    </div>
+      {header && (
+        <div className="font-bold pb-3 pt-5">
+          {header}
+        </div>
+      )}
     <div
       className={`grid gap-2 `}
       style={{ gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))` }}

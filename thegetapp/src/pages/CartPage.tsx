@@ -1,4 +1,4 @@
-import { Trash2, Minus, Plus } from "lucide-react";
+import { Trash2 } from "lucide-react";
 import { Button } from "@heroui/react";
 import { backButton } from "@telegram-apps/sdk-react";
 import { useNavigate } from "react-router-dom";
@@ -80,6 +80,7 @@ const cartItems: CartItem[] = [
   },
 ];
 
+
 export default function CartPage() {
   const total = cartItems.reduce(
     (sum, item) => sum + item.price * item.quantity,
@@ -120,41 +121,42 @@ useEffect(() => {
 
      {cartItems.map((item) => (
   <div
-    key={item.id}
-    className="flex mb-4 border-b pb-4"
-  >
+  key={item.id}
+  className="flex mb-4 border-b pb-4"
+>
+  <div className="w-[260px]">
     <img
       src={item.image}
       alt={item.name}
       className={`object-contain rounded ${
         item.isSubscription
-          ? 'w-[100px] h-[100px] ml-[50px]'   // для подписок — маленькое изображение
-          : 'w-[250px] h-[250px]' // для обычных товаров — больше
+          ? 'w-[100px] h-[100px] ml-[70px] mt-[10px]'
+          : 'w-[250px] h-[250px]'
       }`}
     />
-    <div className="flex-1">
+  </div>
+
+  {/* Правая колонка */}
+  <div className="flex flex-col justify-between flex-1">
+    <div>
       <h2 className="text-sm font-medium">{item.name}</h2>
       <div className="text-sm text-gray-500">
         {item.price.toLocaleString("ru-RU")} ₽
       </div>
-      <div className="flex items-center gap-2 mt-2">
-        <Button isIconOnly variant="light" >
-          <Minus size={12} />
-        </Button>
-        <span className="w-6 text-center">{item.quantity}</span>
-        <Button isIconOnly variant="light" >
-          <Plus size={12} />
-        </Button>
-      </div>
+      <div>Sizes</div>
     </div>
-    <Button variant="light" isIconOnly>
+
+    {/* Кнопка удаления внизу */}
+    <Button
+      variant="light"
+      isIconOnly
+      className="mt-auto self-end"
+    >
       <Trash2 size={20} />
     </Button>
   </div>
+</div>
 ))}
-
-   
-     
     </div>
        <div className="sticky bottom-[90px] z-50 p-4 pt-2 bg-white">
          <div className=" flex justify-between items-center text-lg font-semibold">
