@@ -6,6 +6,7 @@ import { MotionDiv } from '../components/common/motion'
 const tabs = [
   { name: "Главная", path: "/", icon: Home },
   { name: "Корзина", path: "/cart", icon: ShoppingCart },
+  { name: "Заказы", path: "/orders", icon: ShoppingCart },
   { name: "Профиль", path: "/user", icon: User },
 ];
 

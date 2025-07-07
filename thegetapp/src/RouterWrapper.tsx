@@ -28,13 +28,13 @@ export default function RouterWrapper() {
         <Route element={<MainLayout />}>
           <Route path="/" element={<App />} />
           <Route path="/cart" element={<CartPage />} />
+           <Route path="/orders" element={<Orders />} />
           <Route path="/user" element={<UserPage />} />
         </Route>
     
         <Route path="/search" element={<SearchPage />} />
         <Route path="/product" element={<ProductPage />} />
-        <Route path="/orders" element={<Orders />} />
-        <Route path="/orders/:orderId" element={<Order/>} />
+        <Route path="/order" element={<Order/>} />
       </Routes>
     </HeroUIProvider>
   );
