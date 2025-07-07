@@ -26,7 +26,13 @@ const orders: Order[] = [
     total: 2999,
     items: [
       { id: "1", name: "Spotify Premium", image: "/spotify.webp" },
-      { id: "2", name: "Nike Air Force", image: "/airforce.webp" }
+      { id: "2", name: "Nike Air Force", image: "/youtube.webp" },
+      { id: "2", name: "Nike Air Force", image: "/disney.webp" },
+      { id: "2", name: "Nike Air Force", image: "/discord.webp" },
+      { id: "2", name: "Nike Air Force", image: "/airforce.webp" },
+      { id: "2", name: "Nike Air Force", image: "/airforce.webp" },
+      { id: "2", name: "Nike Air Force", image: "/airforce.webp" },
+      { id: "2", name: "Nike Air Force", image: "/airforce.webp" },
     ]
   },
   {
@@ -35,7 +41,7 @@ const orders: Order[] = [
     status: "В пути",
     total: 8999,
     items: [
-      { id: "3", name: "Adidas Campus", image: "/campus.webp" }
+      { id: "3", name: "Adidas Campus", image: "/labubu.jpg" }
     ]
   },
   {
@@ -121,8 +127,8 @@ export default function OrdersPage() {
           </div>
 
           <Button
-            startContent={<Star size={18}/>}
-            className="w-full mt-4 bg-gray-800 text-white hover:bg-black"
+            startContent={<Star size={18} strokeWidth={1}/>}
+            className="w-full mt-4 bg-gray-900 text-white hover:bg-black"
             onPress={() => navigate(`/review/${order.id}`)}
           >
             Оставить отзыв

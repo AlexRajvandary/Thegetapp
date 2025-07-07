@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { backButton } from "@telegram-apps/sdk-react";
+import { Button } from "@heroui/react";
+import { Download, Star } from "lucide-react";
 
 type CartItem = {
   id: string;
@@ -18,22 +20,23 @@ const orderItems: CartItem[] = [
     image: "/spotify.webp",
     price: 1299,
     quantity: 1,
-    isSubscription: true
+    isSubscription: true,
   },
   {
     id: "2",
     name: "Adidas Campus 00s",
-    image: "https://media-assets.grailed.com/prd/listing/temp/66688f71562d46939932e6f3d58a654c?w=800",
+    image:
+      "https://media-assets.grailed.com/prd/listing/temp/66688f71562d46939932e6f3d58a654c?w=800",
     price: 8999,
     quantity: 2,
-    isSubscription: false
-  }
+    isSubscription: false,
+  },
 ];
 
 const orderInfo = {
   id: "ORD-20250707-001",
   status: "Оплачен",
-  createdAt: "2025-07-07T12:45:00Z"
+  createdAt: "2025-07-07T12:45:00Z",
 };
 
 export default function OrderPage() {
@@ -117,12 +120,16 @@ export default function OrderPage() {
             </div>
           </div>
         ))}
+      </div>
 
-        <div className="sticky bottom-[90px] z-50 py-4 px-4 pt-2 bg-white shadow-md mt-6 rounded-t-lg">
-          <div className="flex justify-between items-center text-lg font-semibold">
-            <span>Итого:</span>
-            <span>{total.toLocaleString("ru-RU")} ₽</span>
-          </div>
+      <div className="sticky bottom-0 z-50 py-4 pb-10 px-4 pt-2 bg-white">
+        <div className="flex justify-between items-center text-lg font-semibold">
+          <span>Итого:</span>
+          <span>{total.toLocaleString("ru-RU")} ₽</span>
+        </div>
+        <div className="flex gap-2">
+          <Button className="w-1/2 bg-gray-800 text-white" startContent={<Download strokeWidth={1}/>}>Сохранить чек</Button>
+          <Button className="w-1/2 text-white" color="primary" startContent={<Star strokeWidth={1}/>}>Оставить отзыв</Button>
         </div>
       </div>
     </div>
