@@ -18,10 +18,9 @@ export default function AbroadOrderExample({
   imageSrc = "",
   title = "",
   href = "",
-  text = "",
-  countryISO = ""
+  text = ""
 }: ProductCardProps) {
-  const countries = Array.isArray(countryISO) ? countryISO : [countryISO]; // нормализуем в массив
+ 
 
   return (
     <Card
@@ -42,17 +41,6 @@ export default function AbroadOrderExample({
         <div className="text-[12px] font-thin text-black text-left pt-2">
           {text}
         </div>
-
-        <div className="flex gap-2 p-4">
-          {countries.map((code) => (
-            <Avatar
-              key={code}
-              isBordered
-              className="w-6 h-6"
-              src={`https://flagcdn.com/w40/${code.toLowerCase()}.png`}
-            />
-          ))}
-        </div>
       </div>
        <Button
        
@@ -63,7 +51,7 @@ export default function AbroadOrderExample({
       }
 
     }}
-     radius="sm"
+    radius="sm"
       endContent={
         <Avatar
           isBordered
@@ -73,7 +61,7 @@ export default function AbroadOrderExample({
         />
       }
       
-      className="text-md font-bold m-4 mt-0 bg-blue-400 text-white shadow-md"
+        className="text-md font-bold m-4 mt-0 bg-blue-400 text-white shadow-md"
     >
       Написать
     </Button>
