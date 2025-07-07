@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { backButton } from "@telegram-apps/sdk-react";
 import { Button } from "@heroui/react";
+import { Star } from "lucide-react";
 
 type OrderItem = {
   id: string;
@@ -120,6 +121,7 @@ export default function OrdersPage() {
           </div>
 
           <Button
+            startContent={<Star size={18}/>}
             className="w-full mt-4 bg-gray-800 text-white hover:bg-black"
             onPress={() => navigate(`/review/${order.id}`)}
           >

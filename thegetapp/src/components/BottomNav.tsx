@@ -1,4 +1,4 @@
-import { Home, ShoppingCart, User } from "lucide-react";
+import { Home, ShoppingCart, User, Package } from "lucide-react";
 import { NavLink, useLocation } from "react-router-dom";
 import { Avatar } from "@heroui/react";
 import { MotionDiv } from "../components/common/motion";
@@ -6,7 +6,7 @@ import { MotionDiv } from "../components/common/motion";
 const tabs = [
   { name: "Главная", path: "/", icon: Home },
   { name: "Корзина", path: "/cart", icon: ShoppingCart },
-  { name: "Заказы", path: "/orders", icon: ShoppingCart },
+  { name: "Заказы", path: "/orders", icon: Package },
   { name: "Профиль", path: "/user", icon: User },
 ];
 
