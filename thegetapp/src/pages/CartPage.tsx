@@ -137,7 +137,7 @@ useEffect(() => {
   </div>
 
   {/* Правая колонка */}
-  <div className="flex flex-col justify-between flex-1 p-1">
+  <div className="flex flex-col justify-between flex-1 p-1 pt-3">
     <div>
       <h2 className="text-[16px] font-normal">{item.name}</h2>
       <div>Sizes</div>
