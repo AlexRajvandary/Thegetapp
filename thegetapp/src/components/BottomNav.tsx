@@ -1,7 +1,7 @@
 import { Home, ShoppingCart, User } from "lucide-react";
 import { NavLink, useLocation } from "react-router-dom";
 import { Avatar } from "@heroui/react";
-import { MotionDiv } from '../components/common/motion'
+import { MotionDiv } from "../components/common/motion";
 
 const tabs = [
   { name: "Главная", path: "/", icon: Home },
@@ -48,13 +48,13 @@ export default function MobileBottomNav() {
               {name}
             </span>
 
-           {isActive && (
-            <MotionDiv
-              layoutId="active-tab-indicator"
-              className="absolute top-0 left-0 w-full h-[2px] rounded-full bg-blue-600"
-              transition={{ type: "spring", stiffness: 300, damping: 26 }}
+            {isActive && (
+              <MotionDiv
+                layoutId="active-tab-indicator"
+                className="absolute top-0 left-0 w-full h-[2px] rounded-full bg-blue-600"
+                transition={{ type: "spring", stiffness: 300, damping: 26 }}
               />
-          )}
+            )}
           </NavLink>
         );
       })}
