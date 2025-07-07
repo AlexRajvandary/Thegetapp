@@ -1,9 +1,33 @@
 import { Avatar} from "@heroui/react";
-
-import CustomTabs from "../components/CustomTabs";
+import { ChevronRight, Clock, CreditCard, Heart, Truck } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 export default function UserPage() {
- 
+ const navigate = useNavigate();
+
+  const settings = [
+    {
+      label: "Способ оплаты",
+      icon: <CreditCard size={20} />,
+      onClick: () => navigate("/settings/payment"),
+    },
+    {
+      label: "Способ доставки",
+      icon: <Truck size={20} />,
+      onClick: () => navigate("/settings/delivery"),
+    },
+    {
+      label: "Сохранённые товары",
+      icon: <Heart size={20} />,
+      onClick: () => navigate("/saved"),
+    },
+    {
+      label: "История просмотров",
+      icon: <Clock size={20} />,
+      onClick: () => navigate("/history"),
+    },
+  ];
+
 
   const avatarUrl = localStorage.getItem("avatarUrl");
   const first_name = localStorage.getItem("first_name") ?? "Пользователь";
@@ -32,7 +56,21 @@ export default function UserPage() {
 </div>
 
     <div className="px-4">
-     <CustomTabs/>
+        <div className="bg-white divide-y rounded-md mx-4 shadow-sm">
+        {settings.map((item, idx) => (
+          <button
+            key={idx}
+            onClick={item.onClick}
+            className="w-full flex items-center justify-between px-4 py-4 text-left text-sm hover:bg-gray-100"
+          >
+            <div className="flex items-center gap-3 text-gray-800">
+              {item.icon}
+              {item.label}
+            </div>
+            <ChevronRight className="text-gray-400" />
+          </button>
+        ))}
+      </div>
     
     </div>
     </>
