@@ -1,4 +1,4 @@
-import { Trash2 } from "lucide-react";
+import { ShoppingBag, Trash2 } from "lucide-react";
 import { Button } from "@heroui/react";
 import { backButton } from "@telegram-apps/sdk-react";
 import { useNavigate } from "react-router-dom";
@@ -115,59 +115,61 @@ useEffect(() => {
 
 
   return (
-    <>
-    <div className="p-2 pb-5 mt-[110px]">
+    <div className="bg-[#f5f5f5]">
+    <div className="p-2 pb-5 pt-[110px]">
       <h1 className="text-xl font-semibold mb-4 pl-4">Корзина</h1>
 
      {cartItems.map((item) => (
   <div
   key={item.id}
-  className="flex mb-4 border-b pb-4"
+  className="flex mb-2 mx-4 rounded-md bg-white h-[200px]"
 >
-  <div className="w-[260px]">
+  <div className="w-[200px]">
     <img
       src={item.image}
       alt={item.name}
-      className={`object-contain rounded ${
+      className={`rounded-l ${
         item.isSubscription
-          ? 'w-[100px] h-[100px] ml-[70px] mt-[10px]'
-          : 'w-[250px] h-[250px]'
+          ? 'w-[100px] h-[100px] ml-[50px] mt-[50px] object-contain'
+          : 'w-[190px] h-[200px]'
       }`}
     />
   </div>
 
   {/* Правая колонка */}
-  <div className="flex flex-col justify-between flex-1">
+  <div className="flex flex-col justify-between flex-1 p-1">
     <div>
-      <h2 className="text-sm font-medium">{item.name}</h2>
-      <div className="text-sm text-gray-500">
-        {item.price.toLocaleString("ru-RU")} ₽
-      </div>
+      <h2 className="text-[16px] font-normal">{item.name}</h2>
       <div>Sizes</div>
     </div>
-
-    {/* Кнопка удаления внизу */}
+       <div className="mt-auto flex items-center justify-between">
+    <div className="text-[18px] font-medium text-black">
+      {item.price.toLocaleString("ru-RU")} ₽
+    </div>
+    
     <Button
       variant="light"
       isIconOnly
-      className="mt-auto self-end"
+      className="ml-2"
     >
       <Trash2 size={20} />
     </Button>
   </div>
+    
+  </div>
 </div>
 ))}
     </div>
-       <div className="sticky bottom-[90px] z-50 p-4 pt-2 bg-white">
+       <div className="sticky bottom-[90px] z-50 py-4 px-8 pt-2 bg-white">
          <div className=" flex justify-between items-center text-lg font-semibold">
         <span>Итого:</span>
         <span>{total.toLocaleString("ru-RU")} ₽</span>
       </div>
 
-      <Button className="w-full mt-4 bg-blue-600 text-white hover:bg-blue-700">
+      <Button startContent={<ShoppingBag strokeWidth={1}/>} className="w-full mt-4 p-2 bg-gray-900 text-white hover:bg-black">
         Оформить заказ
       </Button>
       </div>
-      </>
+      </div>
   );
 }
