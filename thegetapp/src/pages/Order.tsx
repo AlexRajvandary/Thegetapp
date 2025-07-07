@@ -1,5 +1,3 @@
-import Header from "../components/Header";
-import Footer from "../components/Footer";
 import { OrderTimeline, type StepDetails } from "../components/OrderTimeline";
 import ImageGallery from "../components/ImageGallery";
 import { Avatar, Card, CardBody, CardFooter, CardHeader } from "@heroui/react";
@@ -80,8 +78,6 @@ export default function OrderPage() {
 
   return (
     <>
-      <Header />
-
       <div className="w-full max-w-screen-xl mx-auto py-8 px-4">
         <h1 className="text-2xl font-bold mb-6">Order #{order.id}</h1>
 
@@ -176,8 +172,6 @@ export default function OrderPage() {
         <h2 className="text-2xl font-bold mb-4">Order Progress</h2>
           <OrderTimeline steps={orderSteps} />
       </div>
-
-      <Footer />
     </>
   );
 }

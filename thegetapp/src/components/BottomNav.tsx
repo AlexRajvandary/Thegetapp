@@ -15,7 +15,7 @@ export default function MobileBottomNav() {
 
   return (
     <div
-      className="fixed pb-[10px] bottom-0 left-0 w-full bg-white/60 backdrop-blur-md border-t shadow-md flex justify-around items-center h-[90px] z-50"
+      className="fixed pb-[10px] bottom-0 left-0 w-full bg-white shadow-md flex justify-around items-center h-[90px] z-50"
       style={{ paddingBottom: "calc(30px + env(safe-area-inset-bottom))" }}
     >
       {tabs.map(({ name, path, icon: Icon }) => {

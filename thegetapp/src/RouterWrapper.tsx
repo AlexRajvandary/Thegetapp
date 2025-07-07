@@ -9,10 +9,7 @@ import {
 } from 'react-router-dom';
 
 import App from './pages/App';
-import About from './pages/About';
-import Catalog from './pages/Catalog';
 import UserPage from "./pages/UserPage";
-import Favorites from "./pages/Favorites";
 import Orders from "./pages/Orders";
 import Order from "./pages/Order";
 import ProductPage from "./pages/ProductPage";
@@ -34,11 +31,8 @@ export default function RouterWrapper() {
           <Route path="/user" element={<UserPage />} />
         </Route>
     
-        <Route path="/about" element={<About />} />
         <Route path="/search" element={<SearchPage />} />
-        <Route path="/catalog" element={<Catalog />} />
         <Route path="/product" element={<ProductPage />} />
-        <Route path="/favorites" element={<Favorites />} />
         <Route path="/orders" element={<Orders />} />
         <Route path="/orders/:orderId" element={<Order/>} />
       </Routes>

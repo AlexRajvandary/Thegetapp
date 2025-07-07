@@ -7,7 +7,6 @@ import { retrieveLaunchParams } from '@telegram-apps/sdk-react';
 import RouterWrapper from './RouterWrapper.jsx';
 
 import './index.css'
-import { AuthProvider } from './components/AuthContext.js';
 import { init, backButton, closingBehavior, swipeBehavior, viewport } from '@telegram-apps/sdk-react';
 
 async function initTg() {
@@ -53,11 +52,9 @@ async function initTg() {
 createRoot(document.getElementById('root')!).render(
   
   <StrictMode>
-    <AuthProvider>
        <BrowserRouter>
       <RouterWrapper />
     </BrowserRouter>
-    </AuthProvider>
   </StrictMode>,
 )
 

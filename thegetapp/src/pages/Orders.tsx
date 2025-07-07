@@ -20,8 +20,6 @@ import {
   User,
   Pagination,
 } from "@heroui/react";
-import Footer from "../components/Footer";
-import Header from "../components/Header";
 
 export type IconSvgProps = SVGProps<SVGSVGElement> & {
   size?: number;
@@ -605,7 +603,6 @@ export default function App() {
 
   return (
     <>
-    <Header/>
     <div className="flex justify-center mb-[20px]">
   <div className="w-full max-w-[1000px]">
     <div className="text-[23px] font-semibold my-[20px]">
@@ -659,7 +656,6 @@ export default function App() {
     </Table>
      </div>
      </div>
-    <Footer/>
     </>
   );
 }

@@ -48,7 +48,7 @@ export default function CountryFlag({ countryKey }: Props) {
     <Chip variant="flat" radius="sm" size="lg"
    classNames={{
                     base: "border-thin",
-                    content: "font-bold text-gray-600",
+                    content: "font-bold text-gray-800",
                 }}
       startContent={
         <Avatar
