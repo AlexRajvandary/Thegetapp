@@ -271,12 +271,12 @@ export default function ProductPage() {
 
         <div className="flex items-center gap-2 ">
           <Button
-            className="text-[13px] font-bold"
+            className="text-[13px] text-white font-bold bg-gray-800"
             startContent={<ShoppingBasket strokeWidth={1} />}
           >
             В корзину
           </Button>
-          <Button className="text-[13px] font-bold bg-gray-800 text-white">
+          <Button className="text-[13px] font-bold bg-blue-600 text-white">
             Купить
           </Button>
         </div>
