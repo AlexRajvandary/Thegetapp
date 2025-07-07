@@ -27,7 +27,7 @@ export default function ProductCardMobile({
     src={product.imageSrc}
     alt={product.title}
       className={`w-full object-cover rounded-t-md ${
-          singleColumn ? "h-[400px]" : "h-[280px]"
+          singleColumn ? "h-[400px]" : "h-[280px] lg:h-[350px]"
         }`}
   />
   <div className="py-3 flex flex-col gap-1 text-left bg-white shadow-md rounded-b-md  h-[100px]">

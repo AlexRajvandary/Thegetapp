@@ -265,11 +265,11 @@ const products = [
 />
       </div>
 </div>
-      <h2 className="font-extrabold text-[24px] mx-4 py-[5px] leading-[130%] tracking-[-0.01em]">
-        Каталог
-      </h2>
-      <div className="px-[10px] py-[15px] flex items-center gap-2">
-        <div onClick={() => navigate('/search')}>
+    <h2 className="font-extrabold text-[24px] mx-4 lg:mx-auto lg:max-w-[1440px] py-[5px] leading-[130%] tracking-[-0.01em]">
+  Каталог
+</h2>
+     <div className="px-[10px] py-[15px] flex items-center gap-2 lg:max-w-[1440px] lg:mx-auto">
+        <div onClick={() => navigate('/search')} className="w-full md:w-[700px]">
            <SearchInput readOnly/>
         </div>
        
@@ -329,7 +329,9 @@ const products = [
      
 
       {/* Сетка товаров */}
-      <div className={`grid ${singleColumn ? "grid-cols-1" : "grid-cols-2"} gap-[5px] px-[2px]`}>
+      <div className={`grid ${
+  singleColumn ? "grid-cols-1" : "grid-cols-2 sm:grid-cols-3 lg:grid-cols-4"
+} gap-[5px] px-[2px] sm:gap-4 sm:px-6 max-w-[1440px] mx-auto`}>
         {products.map((product) => (
           <Link
   to="/product"
