@@ -1,11 +1,24 @@
 import { Avatar } from "@heroui/react";
-import { ChevronRight, Clock, Heart, Truck } from "lucide-react";
+import { requestContact } from "@telegram-apps/sdk-react";
+import { ChevronRight, Clock, Heart, Phone, Truck } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 export default function UserPage() {
   const navigate = useNavigate();
 
   const settings = [
+     {
+      label: "Добавить номер телефона",
+      icon: <Phone size={20} />,
+      onClick: async () => {
+        if (requestContact.isAvailable()) {
+          const contact = await requestContact();
+          localStorage.setItem("contact", contact.contact.phone_number);
+          console.log(contact.contact.phone_number);
+        }
+         
+        },
+    },
     {
       label: "Способ доставки",
       icon: <Truck size={20} />,

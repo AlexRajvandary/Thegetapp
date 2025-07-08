@@ -9,6 +9,10 @@ import RouterWrapper from './RouterWrapper.jsx';
 import './index.css'
 import { init, backButton, closingBehavior, swipeBehavior, viewport } from '@telegram-apps/sdk-react';
 
+function isMobile() {
+  return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+}
+
 async function initTg() {
         init();
       const initDataRaw  = retrieveLaunchParams();
@@ -39,7 +43,7 @@ async function initTg() {
           viewport.expand();
         }
 
-        if (viewport.requestFullscreen.isAvailable()) {
+        if (isMobile() && viewport.requestFullscreen.isAvailable()) {
           await viewport.requestFullscreen();
         }
       }

@@ -32,7 +32,7 @@ const exampleProduct: Product = {
   title: "Air Jordan 4 Retro 'Red Cement'",
   label: "Limited Edition",
   category: "Bag",
-  price: "$4999.99",
+  price: "4999₽",
   href: "/products/air-jordan-4-red-cement",
 };
 
@@ -70,49 +70,24 @@ export default function ProductPage() {
   }, [navigate]);
 
   return (
-    <>
+    <div className="bg-gray-100">
       <div className="w-full mt-[100px] md:w-[60%]">
         <ImageGallery images={exampleProduct.imageSrces} />
       </div>
-      <div className="px-2 md:px-[140px]">
+      <div className="px-2 md:px-[140px] ">
         <div className="flex flex-col md:flex-row py-2 md:gap-12">
-          <div className="w-full md:w-[30%] flex flex-col justify-start mx-[10px]">
-            <h1 className="text-[24px] md:text-[27px] my-2 font-bold">
+          <div className="w-full md:w-[30%] flex flex-col justify-start mx-[10px] ">
+            <h1 className="text-[24px] my-2 font-semibold">
               {exampleProduct.price}
             </h1>
-            <h1 className="text-[20px] md:text-[27px] my-2 font-bold">
+            <h1 className="text-[18px] md:text-[27px] my-2 font-bold">
               Футболка Nike Shine
             </h1>
-            <div className="flex items-center gap-2 my-[10px]">
-              <Chip
-                variant="flat"
-                radius="sm"
-                size="lg"
-                classNames={{
-                  base: "border-thin",
-                  content: "font-bold text-gray-800",
-                }}
-              >
-                Adidas
-              </Chip>
-              <CountryFlag countryKey="gb" />
-              <Chip
-                variant="flat"
-                radius="sm"
-                size="lg"
-                startContent={<ShieldCheck strokeWidth={1} />}
-                classNames={{
-                  base: "border-thin",
-                  content: "font-bold text-gray-800",
-                }}
-              >
-                Оригинал
-              </Chip>
-            </div>
+            
             <div className="mr-4 mb-[10px]">
               
                 <h2 className="text-[18px] py-2 font-medium">Размер</h2>
-                <div className="flex flex-wrap gap-2 bg-gray-100 p-4 rounded-lg">
+                <div className="flex flex-wrap gap-2 pb-4 rounded-lg">
                   {sizes.map((size) => (
                     <Button
                       radius="sm"
@@ -130,7 +105,7 @@ export default function ProductPage() {
                 </div>
               
               <h2 className="text-[18px] py-2 font-medium">Цвет</h2>
-              <div className="flex gap-2 bg-gray-100 p-4 rounded-lg">
+              <div className="flex gap-2 pb-2 rounded-lg">
                 {colors.map((color) => {
                   const isSelected = selectedColor === color;
                   return (
@@ -154,7 +129,7 @@ export default function ProductPage() {
             </div>
 
             <div className="mb-4">
-              <div className="bg-gray-100 mr-4 p-4 rounded-md text-jusify font-thin text-sm md:text-[14px] space-y-3">
+              <div className=" mr-4 p-4 bg-gray-200 rounded-md text-jusify font-thin text-sm md:text-[14px] space-y-3">
                 <p>
                   Другие размеры и цвета — под заказ.
                   <span className="inline-flex items-center text-justify gap-2">
@@ -231,7 +206,33 @@ export default function ProductPage() {
           </div>
         </div>
       </div>
-      <div className="flex items-center w-full justify-between gap-2 bg-white pb-[50px] px-[18px] py-2 sticky bottom-0 z-50">
+      <div className="flex p-4 items-center gap-2 my-[10px]">
+              <Chip
+                variant="flat"
+                radius="sm"
+                size="lg"
+                classNames={{
+                  base: "border-thin",
+                  content: "font-bold text-gray-800",
+                }}
+              >
+                Adidas
+              </Chip>
+              <CountryFlag countryKey="gb" />
+              <Chip
+                variant="flat"
+                radius="sm"
+                size="lg"
+                startContent={<ShieldCheck strokeWidth={1} />}
+                classNames={{
+                  base: "border-thin",
+                  content: "font-bold text-gray-800",
+                }}
+              >
+                Оригинал
+              </Chip>
+            </div>
+      <div className="flex items-center w-full justify-between gap-2 bg-gray-100 pb-[50px] px-[18px] py-2 sticky bottom-0 z-50">
         <div className="flex items-center gap-2">
           <Button
             isIconOnly
@@ -276,11 +277,11 @@ export default function ProductPage() {
           >
             В корзину
           </Button>
-          <Button className="text-[13px] font-bold bg-blue-600 text-white">
+          <Button className="text-[13px] font-bold bg-blue-600 text-white w-[130px]">
             Купить
           </Button>
         </div>
       </div>
-    </>
+    </div>
   );
 }
