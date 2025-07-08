@@ -53,7 +53,7 @@ export default function DeliverySettingsPage() {
 
   return (
     <AnimatedPage>
-      <div className="p-4">
+      <div className="p-4 mt-[70px]">
         <h1 className="text-xl font-semibold mb-4">Мои адреса доставки</h1>
 
         {addresses.length === 0 && (
