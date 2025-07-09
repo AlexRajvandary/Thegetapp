@@ -14,6 +14,7 @@ import DeliverySettingsPage from "./pages/DeliverySettings";
 import SavedItemsPage from "./pages/SavedItemsPage";
 import HistoryPage from "./pages/History";
 import CheckoutPage from "./pages/CheckoutPage";
+import ReviewPage from "./pages/ReviewPage";
 
 export default function RouterWrapper() {
   const navigate = useNavigate();
@@ -35,6 +36,7 @@ export default function RouterWrapper() {
             </Route>
           </Route>
 
+          <Route path="/review" element={<ReviewPage />} />
           <Route path="/search" element={<SearchPage />} />
           <Route path="/product" element={<ProductPage />} />
           <Route path="/order" element={<Order />} />

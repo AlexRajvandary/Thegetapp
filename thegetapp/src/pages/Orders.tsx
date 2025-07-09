@@ -129,7 +129,7 @@ export default function OrdersPage() {
           <Button
             startContent={<Star size={18} strokeWidth={1}/>}
             className="w-full mt-4 bg-gray-900 text-white hover:bg-black"
-            onPress={() => navigate(`/review/${order.id}`)}
+            onPress={() => navigate(`/review`)}
           >
             Оставить отзыв
           </Button>
