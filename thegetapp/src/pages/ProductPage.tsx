@@ -74,8 +74,9 @@ export default function ProductPage() {
 
     addItem({
       id: "product-123",
-      title: "Футболка Nike Shine",
-      price: "4999₽",
+      imageUrl: `${exampleProduct.imageSrc}`,
+      title: `${exampleProduct.title}`,
+      price: `${exampleProduct.price}`,
       size: selectedSize,
       color: selectedColor,
     });

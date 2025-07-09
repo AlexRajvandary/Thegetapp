@@ -47,7 +47,7 @@ export default function MobileBottomNav() {
               <Badge
                 content={cartCount > 9 ? "9+" : cartCount}
                 shape="circle"
-                size="sm"
+                size="md"
                 className="absolute -top-1 -right-2 bg-red-500 text-white"
               >
                 {iconElement}

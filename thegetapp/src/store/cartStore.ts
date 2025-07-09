@@ -3,6 +3,7 @@ import { create } from 'zustand';
 export type CartItem = {
   id: string;
   title: string;
+  imageUrl: string;
   price: string;
   size: string;
   color: string;
