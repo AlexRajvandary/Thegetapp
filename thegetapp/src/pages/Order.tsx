@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { backButton } from "@telegram-apps/sdk-react";
 import { Button } from "@heroui/react";
 import { Download, Star } from "lucide-react";
+import RowSteps from "../components/row-steps";
 
 type CartItem = {
   id: string;
@@ -87,6 +88,20 @@ export default function OrderPage() {
           <div className="text-md font-medium">
             {new Date(orderInfo.createdAt).toLocaleString("ru-RU")}
           </div>
+          <RowSteps
+            defaultStep={2}
+            steps={[
+              {
+                title: "Оплачен",
+              },
+              {
+                title: "В пути",
+              },
+              {
+                title: "Доставлен",
+              },
+            ]}
+          />
         </div>
 
         {orderItems.map((item) => (
@@ -128,8 +143,22 @@ export default function OrderPage() {
           <span>{total.toLocaleString("ru-RU")} ₽</span>
         </div>
         <div className="flex gap-2">
-          <Button className="w-1/2 bg-gray-800 text-white" startContent={<Download strokeWidth={1}/>}>Сохранить чек</Button>
-          <Button className="w-1/2 text-white" color="primary" startContent={<Star strokeWidth={1}/>}>Оставить отзыв</Button>
+          <Button
+            className="w-1/2 bg-gray-800 text-white"
+            startContent={<Download strokeWidth={1} />}
+          >
+            Сохранить чек
+          </Button>
+          <Button
+            className="w-1/2 text-white"
+            color="primary"
+            startContent={<Star strokeWidth={1} />}
+            onPress={() => {
+              navigate("/review");
+            }}
+          >
+            Оставить отзыв
+          </Button>
         </div>
       </div>
     </div>
