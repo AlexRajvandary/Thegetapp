@@ -1,7 +1,8 @@
 import { Home, ShoppingCart, User, Package } from "lucide-react";
 import { NavLink, useLocation } from "react-router-dom";
-import { Avatar } from "@heroui/react";
+import { Avatar, Badge } from "@heroui/react";
 import { MotionDiv } from "../components/common/motion";
+import { useCartStore } from "../store/cartStore"; // путь проверь
 
 const tabs = [
   { name: "Главная", path: "/", icon: Home },
@@ -14,6 +15,11 @@ export default function MobileBottomNav() {
   const location = useLocation();
   const avatarUrl = localStorage.getItem("avatarUrl");
 
+  // Общее количество товаров в корзине
+  const cartCount = useCartStore((state) =>
+    state.cart.reduce((sum, item) => sum + item.quantity, 0)
+  );
+
   return (
     <div
       className="fixed pb-[10px] bottom-0 left-0 w-full bg-white shadow-md flex justify-around items-center h-[90px] z-50"
@@ -22,10 +28,12 @@ export default function MobileBottomNav() {
       {tabs.map(({ name, path, icon: Icon }) => {
         const isActive = location.pathname === path;
 
-        const renderIcon = () =>
-          name === "Профиль" ? (
-            <Avatar className="w-6 h-6" src={avatarUrl || undefined} />
-          ) : (
+        const renderIcon = () => {
+          if (name === "Профиль") {
+            return <Avatar className="w-6 h-6" src={avatarUrl || undefined} />;
+          }
+
+          const iconElement = (
             <Icon
               className={`w-6 h-6 transition-colors duration-300 ${
                 isActive ? "text-blue-600" : "text-gray-400"
@@ -33,13 +41,33 @@ export default function MobileBottomNav() {
             />
           );
 
+          // Только для корзины добавляем Badge
+          if (name === "Корзина" && cartCount > 0) {
+            return (
+              <Badge
+                content={cartCount > 9 ? "9+" : cartCount}
+                shape="circle"
+                size="sm"
+                className="absolute -top-1 -right-2 bg-red-500 text-white"
+              >
+                {iconElement}
+              </Badge>
+            );
+          }
+
+          return iconElement;
+        };
+
         return (
           <NavLink
             key={name}
             to={path}
             className="relative flex flex-1 flex-col items-center justify-center text-[8px] h-full"
           >
-            {renderIcon()}
+            <div className="relative">
+              {renderIcon()}
+            </div>
+
             <span
               className={`mt-1 text-[10px] ${
                 isActive ? "text-blue-600" : "text-gray-500"
