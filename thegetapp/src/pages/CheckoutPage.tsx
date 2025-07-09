@@ -1,8 +1,24 @@
 import { useCartStore } from "../store/cartStore";
-import { Input, Button, Textarea } from "@heroui/react";
+import {
+  Input,
+  Button,
+  Textarea,
+  Autocomplete,
+  AutocompleteItem,
+} from "@heroui/react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+const pickupOptions = [
+  "Boxberry, Москва, ул. Ленина 10",
+  "СДЭК, Санкт-Петербург, Невский проспект 15",
+  "DPD, Казань, ул. Баумана 3",
+  "Почта России, Екатеринбург, ул. Мира 25",
+  "PickPoint, Новосибирск, Красный проспект 50",
+];
 
 export default function CheckoutPage() {
+  const navigate = useNavigate();
   const { cart } = useCartStore();
   const [fullName, setFullName] = useState("");
   const [city, setCity] = useState("");
@@ -51,15 +67,14 @@ export default function CheckoutPage() {
       <div className="space-y-4 bg-white p-4 rounded-md">
         <div className="flex items-center gap-2">
           <Input
+            required
             label="Ваше ФИО"
             placeholder="Введите ФИО"
             value={fullName}
             onChange={(e) => setFullName(e.target.value)}
             className="flex-1"
           />
-          <Button onPress={fillFromProfile}>
-            Из профиля
-          </Button>
+          <Button onPress={fillFromProfile}>Из профиля</Button>
         </div>
 
         <Input
@@ -68,18 +83,25 @@ export default function CheckoutPage() {
           value={city}
           onChange={(e) => setCity(e.target.value)}
         />
-        <Input
+        <Autocomplete
           label="Пункт получения"
-          placeholder="Введите адрес ПВЗ или отделения"
-          value={pickupPoint}
-          onChange={(e) => setPickupPoint(e.target.value)}
-        />
+          placeholder="Начните вводить адрес"
+          selectedKey={pickupPoint}
+          onSelectionChange={(key) => setPickupPoint(key as string)}
+        >
+          {pickupOptions.map((address) => (
+            <AutocompleteItem key={address}>{address}</AutocompleteItem>
+          ))}
+        </Autocomplete>
         <Input
           label="Получатель"
           placeholder="ФИО получателя"
           value={recipientName}
           onChange={(e) => setRecipientName(e.target.value)}
-        />
+        >
+          {" "}
+          <Button onPress={fillFromProfile}>Из профиля</Button>
+        </Input>
         <Input
           label="Email"
           placeholder="Email для получения уведомлений"
@@ -95,15 +117,18 @@ export default function CheckoutPage() {
         />
       </div>
 
-      {/* Итог и кнопка */}
       <div className="bg-white mt-6 p-4 rounded-md">
         <div className="flex justify-between text-lg font-semibold mb-4">
           <span>Итого:</span>
           <span>{total.toLocaleString("ru-RU")} ₽</span>
         </div>
-        <Button className="w-full bg-black text-white hover:bg-gray-900">
-          Подтвердить заказ
-        </Button>
+
+        <div className="flex justify-between gap-3">
+          <Button className="w-1/2" onPress={() => {navigate(-1)}}>Отмена</Button>
+          <Button className="w-1/2 bg-black text-white hover:bg-gray-900">
+            Подтвердить заказ
+          </Button>
+        </div>
       </div>
     </div>
   );

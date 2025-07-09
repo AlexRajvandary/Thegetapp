@@ -256,7 +256,11 @@ export default function ProductPage() {
           >
             {quantity > 0 ? `В корзине (${quantity})` : "В корзину"}
           </Button>
-          <Button className="text-[13px] font-bold bg-blue-600 text-white w-[130px]">
+          <Button className="text-[13px] font-bold bg-blue-600 text-white w-[130px]"
+            onPress={()=>{
+              addToCart();
+              navigate("/checkout");
+            }}>
             Купить
           </Button>
         </div>
