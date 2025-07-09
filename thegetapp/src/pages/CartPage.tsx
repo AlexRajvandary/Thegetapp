@@ -69,7 +69,7 @@ export default function CartPage() {
                     variant="light"
                     isIconOnly
                     className="ml-2"
-                    onClick={() =>
+                    onPress={() =>
                       removeItem(item.id, item.size, item.color)
                     }
                   >
@@ -92,6 +92,7 @@ export default function CartPage() {
           <Button
             startContent={<ShoppingBag strokeWidth={1} />}
             className="w-full mt-4 p-2 bg-gray-900 text-white hover:bg-black"
+            onPress={()=>navigate("/checkout")}
           >
             Оформить заказ
           </Button>

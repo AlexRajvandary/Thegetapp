@@ -13,6 +13,7 @@ import SearchPage from "./pages/SearchPage";
 import DeliverySettingsPage from "./pages/DeliverySettings";
 import SavedItemsPage from "./pages/SavedItemsPage";
 import HistoryPage from "./pages/History";
+import CheckoutPage from "./pages/CheckoutPage";
 
 export default function RouterWrapper() {
   const navigate = useNavigate();
@@ -37,6 +38,7 @@ export default function RouterWrapper() {
           <Route path="/search" element={<SearchPage />} />
           <Route path="/product" element={<ProductPage />} />
           <Route path="/order" element={<Order />} />
+          <Route path="/checkout" element={<CheckoutPage />} />
         </Routes>
       </AnimatePresence>
     </HeroUIProvider>
