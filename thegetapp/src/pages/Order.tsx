@@ -138,7 +138,7 @@ export default function OrderPage() {
       </div>
 
       <div className="sticky bottom-0 z-50 py-4 pb-10 px-4 pt-2 bg-white">
-        <div className="flex justify-between items-center text-lg font-semibold">
+        <div className="flex justify-between items-center text-lg font-semibold pb-2">
           <span>Итого:</span>
           <span>{total.toLocaleString("ru-RU")} ₽</span>
         </div>
