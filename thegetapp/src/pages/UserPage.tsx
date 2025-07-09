@@ -1,13 +1,13 @@
 import { Avatar } from "@heroui/react";
 import { requestContact } from "@telegram-apps/sdk-react";
-import { ChevronRight, Clock, Heart, Phone, Truck } from "lucide-react";
+import { ChevronRight, CirclePlus, Clock, Heart, Phone, Truck } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 export default function UserPage() {
   const navigate = useNavigate();
 
   const settings = [
-     {
+    {
       label: "Добавить номер телефона",
       icon: <Phone size={20} />,
       onClick: async () => {
@@ -16,8 +16,7 @@ export default function UserPage() {
           localStorage.setItem("contact", contact.contact.phone_number);
           console.log(contact.contact.phone_number);
         }
-         
-        },
+      },
     },
     {
       label: "Способ доставки",
@@ -45,14 +44,7 @@ export default function UserPage() {
     <>
       <div className="relative flex flex-col items-center pt-[70px] pb-8 w-full overflow-hidden">
         {/* Фоновое изображение с прозрачностью */}
-        <div
-          className="absolute inset-0 opacity-30 bg-blue-200"
-          style={{
-            backgroundImage: "url('bg.svg')",
-            backgroundSize: "300px auto",
-            pointerEvents: "none", // чтобы не блокировал клики
-          }}
-        />
+        <div className="absolute inset-0 opacity-40 bg-gradient-to-b from-blue-300 via-purple-300 to-pink-400" />
 
         {/* Контент поверх */}
         <Avatar
@@ -80,7 +72,13 @@ export default function UserPage() {
                 {item.icon}
                 {item.label}
               </div>
-              <ChevronRight className="text-gray-400" />
+
+              {/* Меняем иконку только для первого элемента */}
+              {idx === 0 ? (
+                <CirclePlus className="text-gray-400" />
+              ) : (
+                <ChevronRight className="text-gray-400" />
+              )}
             </button>
           ))}
         </div>
