@@ -1,6 +1,12 @@
 import { Avatar, Button, Chip } from "@heroui/react";
-import React from "react";
-import { HeartIcon, Share, ShieldCheck, ShoppingBasket } from "lucide-react";
+import { useState } from "react";
+import {
+  Check,
+  HeartIcon,
+  Share,
+  ShieldCheck,
+  ShoppingBasket,
+} from "lucide-react";
 import type { Product } from "../components/Product";
 import { useNavigate } from "react-router-dom";
 import {
@@ -13,6 +19,7 @@ import { useEffect } from "react";
 import CountryFlag from "../components/CountryFlag";
 import ImageGallery from "../components/ImageGallery";
 import clsx from "clsx";
+import { useCartStore } from "../store/cartStrore";
 
 const sizes = ["XS", "S", "M", "L", "XL"];
 const colors = ["Black", "White", "Blue", "Red"];
@@ -37,11 +44,11 @@ const exampleProduct: Product = {
 };
 
 export default function ProductPage() {
-  const [liked, setLiked] = React.useState(false);
-
-  const [selectedSize, setSelectedSize] = React.useState<string | null>(null);
-  const [selectedColor, setSelectedColor] = React.useState<string | null>(null);
-
+  const [liked, setLiked] = useState(false);
+  const [selectedSize, setSelectedSize] = useState<string | null>(null);
+  const [selectedColor, setSelectedColor] = useState<string | null>(null);
+const addItem = useCartStore((state) => state.addItem);
+const getQuantity = useCartStore((state) => state.getQuantity);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -69,6 +76,23 @@ export default function ProductPage() {
     };
   }, [navigate]);
 
+  const addToCart = () => {
+  if (!selectedSize || !selectedColor) return;
+
+  addItem({
+    id: "product-123", // Уникальный ID товара
+    title: "Футболка Nike Shine",
+    price: "4999₽",
+    size: selectedSize,
+    color: selectedColor,
+  });
+};
+;
+
+  const quantity = selectedSize && selectedColor
+  ? getQuantity("product-123", selectedSize, selectedColor)
+  : 0;
+
   return (
     <div className="bg-gray-100">
       <div className="w-full mt-[100px] md:w-[60%]">
@@ -83,27 +107,26 @@ export default function ProductPage() {
             <h1 className="text-[18px] md:text-[27px] my-2 font-bold">
               Футболка Nike Shine
             </h1>
-            
+
             <div className="mr-4 mb-[10px]">
-              
-                <h2 className="text-[18px] py-2 font-medium">Размер</h2>
-                <div className="flex flex-wrap gap-2 pb-4 rounded-lg">
-                  {sizes.map((size) => (
-                    <Button
-                      radius="sm"
-                      key={size}
-                      className={`h-8 w-[30px] text-s font-bold border transition ${
-                        selectedSize === size
-                          ? "bg-gray-800 text-white"
-                          : "bg-gray-200 text-gray-800"
-                      }`}
-                      onPress={() => setSelectedSize(size)}
-                    >
-                      {size}
-                    </Button>
-                  ))}
-                </div>
-              
+              <h2 className="text-[18px] py-2 font-medium">Размер</h2>
+              <div className="flex flex-wrap gap-2 pb-4 rounded-lg">
+                {sizes.map((size) => (
+                  <Button
+                    radius="sm"
+                    key={size}
+                    className={`h-8 w-[30px] text-s font-semibold border transition ${
+                      selectedSize === size
+                        ? "bg-gray-800 text-white"
+                        : "bg-gray-200 text-gray-800"
+                    }`}
+                    onPress={() => setSelectedSize(size)}
+                  >
+                    {size}
+                  </Button>
+                ))}
+              </div>
+
               <h2 className="text-[18px] py-2 font-medium">Цвет</h2>
               <div className="flex gap-2 pb-2 rounded-lg">
                 {colors.map((color) => {
@@ -127,8 +150,34 @@ export default function ProductPage() {
                 })}
               </div>
             </div>
+            <div className="flex items-center gap-2 my-[10px]">
+              <Chip
+                variant="flat"
+                radius="sm"
+                size="lg"
+                classNames={{
+                  base: "border-thin",
+                  content: "font-semibold text-gray-800",
+                }}
+              >
+                Adidas
+              </Chip>
+              <CountryFlag countryKey="gb" />
+              <Chip
+                variant="flat"
+                radius="sm"
+                size="lg"
+                startContent={<ShieldCheck strokeWidth={1} />}
+                classNames={{
+                  base: "border-thin",
+                  content: "font-semibold text-gray-800",
+                }}
+              >
+                Оригинал
+              </Chip>
+            </div>
 
-            <div className="mb-4">
+            <div className="mb-1">
               <div className=" mr-4 p-4 bg-gray-200 rounded-md text-jusify font-thin text-sm md:text-[14px] space-y-3">
                 <p>
                   Другие размеры и цвета — под заказ.
@@ -194,7 +243,7 @@ export default function ProductPage() {
                             className="w-6 h-6"
                           />
                         }
-                        className="text-sm pl-4 pr-2 py-1 bg-white shadow-sm"
+                        className="text-sm pl-4 pr-2 py-1 bg-white shadow-sm w-[120px] hover:bg-blue-600 hover:text-white"
                       >
                         Написать
                       </Button>
@@ -206,32 +255,7 @@ export default function ProductPage() {
           </div>
         </div>
       </div>
-      <div className="flex p-4 items-center gap-2 my-[10px]">
-              <Chip
-                variant="flat"
-                radius="sm"
-                size="lg"
-                classNames={{
-                  base: "border-thin",
-                  content: "font-bold text-gray-800",
-                }}
-              >
-                Adidas
-              </Chip>
-              <CountryFlag countryKey="gb" />
-              <Chip
-                variant="flat"
-                radius="sm"
-                size="lg"
-                startContent={<ShieldCheck strokeWidth={1} />}
-                classNames={{
-                  base: "border-thin",
-                  content: "font-bold text-gray-800",
-                }}
-              >
-                Оригинал
-              </Chip>
-            </div>
+
       <div className="flex items-center w-full justify-between gap-2 bg-gray-100 pb-[50px] px-[18px] py-2 sticky bottom-0 z-50">
         <div className="flex items-center gap-2">
           <Button
@@ -273,9 +297,16 @@ export default function ProductPage() {
         <div className="flex items-center gap-2 ">
           <Button
             className="text-[13px] text-white font-bold bg-gray-800"
-            startContent={<ShoppingBasket strokeWidth={1} />}
+            startContent={
+              quantity > 0 ? (
+                <Check strokeWidth={1} />
+              ) : (
+                <ShoppingBasket strokeWidth={1} />
+              )
+            }
+            onPress={addToCart}
           >
-            В корзину
+            {quantity > 0 ? `В корзине (${quantity})` : "В корзину"}
           </Button>
           <Button className="text-[13px] font-bold bg-blue-600 text-white w-[130px]">
             Купить
