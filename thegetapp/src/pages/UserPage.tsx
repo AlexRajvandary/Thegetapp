@@ -59,9 +59,7 @@ export default function UserPage() {
           <h1 className="text-gray-500">@{username}</h1>
         </div>
       </div>
-
-      <div className="px-4">
-        <div className="bg-white divide-y rounded-md mx-4 shadow-sm">
+        <div className="bg-white divide-y rounded-md shadow-sm">
           {settings.map((item, idx) => (
             <button
               key={idx}
@@ -82,7 +80,7 @@ export default function UserPage() {
             </button>
           ))}
         </div>
-      </div>
+      
     </>
   );
 }

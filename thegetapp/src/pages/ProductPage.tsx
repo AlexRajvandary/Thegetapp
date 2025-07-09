@@ -169,7 +169,7 @@ export default function ProductPage() {
             </div>
 
             {/* ДОСТАВКА И ЗАКАЗ */}
-            <div className="mb-1">
+            <div className="mb-1 mr-5">
               <div className="p-4 bg-gray-200 rounded-md text-sm space-y-3">
                 <p>
                   Другие размеры и цвета — под заказ.
