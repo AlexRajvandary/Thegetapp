@@ -8,6 +8,7 @@ import {
 } from "@heroui/react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import RowSteps from "../components/row-steps";
 
 const pickupOptions = [
   "Boxberry, Москва, ул. Ленина 10",
@@ -29,7 +30,10 @@ export default function CheckoutPage() {
 
   // Имитация получения данных из профиля
   const fillFromProfile = () => {
-    const profileName = localStorage.getItem("profileName") || "Иван Иванов";
+     const firstName = localStorage.getItem("first_name") || null;
+    const lastName = localStorage.getItem("last_name") || null;
+    const name = firstName + " " + lastName;
+    const profileName = name;
     setFullName(profileName);
   };
 
@@ -65,6 +69,20 @@ export default function CheckoutPage() {
 
       {/* Форма */}
       <div className="space-y-4 bg-white p-4 rounded-md">
+          <RowSteps
+      defaultStep={2}
+      steps={[
+        {
+          title: "ФИО",
+        },
+        {
+          title: "Доставка",
+        },
+        {
+          title: "Оплата",
+        },
+      ]}
+    />
         <div className="flex items-center gap-2">
           <Input
             required
