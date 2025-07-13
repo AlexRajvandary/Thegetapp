@@ -1,5 +1,5 @@
 import { ShoppingBag, Trash2 } from "lucide-react";
-import { Button } from "@heroui/react";
+import { Avatar, Button } from "@heroui/react";
 import { backButton } from "@telegram-apps/sdk-react";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
@@ -57,8 +57,16 @@ export default function CartPage() {
               <div className="flex flex-col justify-between flex-1 p-1 pt-3">
                 <div>
                   <h2 className="text-[16px] font-normal">{item.title}</h2>
-                  <div className="text-sm text-gray-600">
-                    Размер: {item.size}, Цвет: {item.color}
+                  <div className="text-sm text-gray-600 flex items-center">
+                    Размер: {item.size}, Цвет:
+                    <Avatar
+                      isBordered
+                      fallback={
+                        <div className="w-full h-full bg-gray-300 rounded-full" />
+                      }
+                      style={{ backgroundColor: item.color.toLowerCase() }}
+                      className="w-5 h-5 ml-2 rounded-full"
+                    />
                   </div>
                 </div>
                 <div className="mt-auto flex items-center justify-between">
@@ -92,7 +100,7 @@ export default function CartPage() {
           <Button
             startContent={<ShoppingBag strokeWidth={1} />}
             className="w-full mt-4 p-2 bg-gray-900 text-white hover:bg-black"
-            onPress={()=>navigate("/checkout")}
+            onPress={() => navigate("/checkout")}
           >
             Оформить заказ
           </Button>
