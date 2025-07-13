@@ -57,16 +57,19 @@ export default function CartPage() {
               <div className="flex flex-col justify-between flex-1 p-1 pt-3">
                 <div>
                   <h2 className="text-[16px] font-normal">{item.title}</h2>
-                  <div className="text-sm text-gray-600 flex items-center">
-                    Размер: {item.size}, Цвет:
-                    <Avatar
-                      isBordered
-                      fallback={
-                        <div className="w-full h-full bg-gray-300 rounded-full" />
-                      }
-                      style={{ backgroundColor: item.color.toLowerCase() }}
-                      className="w-5 h-5 ml-2 rounded-full"
-                    />
+                  <div className="text-sm text-gray-600">
+                    <div>Размер: {item.size}</div>
+                    <div className="flex items-center mt-1">
+                      Цвет:
+                      <Avatar
+                        isBordered
+                        fallback={
+                          <div className="w-full h-full bg-gray-300 rounded-full" />
+                        }
+                        style={{ backgroundColor: item.color.toLowerCase() }}
+                        className="w-5 h-5 ml-2 rounded-full"
+                      />
+                    </div>
                   </div>
                 </div>
                 <div className="mt-auto flex items-center justify-between">
