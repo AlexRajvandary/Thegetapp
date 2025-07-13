@@ -46,18 +46,18 @@ export default function CartPage() {
               key={`${item.id}-${item.size}-${item.color}-${index}`}
               className="flex mb-2 mx-4 rounded-md bg-white h-[200px]"
             >
-              <div className="w-[200px] flex items-center justify-center">
+              <div className="w-[160px] flex items-center justify-center">
                 <img
-                  src="/placeholder-image.png" // заменишь позже на реальное изображение
+                  src="https://media-assets.grailed.com/prd/listing/temp/66688f71562d46939932e6f3d58a654c?w=800"
                   alt={item.title}
-                  className="w-[190px] h-[200px] object-contain rounded-l"
+                  className="w-[160px] h-[200px] object-cover rounded-l"
                 />
               </div>
 
-              <div className="flex flex-col justify-between flex-1 p-1 pt-3">
+              <div className="flex flex-col justify-between flex-1 p-3 pt-2">
                 <div>
                   <h2 className="text-[16px] font-normal">{item.title}</h2>
-                  <div className="text-sm text-gray-600">
+                  <div className="text-sm text-gray-600 mt-5 w-[110px] py-4 px-2 bg-gray-100 rounded-lg">
                     <div>Размер: {item.size}</div>
                     <div className="flex items-center mt-1">
                       Цвет:
