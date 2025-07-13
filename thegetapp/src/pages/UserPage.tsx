@@ -1,10 +1,35 @@
 import { Avatar } from "@heroui/react";
-import { requestContact } from "@telegram-apps/sdk-react";
+import { backButton, requestContact } from "@telegram-apps/sdk-react";
 import { ChevronRight, CirclePlus, Clock, Heart, Phone, Truck } from "lucide-react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function UserPage() {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (backButton.mount.isAvailable()) backButton.mount();
+    if (backButton.show.isAvailable()) backButton.show();
+
+    const handler = () => {
+      navigate(-1);
+      if (backButton.hide.isAvailable()) {
+        backButton.hide();
+      }
+    };
+
+    if (backButton.onClick.isAvailable()) backButton.onClick(handler);
+
+    return () => {
+      if (backButton.offClick.isAvailable()) {
+        backButton.offClick(handler);
+      }
+      if (backButton.hide.isAvailable()) {
+        backButton.hide();
+      }
+    };
+  }, [navigate]);
+
 
   const settings = [
     {
@@ -59,28 +84,28 @@ export default function UserPage() {
           <h1 className="text-gray-500">@{username}</h1>
         </div>
       </div>
-        <div className="bg-white divide-y rounded-md shadow-sm">
-          {settings.map((item, idx) => (
-            <button
-              key={idx}
-              onClick={item.onClick}
-              className="w-full flex items-center justify-between px-4 py-4 text-left text-sm hover:bg-gray-100"
-            >
-              <div className="flex items-center gap-3 text-gray-800">
-                {item.icon}
-                {item.label}
-              </div>
+      <div className="bg-white divide-y rounded-md shadow-sm">
+        {settings.map((item, idx) => (
+          <button
+            key={idx}
+            onClick={item.onClick}
+            className="w-full flex items-center justify-between px-4 py-4 text-left text-sm hover:bg-gray-100"
+          >
+            <div className="flex items-center gap-3 text-gray-800">
+              {item.icon}
+              {item.label}
+            </div>
 
-              {/* Меняем иконку только для первого элемента */}
-              {idx === 0 ? (
-                <CirclePlus className="text-gray-400" />
-              ) : (
-                <ChevronRight className="text-gray-400" />
-              )}
-            </button>
-          ))}
-        </div>
-      
+            {/* Меняем иконку только для первого элемента */}
+            {idx === 0 ? (
+              <CirclePlus className="text-gray-400" />
+            ) : (
+              <ChevronRight className="text-gray-400" />
+            )}
+          </button>
+        ))}
+      </div>
+
     </>
   );
 }

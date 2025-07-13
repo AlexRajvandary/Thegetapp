@@ -69,7 +69,7 @@ export default function HistoryPage() {
 
   return (
     <AnimatedPage>
-      <div className="mt-[70px] px-4 text-lg font-semibold">История просмотров</div>
+      <div className="mt-[70px] px-6 text-lg font-semibold">История просмотров</div>
       <div className="px-[2px] sm:px-6 max-w-[1440px] mx-auto">
         {viewedProductsByDate.map(({ date, products }) => (
           <div key={date} className="mt-6">

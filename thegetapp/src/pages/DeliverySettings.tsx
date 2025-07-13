@@ -1,5 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import AnimatedPage from "../components/AnimatedPage";
+import { useNavigate } from "react-router-dom";
+import { backButton } from "@telegram-apps/sdk-react";
 
 interface Address {
   id: number;
@@ -12,6 +14,32 @@ export default function DeliverySettingsPage() {
   const [addresses, setAddresses] = useState<Address[]>([]);
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [editingAddress, setEditingAddress] = useState<Address | null>(null);
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (backButton.mount.isAvailable()) backButton.mount();
+    if (backButton.show.isAvailable()) backButton.show();
+
+    const handler = () => {
+      navigate(-1);
+      if (backButton.hide.isAvailable()) {
+        backButton.hide();
+      }
+    };
+
+    if (backButton.onClick.isAvailable()) backButton.onClick(handler);
+
+    return () => {
+      if (backButton.offClick.isAvailable()) {
+        backButton.offClick(handler);
+      }
+      if (backButton.hide.isAvailable()) {
+        backButton.hide();
+      }
+    };
+  }, [navigate]);
+
 
   const [form, setForm] = useState({
     city: "",
