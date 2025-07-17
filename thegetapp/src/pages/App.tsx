@@ -24,6 +24,7 @@ export default function App() {
   const [priceRange, setPriceRange] = useState<[number, number]>([0, 1000]);
   const navigate = useNavigate();
 
+  
   useEffect(() => {
     // Монтируем кнопку назад, если доступна
     if (backButton.mount.isAvailable()) {
