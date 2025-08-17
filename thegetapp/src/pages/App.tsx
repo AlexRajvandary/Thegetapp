@@ -12,6 +12,7 @@ import FilterChips from "../components/FilterChips";
 import { Link, useNavigate } from "react-router-dom";
 import AbroadOrderExample from "../components/AbroadOrderExample";
 import Banner from "../components/Banner";
+import './../App.css';
 
 export default function App() {
   const [singleColumn, setSingleColumn] = useState(false);
