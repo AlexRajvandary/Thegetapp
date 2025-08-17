@@ -30,10 +30,8 @@ export default function AbroadOrderExample({
   useEffect(() => {
     if (textRef.current) {
       const textHeight = textRef.current.clientHeight;
-      // Максимальная высота карточки - заголовок и нижний блок примерно 150px
-      // Остаток отдаём картинке
       const maxCardHeight = 500;
-      const otherContentHeight = 152;
+      const otherContentHeight = 170;
       const availableHeight = maxCardHeight - otherContentHeight - textHeight;
 
       // Минимальная высота картинки 200px, можно больше если текст меньше
@@ -72,7 +70,7 @@ export default function AbroadOrderExample({
             <Avatar
               key={code}
               isBordered
-              className="w-7 h-7"
+              className="w-6 h-6"
               src={`https://flagcdn.com/w40/${code.toLowerCase()}.png`}
             />
           ))}

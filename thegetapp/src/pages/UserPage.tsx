@@ -1,6 +1,6 @@
 import { Avatar } from "@heroui/react";
 import { backButton, requestContact } from "@telegram-apps/sdk-react";
-import { ChevronRight, CirclePlus, Clock, Heart, Phone, Truck } from "lucide-react";
+import { ChevronRight, CirclePlus, Clock, Heart, Package, Phone, Truck } from "lucide-react";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -44,6 +44,12 @@ export default function UserPage() {
       },
     },
     {
+      label:"Заказы",
+      icon: <Package size={20}/>,
+      onClick: () => navigate("/user/orders"),
+    }
+    ,
+    {
       label: "Способ доставки",
       icon: <Truck size={20} />,
       onClick: () => navigate("/user/delivery"),
@@ -67,7 +73,7 @@ export default function UserPage() {
 
   return (
     <>
-      <div className="relative flex flex-col items-center pt-[70px] pb-8 w-full overflow-hidden">
+      <div className="relative flex flex-col items-center pt-[50px] pb-8 w-full overflow-hidden">
         {/* Фоновое изображение с прозрачностью */}
         <div className="absolute inset-0 opacity-40 bg-gradient-to-b from-blue-300 via-purple-300 to-pink-400" />
 

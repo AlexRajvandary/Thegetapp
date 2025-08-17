@@ -27,12 +27,13 @@ export default function RouterWrapper() {
           <Route element={<MainLayout />}>
             <Route path="/" element={<App />} />
             <Route path="/cart" element={<CartPage />} />
-            <Route path="/orders" element={<Orders />} />
+            
             <Route path="/user">
               <Route index element={<UserPage />} />
               <Route path="delivery" element={<DeliverySettingsPage />} />
               <Route path="saved" element={<SavedItemsPage />} />
               <Route path="history" element={<HistoryPage />} />
+              <Route path="orders" element={<Orders />} />
             </Route>
           </Route>
 
