@@ -6,8 +6,6 @@ import SubscriptionCardMobile from "../components/SubscriptionCardMobile";
 import AbroadOrderExample from "../components/AbroadOrderExample";
 import Banner from "../components/Banner";
 import "./../App.css";
-import { Button } from "@heroui/react";
-import { CircleArrowRight } from "lucide-react";
 
 export default function App() {
   useEffect(() => {
@@ -20,6 +18,30 @@ export default function App() {
       backButton.unmount();
     };
   }, []);
+
+  const brands_logo = [
+    {
+      logoSrc: "/brands/boss_brand_logo.jpg", // путь к картинке из public или relative
+    },
+    {
+      logoSrc: "/brands/The_north_face_brand_logo.jpg",
+    },
+    {
+      logoSrc: "/brands/karl_lagerfeld_brand_logo.jpg",
+    },
+    {
+      logoSrc: "/brands/zara_brand_logo.jpg",
+    },
+    {
+      logoSrc: "/brands/levis_brand_logo.jpg",
+    },
+    {
+      logoSrc: "/brands/calvin_klein_brand_logo.jpg",
+    },
+    {
+      logoSrc: "/brands/tommy_hilfiger_brand_logo.jpg", 
+    },
+  ];
 
   const subscriptions = [
     {
@@ -101,7 +123,7 @@ export default function App() {
             </div>
 
             <Carousel
-              visibleSlides={2}
+              visibleSlides={3}
               items={subscriptions.map((subscription) => (
                 <SubscriptionCardMobile
                   key={subscription.title}
@@ -175,6 +197,40 @@ export default function App() {
                 />,
               ]}
             />
+          </div>
+
+          <div className="col-span-2 rounded-[14px] py-4 my-2">
+            <div className="top-0 z-20 font-extrabold text-[22px] py-[5px] leading-[130%] tracking-[-0.01em] text-black select-none">
+              Бренды
+            </div>
+
+            <Carousel
+              visibleSlides={4}
+              items={brands_logo.map((logo) => (
+                <div
+                  key={logo.logoSrc}
+                  className="items-center justify-center overflow-hidden flex my-[20px] "
+                >
+                  <img
+                    src={logo.logoSrc} // путь к лого
+                    alt={logo.logoSrc}
+                    className="max-w-[70%] max-h-[70%] object-contain rounded-xl"
+                  />
+                </div>
+              ))}
+            />
+
+            {/*
+<div className="flex justify-end mx-4 mt-8">
+  <Button
+    radius="sm"
+    endContent={<CircleArrowRight />}
+    className="text-md font-bold bg-gray-700 text-white shadow-md"
+  >
+    Смотреть все
+  </Button>
+</div>
+*/}
           </div>
         </div>
       </div>

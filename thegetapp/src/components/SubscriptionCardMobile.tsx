@@ -24,7 +24,7 @@ export default function SubscriptionCardMobile({
     <img
     src={imageSrc}
     alt={title}
-      className="w-[100px] object-content rounded h-[100px]"
+      className="w-[80px] object-content rounded h-[80px]"
   />
 </Card>
 
