@@ -44,7 +44,7 @@ export default function CheckoutPage() {
 
   return (
     <div className="p-4 pt-[110px] bg-[#f5f5f5] min-h-screen">
-      <h1 className="text-xl font-semibold mb-4">Оформление заказа</h1>
+      <h1 className="font-extrabold text-[24px] mx-4 lg:mx-auto lg:max-w-[1440px] py-[5px] leading-[130%] tracking-[-0.01em]">Оформление заказа</h1>
 
       {/* Товары */}
       <div className="space-y-2 mb-6">

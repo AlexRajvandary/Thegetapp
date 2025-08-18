@@ -83,7 +83,7 @@ export default function OrdersPage() {
 
   return (
     <div className="bg-[#f5f5f5] min-h-screen pt-[110px] px-4">
-      <h1 className="text-xl font-semibold mb-4">Мои заказы</h1>
+      <h1 className="font-extrabold text-[24px] mx-4 lg:mx-auto lg:max-w-[1440px] py-[5px] leading-[130%] tracking-[-0.01em] mb-4">Мои заказы</h1>
 
       {orders.map((order) => (
         <div

@@ -204,7 +204,7 @@ export default function Catalogue() {
       ],
     },
   ];
-  return <>
+  return <div className="mb-[50px] mx-4 pt-[110px]">
    <h2 className="font-extrabold text-[24px] mx-4 lg:mx-auto lg:max-w-[1440px] py-[5px] leading-[130%] tracking-[-0.01em]">
           Каталог
         </h2>
@@ -363,5 +363,5 @@ export default function Catalogue() {
             />
           </div>
         )}
-  </>;
+  </div>;
 }

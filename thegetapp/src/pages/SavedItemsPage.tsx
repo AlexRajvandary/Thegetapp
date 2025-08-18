@@ -167,7 +167,7 @@ export default function SavedItemsPage() {
   
   return (
     <AnimatedPage>
-      <div className="mt-[70px]">Сохраненные товары</div>
+      <div className="mt-[70px] font-extrabold text-[24px] mx-4 lg:mx-auto lg:max-w-[1440px] py-[5px] leading-[130%] tracking-[-0.01em]">Сохраненные товары</div>
       <div
         className={`grid ${"grid-cols-2 sm:grid-cols-3 lg:grid-cols-4"} gap-[5px] px-[2px] sm:gap-4 sm:px-6 max-w-[1440px] mx-auto`}
       >

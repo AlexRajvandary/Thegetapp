@@ -34,12 +34,12 @@ export default function CartPage() {
   }, [navigate]);
 
   return (
-    <div className="bg-[#f5f5f5]">
+    <div className="bg-white">
       <div className="p-2 pb-5 pt-[110px]">
-        <h1 className="text-xl font-semibold mb-4 pl-4">Корзина</h1>
+        <h1 className="font-extrabold text-[24px] mx-4 lg:mx-auto lg:max-w-[1440px] py-[5px] leading-[130%] tracking-[-0.01em]">Корзина</h1>
 
         {cartItems.length === 0 ? (
-          <div className="text-center mt-10 text-gray-500">Корзина пуста</div>
+          <div className="text-center text-gray-500 pt-[100px]">Корзина пуста</div>
         ) : (
           cartItems.map((item, index) => (
             <div

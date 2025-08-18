@@ -34,7 +34,7 @@ export default function ReviewPage() {
 
   return (
     <div className="min-h-screen bg-[#f9f9f9] p-6 pt-[100px]">
-      <h1 className="text-xl font-semibold mb-4 text-center">Оставьте отзыв</h1>
+      <h1 className="font-extrabold text-[24px] mx-4 lg:mx-auto lg:max-w-[1440px] py-[5px] leading-[130%] tracking-[-0.01em] mb-4 text-center">Оставьте отзыв</h1>
 
       {/* Звезды */}
       <div className="flex justify-center gap-2 mb-6">

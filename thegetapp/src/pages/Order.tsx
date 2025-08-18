@@ -73,7 +73,7 @@ export default function OrderPage() {
   return (
     <div className="bg-[#f5f5f5] min-h-screen">
       <div className="p-4 pt-[110px]">
-        <h1 className="text-xl font-semibold mb-4">Заказ</h1>
+        <h1 className="font-extrabold text-[24px] mx-4 lg:mx-auto lg:max-w-[1440px] py-[5px] leading-[130%] tracking-[-0.01em] mb-4">Заказ</h1>
 
         <div className="bg-white rounded-lg p-4 mb-4">
           <div className="text-sm text-gray-500">Номер заказа:</div>
