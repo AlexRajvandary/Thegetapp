@@ -15,6 +15,7 @@ import SavedItemsPage from "./pages/SavedItemsPage";
 import HistoryPage from "./pages/History";
 import CheckoutPage from "./pages/CheckoutPage";
 import ReviewPage from "./pages/ReviewPage";
+import Catalogue from "./pages/Catalogue";
 
 export default function RouterWrapper() {
   const navigate = useNavigate();
@@ -26,6 +27,7 @@ export default function RouterWrapper() {
         <Routes location={location} key={location.pathname}>
           <Route element={<MainLayout />}>
             <Route path="/" element={<App />} />
+            <Route path="/catalogue" element={<Catalogue/>}/>
             <Route path="/cart" element={<CartPage />} />
             
             <Route path="/user">
