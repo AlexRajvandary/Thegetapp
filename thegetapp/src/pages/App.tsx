@@ -6,6 +6,7 @@ import SubscriptionCardMobile from "../components/SubscriptionCardMobile";
 import AbroadOrderExample from "../components/AbroadOrderExample";
 import Banner from "../components/Banner";
 import "./../App.css";
+import MultiRowsKeenSlider from "../components/MultiRowsKeenSlider";
 
 export default function App() {
   useEffect(() => {
@@ -39,7 +40,16 @@ export default function App() {
       logoSrc: "/brands/calvin_klein_brand_logo.jpg",
     },
     {
-      logoSrc: "/brands/tommy_hilfiger_brand_logo.jpg", 
+      logoSrc: "/brands/tommy_hilfiger_brand_logo.jpg",
+    },
+    {
+      logoSrc: "/brands/nike.jpg",
+    },
+    {
+      logoSrc: "/brands/armani.jpg",
+    },
+    {
+      logoSrc: "/brands/crocs.jpg",
     },
   ];
 
@@ -200,16 +210,17 @@ export default function App() {
           </div>
 
           <div className="col-span-2 rounded-[14px] py-4 my-2">
-            <div className="top-0 z-20 font-extrabold text-[22px] py-[5px] leading-[130%] tracking-[-0.01em] text-black select-none">
-              Бренды
+            <div className="top-0 z-20 font-bold text-[22px] pt-[5px] pb-[40px] leading-[130%] tracking-[-0.01em] text-black select-none">
+              Популярные Бренды
             </div>
 
-            <Carousel
+            <MultiRowsKeenSlider
               visibleSlides={4}
+              rows={2}
               items={brands_logo.map((logo) => (
                 <div
                   key={logo.logoSrc}
-                  className="items-center justify-center overflow-hidden flex my-[20px] "
+                  className="items-center justify-center overflow-hidden flex"
                 >
                   <img
                     src={logo.logoSrc} // путь к лого
@@ -219,18 +230,55 @@ export default function App() {
                 </div>
               ))}
             />
+          </div>
 
-            {/*
-<div className="flex justify-end mx-4 mt-8">
-  <Button
-    radius="sm"
-    endContent={<CircleArrowRight />}
-    className="text-md font-bold bg-gray-700 text-white shadow-md"
-  >
-    Смотреть все
-  </Button>
-</div>
-*/}
+          <div
+            className="col-span-2 rounded-[14px] py-4 my-2 bg-cover bg-center relative h-[100px]"
+            style={{ backgroundImage: "url('/banner.jpg')" }}
+          >
+            {/* Затемняющий оверлей */}
+            <div className="absolute inset-0 bg-black opacity-25 rounded-[14px]" />
+
+            {/* Текст поверх оверлея */}
+            <div className="relative z-10 mx-4 font-extrabold text-[22px] pt-[5px] pb-[40px] leading-[130%] tracking-[-0.01em] text-white select-none">
+              Оплачивай в рублях
+            </div>
+          </div>
+          <div
+            className="col-span-2 rounded-[14px] py-4 my-2 bg-cover bg-center relative h-[100px]"
+            style={{ backgroundImage: "url('/banner.jpg')" }}
+          >
+              {/* Затемняющий оверлей */}
+            <div className="absolute inset-0 bg-black opacity-25 rounded-[14px]" />
+
+            {/* Текст поверх оверлея */}
+            <div className="relative z-10 mx-4 font-extrabold text-[22px] pt-[5px] pb-[40px] leading-[130%] tracking-[-0.01em] text-white select-none">
+              Доставка в Россию
+            </div>
+          </div>
+          <div
+            className="col-span-2 rounded-[14px] py-4 my-2 bg-cover bg-center relative h-[100px]"
+            style={{ backgroundImage: "url('/banner.jpg')" }}
+          >
+             {/* Затемняющий оверлей */}
+            <div className="absolute inset-0 bg-black opacity-25 rounded-[14px]" />
+
+            {/* Текст поверх оверлея */}
+            <div className="relative z-10 mx-4 font-extrabold text-[22px] pt-[5px] pb-[40px] leading-[130%] tracking-[-0.01em] text-white select-none">
+              Удобный поиск товаров
+            </div>
+          </div>
+          <div
+            className="col-span-2 rounded-[14px] py-4 my-2 bg-cover bg-center relative h-[100px]"
+            style={{ backgroundImage: "url('/banner.jpg')" }}
+          >
+              {/* Затемняющий оверлей */}
+            <div className="absolute inset-0 bg-black opacity-25 rounded-[14px]" />
+
+            {/* Текст поверх оверлея */}
+            <div className="relative z-10 mx-4 font-extrabold text-[22px] pt-[5px] pb-[40px] leading-[130%] tracking-[-0.01em] text-white select-none">
+              Поддержка
+            </div>
           </div>
         </div>
       </div>
