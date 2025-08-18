@@ -5,9 +5,11 @@ import Carousel from "../components/Carousel";
 import SubscriptionCardMobile from "../components/SubscriptionCardMobile";
 import AbroadOrderExample from "../components/AbroadOrderExample";
 import Banner from "../components/Banner";
-import './../App.css';
+import "./../App.css";
+import { Button } from "@heroui/react";
+import { CircleArrowRight } from "lucide-react";
 
-export default function App() { 
+export default function App() {
   useEffect(() => {
     // Монтируем кнопку назад, если доступна
     if (backButton.mount.isAvailable()) {
@@ -18,9 +20,6 @@ export default function App() {
       backButton.unmount();
     };
   }, []);
-
- 
-
 
   const subscriptions = [
     {
@@ -100,11 +99,12 @@ export default function App() {
             <div className="top-0 z-20 font-extrabold text-[22px] mx-4 py-[5px] leading-[130%] tracking-[-0.01em] text-white select-none">
               Оплачивай любые сервисы
             </div>
+
             <Carousel
               visibleSlides={2}
               items={subscriptions.map((subscription) => (
                 <SubscriptionCardMobile
-                  key={subscription.title} // обязательно уникальный key
+                  key={subscription.title}
                   title={subscription.title}
                   price={subscription.price}
                   imageSrc={subscription.imageSrc}
@@ -114,6 +114,18 @@ export default function App() {
                 />
               ))}
             />
+
+            {/*
+<div className="flex justify-end mx-4 mt-8">
+  <Button
+    radius="sm"
+    endContent={<CircleArrowRight />}
+    className="text-md font-bold bg-gray-700 text-white shadow-md"
+  >
+    Смотреть все
+  </Button>
+</div>
+*/}
           </div>
 
           <div className="col-span-2 bg-gradient-to-br from-sky-400 to-pink-400 rounded-[14px] py-4 my-2">
@@ -165,7 +177,6 @@ export default function App() {
             />
           </div>
         </div>
-       
       </div>
     </div>
   );
